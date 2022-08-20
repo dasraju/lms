@@ -32,7 +32,6 @@
 @include('backend.layouts.js')
 @yield('page-js')
 </body>
-
-
+{{-- heelo --}}
 <!-- index.html  21 Nov 2019 03:47:04 GMT -->
 </html>
