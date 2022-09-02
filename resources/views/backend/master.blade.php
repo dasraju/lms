@@ -26,11 +26,14 @@
      @yield('content')
       {{-- footer --}}
       @include('backend.layouts.footer')
+      @include('backend.helpers.delete_modal')
     </div>
   </div>
   <!-- General JS Scripts -->
 @include('backend.layouts.js')
 @yield('page-js')
+@include('sweetalert::alert')
+
 </body>
 {{-- heelo --}}
 <!-- index.html  21 Nov 2019 03:47:04 GMT -->
