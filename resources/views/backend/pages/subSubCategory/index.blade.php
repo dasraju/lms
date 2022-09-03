@@ -9,8 +9,8 @@
         <div class="col-12 col-md-12 col-lg-12">
             <div class="card">
             <div class="card-header">
-                <h4>Sub-category Details</h4>
-                <a href="sub-cats/create" class="btn btn-sm btn-primary text-right"> Create New +</a>
+                <h4>Sub-sub-category Details</h4>
+                <a href="{{route('sub-sub-cats.create')}}" class="btn btn-sm btn-primary text-right"> Create New +</a>
             </div>
             <div class="card-body p-0">
                 <div class="table-responsive">
@@ -27,8 +27,8 @@
                      <tr>
                         <td>{{++$key}}</td>
                         <td>{{$subcat->name}}</td>
-                        <td>{{$subcat->category->name}}</td>
-                        <td>{{$subcat->subcat_slug}}</td>
+                        <td>{{$subcat->subCategory->name}}</td>
+                        <td>{{$subcat->subsubcat_slug}}</td>
                         <td>
                                <label class="custom-switch mt-2">
                                     <input  onchange="alert('$this.val')" type="checkbox" name="custom-switch-checkbox" {{$subcat->status =='1'?'checked':'' }} class="custom-switch-input">
@@ -39,8 +39,8 @@
                         </td>
 
                         <td>
-                            <a href="{{route('sub-cats.edit',$subcat->id)}}" class="btn btn-primary">Edit</a>
-                            <a href="javascript:void(0)" onclick="confirm_modal('{{route('sub-cats.destroy',$subcat->id)}}')" class="btn btn-danger">Delete</a>
+                            <a href="{{route('sub-sub-cats.edit',$subcat->id)}}" class="btn btn-primary">Edit</a>
+                            <a href="javascript:void(0)" onclick="confirm_modal('{{route('sub-sub-cats.destroy',$subcat->id)}}')" class="btn btn-danger">Delete</a>
                         </td>
                     </tr>
                      @endforeach

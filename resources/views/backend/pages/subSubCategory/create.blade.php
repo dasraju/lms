@@ -19,7 +19,7 @@
                             <label>Select Category</label>
                             <select class="form-control" name="category">
                                 <option value="">--select--</option>
-                                @foreach ($cats as $cat )
+                                @foreach ($subcats as $cat )
                                 <option value="{{$cat->id}}">{{$cat->name}}</option>
                                 @endforeach
                             </select>

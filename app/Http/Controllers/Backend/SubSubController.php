@@ -5,40 +5,37 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\SubCategory;
-use App\Models\Category;
+use App\Models\SubSubCategory;
 use Alert;
 use Session;
 use Validator;
 
-
-class SubCategoryController extends Controller
+class SubSubController extends Controller
 {
     public function index()
     {
-        $subcats = SubCategory::with('category')->orderBy('created_at', 'desc')->paginate(10);
-
-
-        return view('backend.pages.subCategory.index', compact('subcats'));
+        $subcats = SubSubCategory::with('subCategory')->orderBy('created_at', 'desc')->paginate(10);
+        return view('backend.pages.subSubCategory.index', compact('subcats'));
     }
 
     public function create()
     {
-        $cats = Category::all();
-        return view('backend.pages.subCategory.create',compact('cats'));
+        $subcats = SubCategory::all();
+        return view('backend.pages.subSubCategory.create',compact('subcats'));
     }
 
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [ // <---
-            'category'=>'required',
+            'subcategory'=>'required',
             'name' => 'required',
             'slug' => 'required'
         ]);
         if ($validator->fails()) {
             return back()->with('toast_error', $validator->messages()->all()[0])->withInput();
         }
-        $cat = new SubCategory();
-        $cat->category_id = $request->category;
+        $cat = new SubSubCategory();
+        $cat->sub_category_id = $request->subcategory;
          $cat->name = $request->name;
         $cat->subcat_slug = $request->slug;
         $cat->status = '0';
