@@ -7,21 +7,21 @@
     <section class="section">
       <div class="row ">
         <div class="col-12 col-md-12 col-lg-12">
-            <form action="{{route('sub-cats.update',$subcat->id)}}" method="post">
+            <form action="{{route('sub-sub-cats.update',$subcat->id)}}" method="post">
                 @csrf
                 @method('patch')
             <div class="card">
                 <div class="card-header">
-                  <h4>Edit Sub-category</h4>
+                  <h4>Edit Sub-Sub-category</h4>
                 </div>
                 <div class="card-body">
                     <div class="form-row">
                         <div class="form-group  col-md-6 offset-md-3">
-                            <label>Select Category</label>
-                            <select class="form-control" name="category">
+                            <label>Select Sub Category</label>
+                            <select class="form-control" name="subcategory">
                                 <option value="">--select--</option>
                                 @foreach ($cats as $cat )
-                                <option {{$subcat->category_id == $cat->id ?'selected':'' }} value="{{$cat->id}}">{{$cat->name}}</option>
+                                <option {{$subcat->sub_category_id == $cat->id ?'selected':'' }} value="{{$cat->id}}">{{$cat->name}}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -34,11 +34,9 @@
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="inputEmail4">Slug</label>
-                                <input type="text" class="form-control" id="inputEmail4" name="slug" value="{{$subcat->subcat_slug}}" placeholder="Category Slug">
+                                <input type="text" class="form-control" id="inputEmail4" name="slug" value="{{$subcat->subsubcat_slug}}" placeholder="Category Slug">
                             </div>
                         </div>
-
-
                 </div>
                 <div class="card-footer">
                   <button class="btn btn-primary">Submit</button>

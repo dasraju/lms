@@ -4,25 +4,25 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\SubCategory;
 use App\Models\SubSubCategory;
+use App\Models\Chapter;
 use Alert;
 use Session;
 use Validator;
 
-class SubSubController extends Controller
+class ChapterController extends Controller
 {
     public function index()
     {
-        $subcats = SubSubCategory::with('subcategory')->orderBy('created_at', 'desc')->paginate(10);
-    
-        return view('backend.pages.subSubCategory.index', compact('subcats'));
+        $chapters= Chapter::with('subsubcategory')->orderBy('created_at', 'desc')->paginate(10);
+
+        return view('backend.pages.chapter.index', compact('chapters'));
     }
 
     public function create()
     {
-        $subcats = SubCategory::all();
-        return view('backend.pages.subSubCategory.create',compact('subcats'));
+        $subcats = SubSubCategory::all();
+        return view('backend.pages.chapter.create',compact('subcats'));
     }
 
     public function store(Request $request)
@@ -30,20 +30,19 @@ class SubSubController extends Controller
         $validator = Validator::make($request->all(), [ // <---
             'subcategory'=>'required',
             'name' => 'required',
-            'slug' => 'required'
+
         ]);
         if ($validator->fails()) {
             return back()->with('toast_error', $validator->messages()->all()[0])->withInput();
         }
-        $cat = new SubSubCategory();
-        $cat->sub_category_id = $request->subcategory;
-         $cat->name = $request->name;
-        $cat->subsubcat_slug = $request->slug;
+        $cat = new Chapter();
+        $cat->sub_sub_category_id = $request->subcategory;
+        $cat->name = $request->name;
         $cat->status = '0';
 
         if ($cat->save()) {
             toast('Your Post as been submited!','success');
-            return Redirect()->route('sub-sub-cats.index');
+            return Redirect()->route('chapter.index');
         } else {
 
             return Redirect()->back()->withInputes();
@@ -52,40 +51,41 @@ class SubSubController extends Controller
     }
     public function edit($id)
     {
-        $cats = SubCategory::all();
-        $subcat = SubSubCategory::findOrFail($id);
-        return view('backend.pages.subSubCategory.edit', compact('subcat','cats'));
+        $subcats = SubSubCategory::all();
+        $chapter = Chapter::findOrFail($id);
+        return view('backend.pages.chapter.edit', compact('subcats','chapter'));
     }
     public function update(Request $request, $id)
     {
         $validator = Validator::make($request->all(), [ // <---
-            'subcategory'=>'required',
+            'subsubcategory'=>'required',
             'name' => 'required',
-            'slug' => 'required'
+
         ]);
         if ($validator->fails()) {
             return back()->with('toast_error', $validator->messages()->all()[0])->withInput();
         }
-        $cat = SubSubCategory::findOrFail($id);
-        $cat->sub_category_id = $request->subcategory;
+        $cat = Chapter::findOrFail($id);
+        $cat->sub_sub_category_id = $request->subsubcategory;
         $cat->name = $request->name;
-        $cat->subsubcat_slug = $request->slug;
-        $cat->status = '0';
+  
 
         if ($cat->save()) {
             toast('Category Updated','success');
-            return Redirect()->route('sub-sub-cats.index');
+            return Redirect()->route('chapter.index');
         } else {
             toast('Operation Failed','error');
             return Redirect()->back()->withInputes();
         }
-        return Redirect()->route('sub-sub-cats.index');
+        return Redirect()->route('chapter.index');
     }
 
     public function destroy($id)
     {
-        if (SubSubCategory::destroy($id)) {
-            return redirect()->route('sub-sub-cats.index');
+        if (Chapter::destroy($id)) {
+
+
+            return redirect()->route('chapter.index');
         } else {
 
             return back();

@@ -4,14 +4,15 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\SubCategory;
 
 class SubSubCategory extends Model
 {
     use HasFactory;
 
 
-    public function subCategory()
+    public function subcategory()
     {
-        return $this->belongsTo(SubCategory::class);
+        return $this->belongsTo(SubCategory::class,'sub_category_id','id');
     }
 }

@@ -7,16 +7,16 @@
     <section class="section">
       <div class="row ">
         <div class="col-12 col-md-12 col-lg-12">
-            <form action="{{route('sub-sub-cats.store')}}" method="post">
+            <form action="{{route('chapter.store')}}" method="post">
                 @csrf
             <div class="card">
                 <div class="card-header">
-                  <h4>Add New Sub Sub Category</h4>
+                  <h4>Add New Chapter</h4>
                 </div>
                 <div class="card-body">
                     <div class="form-row">
-                        <div class="form-group  col-md-6 offset-md-3">
-                            <label>Select Sub Category</label>
+                        <div class="form-group  col-md-6 ">
+                            <label>Select Sub Sub Category</label>
                             <select class="form-control" name="subcategory">
                                 <option value="">--select--</option>
                                 @foreach ($subcats as $cat )
@@ -24,18 +24,13 @@
                                 @endforeach
                             </select>
                         </div>
+                        <div class="form-group col-md-6">
+                            <label for="inputEmail4">Name</label>
+                            <input type="text" class="form-control" id="inputEmail4" name="name" value="{{old('name')}}" placeholder="Chapter Name">
+                        </div>
                     </div>
 
-                        <div class="form-row">
-                            <div class="form-group col-md-6">
-                                <label for="inputEmail4">Name</label>
-                                <input type="text" class="form-control" id="inputEmail4" name="name" value="{{old('name')}}" placeholder="Sub sub category name">
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label for="inputEmail4">Slug</label>
-                                <input type="text" class="form-control" id="inputEmail4" name="slug" value="{{old('slug')}}" placeholder=" Sub sub category Slug">
-                            </div>
-                        </div>
+
 
 
                 </div>

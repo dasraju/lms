@@ -8,17 +8,38 @@
     <div class="collapse navbar-collapse" id="navbarCollapse">
         <div class="navbar-nav ms-auto p-4 p-lg-0">
             <a href="index.html" class="nav-item nav-link active">Home</a>
-            <a href="about.html" class="nav-item nav-link">About</a>
-            <a href="courses.html" class="nav-item nav-link">Courses</a>
-            <div class="nav-item dropdown">
-                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
-                <div class="dropdown-menu fade-down m-0">
-                    <a href="team.html" class="dropdown-item">Our Team</a>
-                    <a href="testimonial.html" class="dropdown-item">Testimonial</a>
-                    <a href="404.html" class="dropdown-item">404 Page</a>
+             @foreach (getMainMenu() as $menu )
+             @if (count(getSubMenu($menu ->id))>0)
+             <div class="nav-item dropdown">
+                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">{{$menu->name}}</a>
+                <div class="dropdown-menu fade-down m-0 p-2" style="width:25rem !important">
+                    <div class="row">
+                        @foreach (getSubMenu($menu ->id) as $submenu)
+
+                            <div class="col-md-6">
+                                <span class="m-2 p-2" style="border-bottom:5px solid blue">{{$submenu->name}}</span>
+                                @foreach (getSubSubMenu($submenu ->id) as $subsubmenu)
+                                  <a href="team.html" class="dropdown-item">{{$subsubmenu->name}}</a>
+                                @endforeach
+                            </div>
+
+                        @endforeach
+                   </div>
+
                 </div>
             </div>
-            <a href="contact.html" class="nav-item nav-link">Contact</a>
+             @else
+             <a href="courses.html" class="nav-item nav-link">{{ $menu->name}}</a>
+             @endif
+
+             @endforeach
+
+
+
+
+
+
+
         </div>
         <a href="" class="btn btn-primary py-4 px-lg-5 d-none d-lg-block">Join Now<i class="fa fa-arrow-right ms-3"></i></a>
     </div>

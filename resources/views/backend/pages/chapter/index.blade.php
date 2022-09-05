@@ -9,8 +9,8 @@
         <div class="col-12 col-md-12 col-lg-12">
             <div class="card">
             <div class="card-header">
-                <h4>Sub-sub-category Details</h4>
-                <a href="{{route('sub-sub-cats.create')}}" class="btn btn-sm btn-primary text-right"> Create New +</a>
+                <h4>Chapter Details</h4>
+                <a href="chapter/create" class="btn btn-sm btn-primary text-right"> Create New +</a>
             </div>
             <div class="card-body p-0">
                 <div class="table-responsive">
@@ -19,19 +19,19 @@
                     <th>#</th>
                     <th>Name</th>
                     <th>Parent</th>
-                    <th>Slug</th>
+
                     <th>Status</th>
                     <th>Action</th>
                     </tr>
-                     @foreach ($subcats as $key=>$subcat)
+                     @foreach ($chapters as $key=>$ch)
                      <tr>
                         <td>{{++$key}}</td>
-                        <td>{{$subcat->name}}</td>
-                        <td>{{$subcat->subcategory->name}}</td>
-                        <td>{{$subcat->subsubcat_slug}}</td>
+                        <td>{{$ch->name}}</td>
+                        <td>{{$ch->subsubcategory->name}}</td>
+
                         <td>
                                <label class="custom-switch mt-2">
-                                    <input  onchange="alert('$this.val')" type="checkbox" name="custom-switch-checkbox" {{$subcat->status =='1'?'checked':'' }} class="custom-switch-input">
+                                    <input  onchange="alert('$this.val')" type="checkbox" name="custom-switch-checkbox" {{$ch->status =='1'?'checked':'' }} class="custom-switch-input">
                                     <span class="custom-switch-indicator"></span>
                               </label>
 
@@ -39,8 +39,8 @@
                         </td>
 
                         <td>
-                            <a href="{{route('sub-sub-cats.edit',$subcat->id)}}" class="btn btn-primary">Edit</a>
-                            <a href="javascript:void(0)" onclick="confirm_modal('{{route('sub-sub-cats.destroy',$subcat->id)}}')" class="btn btn-danger">Delete</a>
+                            <a href="{{route('chapter.edit',$ch->id)}}" class="btn btn-primary">Edit</a>
+                            <a href="javascript:void(0)" onclick="confirm_modal('{{route('chapter.destroy',$ch->id)}}')" class="btn btn-danger">Delete</a>
                         </td>
                     </tr>
                      @endforeach
