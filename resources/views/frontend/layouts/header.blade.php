@@ -19,7 +19,7 @@
                             <div class="col-md-6">
                                 <span class="m-2 p-2" style="border-bottom:5px solid blue">{{$submenu->name}}</span>
                                 @foreach (getSubSubMenu($submenu ->id) as $subsubmenu)
-                                  <a href="team.html" class="dropdown-item">{{$subsubmenu->name}}</a>
+                                  <a href="{{route('get-chapter',$subsubmenu->id)}}" class="dropdown-item">{{$subsubmenu->name}}</a>
                                 @endforeach
                             </div>
 

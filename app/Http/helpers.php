@@ -2,7 +2,7 @@
  use App\Models\Category;
  use App\Models\SubCategory;
  use App\Models\SubSubCategory;
-
+ use App\Models\Topic;
 
  function getMainMenu(){
     $category = Category::all();
@@ -16,3 +16,48 @@
     $subsubcat = SubSubCategory::where('sub_category_id',$id)->get();
     return $subsubcat;
  }
+ function topic($id){
+  $topic = Topic::where('chapter_id',$id)->get();
+  return $topic;
+ }
+
+ if (!function_exists('areActiveRoutes')) {
+    function areActiveRoutes(array $routes, $output = "active")
+    {
+        foreach ($routes as $route) {
+            if (Route::currentRouteName() == $route) {
+                return $output;
+            }
+
+        }
+
+    }
+}
+
+if (!function_exists('areActiveTrees')) {
+    function areActiveTrees(array $routes, $output = "menu-open")
+    {
+
+        foreach ($routes as $route) {
+            if (Route::currentRouteName() == $route) {
+                return $output;
+            }
+
+        }
+
+    }
+}
+
+if (!function_exists('userActiveRoute')) {
+    function userActiveRoute(array $routes, $output = "current_page_item")
+    {
+        foreach ($routes as $route) {
+            if (Route::currentRouteName() == $route) {
+                return $output;
+            }
+
+        }
+
+    }
+}
+
