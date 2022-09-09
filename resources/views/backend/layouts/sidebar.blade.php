@@ -37,10 +37,10 @@
 
         <li class="menu-header">Course Menu</li>
         <li class="dropdown">
-          <a href="#" class="menu-toggle nav-link has-dropdown"><i data-feather="copy"></i><span>Basic
-              Components</span></a>
+          <a href="#" class="menu-toggle nav-link has-dropdown"><i data-feather="copy"></i><span>
+              Course Details</span></a>
           <ul class="dropdown-menu">
-            <li><a class="nav-link" href="alert.html">Course</a></li>
+            <li><a class="nav-link" href="{{route('course.index')}}">Course</a></li>
             <li><a class="nav-link" href="badge.html">Lesson</a></li>
             <li><a class="nav-link" href="breadcrumb.html"></a></li>
             <li><a class="nav-link" href="buttons.html">Buttons</a></li>
