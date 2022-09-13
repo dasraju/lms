@@ -20,21 +20,35 @@
                     <th>Name</th>
                     <th>Category</th>
                     <th>Description</th>
+                    <th>Type</th>
                     <th>Featured</th>
                     <th>Published</th>
+                    <th>Status</th>
                     <th>Action</th>
                     </tr>
                      @foreach ($courses as $key=>$course)
                      <tr>
                         <td>{{++$key}}</td>
                         <td>{{$course->name}}</td>
-                        <td>{{$course->name}}</td>
-                        <td>{{$course->name}}</td>
-                        <td>{{$course->name}}</td>
-                        <td>{{$course->name}}</td>
+                        <td>physics</td>
+                        <td>{{$course->description}}</td>
+                        <td>{{$course->type}}</td>
                         <td>
-                               <label class="custom-switch mt-2">
-                                    <input  onchange="alert('$this.val')" type="checkbox" name="custom-switch-checkbox" {{$subcat->status =='1'?'checked':'' }} class="custom-switch-input">
+                            <label class="custom-switch ">
+                                <input  onchange="alert('$this.val')" {{$course->featured == '1'?'checked':''}} type="checkbox" name="custom-switch-checkbox" {{$course->status =='1'?'checked':'' }} class="custom-switch-input">
+                                <span class="custom-switch-indicator"></span>
+                          </label>
+                        </td>
+                        <td>
+                            <label class="custom-switch ">
+                                <input  onchange="alert('$this.val')" {{$course->published == '1'?'checked':''}} type="checkbox" name="custom-switch-checkbox" {{$course->status =='1'?'checked':'' }} class="custom-switch-input">
+                                <span class="custom-switch-indicator"></span>
+                            </label>
+
+                        </td>
+                        <td>
+                               <label class="custom-switch ">
+                                    <input  onchange="alert('$this.val')" type="checkbox" name="custom-switch-checkbox" {{$course->status =='1'?'checked':'' }} class="custom-switch-input">
                                     <span class="custom-switch-indicator"></span>
                               </label>
 
@@ -42,8 +56,8 @@
                         </td>
 
                         <td>
-                            <a href="{{route('sub-cats.edit',$subcat->id)}}" class="btn btn-primary">Edit</a>
-                            <a href="javascript:void(0)" onclick="confirm_modal('{{route('sub-cats.destroy',$subcat->id)}}')" class="btn btn-danger">Delete</a>
+                            <a href="{{route('course.edit',$course->id)}}" class="btn btn-primary">Edit</a>
+                            <a href="javascript:void(0)" onclick="confirm_modal('{{route('course.destroy',$course->id)}}')" class="btn btn-danger">Delete</a>
                         </td>
                     </tr>
                      @endforeach

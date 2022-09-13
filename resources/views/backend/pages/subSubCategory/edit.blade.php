@@ -16,13 +16,25 @@
                 </div>
                 <div class="card-body">
                     <div class="form-row">
-                        <div class="form-group  col-md-6 offset-md-3">
+                        <div class="form-group  col-md-6 ">
                             <label>Select Sub Category</label>
                             <select class="form-control" name="subcategory">
                                 <option value="">--select--</option>
                                 @foreach ($cats as $cat )
                                 <option {{$subcat->sub_category_id == $cat->id ?'selected':'' }} value="{{$cat->id}}">{{$cat->name}}</option>
                                 @endforeach
+                            </select>
+                        </div>
+                        <div class="form-group  col-md-6">
+                            <label>Select Type</label>
+                            <select class="form-control" name="type" required>
+                                <option value="">--select--</option>
+
+                                <option {{$subcat->type == 'Revision' ?'selected':'' }} value="Revision">Revision</option>
+                                <option {{$subcat->type == 'Topical' ?'selected':'' }} value="Topical">Topical</option>
+                                <option {{$subcat->type == 'PastPaper' ?'selected':'' }} value="PastPaper">PastPaper</option>
+                                <option {{$subcat->type == 'Resource' ?'selected':'' }} value="Resource">Resource</option>
+
                             </select>
                         </div>
                     </div>

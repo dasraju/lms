@@ -15,13 +15,25 @@
                 </div>
                 <div class="card-body">
                     <div class="form-row">
-                        <div class="form-group  col-md-6 offset-md-3">
+                        <div class="form-group  col-md-6">
                             <label>Select Sub Category</label>
-                            <select class="form-control" name="subcategory">
+                            <select class="form-control" name="subcategory" required>
                                 <option value="">--select--</option>
                                 @foreach ($subcats as $cat )
                                 <option value="{{$cat->id}}">{{$cat->name}}</option>
                                 @endforeach
+                            </select>
+                        </div>
+                        <div class="form-group  col-md-6">
+                            <label>Select Type</label>
+                            <select class="form-control" name="type" required>
+                                <option value="">--select--</option>
+
+                                <option value="Revision">Revision</option>
+                                <option value="Topical">Topical</option>
+                                <option value="PastPaper">PastPaper</option>
+                                <option value="Resource">Resource</option>
+
                             </select>
                         </div>
                     </div>

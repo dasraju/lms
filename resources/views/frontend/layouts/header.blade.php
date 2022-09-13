@@ -1,6 +1,7 @@
-<nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
+<nav style="height:110px" class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
     <a href="index.html" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
-        <h2 class="m-0 text-primary"><i class="fa fa-book me-3"></i>eLEARNING</h2>
+        <img src="{{asset('assets/frontend/img/logo.png')}}" alt="" sizes="" srcset="">
+        {{-- <h2 class="m-0 text-primary"><i class="fa fa-book me-3"></i>eLEARNING</h2> --}}
     </a>
     <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
         <span class="navbar-toggler-icon"></span>
@@ -16,10 +17,10 @@
                     <div class="row">
                         @foreach (getSubMenu($menu ->id) as $submenu)
 
-                            <div class="col-md-6">
-                                <span class="m-2 p-2" style="border-bottom:5px solid blue">{{$submenu->name}}</span>
+                            <div class="col-md-6 ">
+                                <span class="" style="border-bottom:5px solid blue">{{$submenu->name}}</span>
                                 @foreach (getSubSubMenu($submenu ->id) as $subsubmenu)
-                                  <a href="{{route('get-chapter',$subsubmenu->id)}}" class="dropdown-item">{{$subsubmenu->name}}</a>
+                                  <a href="{{route('get-subcat-details',[$subsubmenu->type,$subsubmenu->id])}}" class="dropdown-item">{{$subsubmenu->name}}</a>
                                 @endforeach
                             </div>
 

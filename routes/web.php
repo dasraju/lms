@@ -2,4 +2,4 @@
 use Illuminate\Support\Facades\Route;
 
 Route::get('/','HomeController@index');
-Route::get('/chapter/{chapter}','HomeController@chapter')->name('get-chapter');
+Route::get('/sub-cat-details/{type}/{id}','HomeController@chapter')->name('get-subcat-details');

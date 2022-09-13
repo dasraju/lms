@@ -20,7 +20,7 @@
                             <select class="form-control" name="chapter">
                                 <option value="">--select--</option>
                                 @foreach ($chapter as $cat )
-                                <option value="{{$cat->id}}">{{$cat->name}}</option>
+                                <option style="mt-2" value="{{$cat->id}}">{{$cat->name}}-{{$cat->subsubcategory->name}}-{{$cat->subsubcategory->subcategory->name}}</option>
                                 @endforeach
                             </select>
                         </div>

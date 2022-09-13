@@ -21,7 +21,7 @@ class ChapterController extends Controller
 
     public function create()
     {
-        $subcats = SubSubCategory::all();
+        $subcats = SubSubCategory::with('subcategory')->get();
         return view('backend.pages.chapter.create',compact('subcats'));
     }
 
@@ -68,7 +68,7 @@ class ChapterController extends Controller
         $cat = Chapter::findOrFail($id);
         $cat->sub_sub_category_id = $request->subsubcategory;
         $cat->name = $request->name;
-  
+
 
         if ($cat->save()) {
             toast('Category Updated','success');

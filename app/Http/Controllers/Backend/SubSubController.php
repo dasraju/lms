@@ -37,6 +37,7 @@ class SubSubController extends Controller
         $cat = new SubSubCategory();
         $cat->sub_category_id = $request->subcategory;
          $cat->name = $request->name;
+         $cat->type = $request->type;
         $cat->subsubcat_slug = $request->slug;
         $cat->status = '0';
 
@@ -68,6 +69,7 @@ class SubSubController extends Controller
         $cat = SubSubCategory::findOrFail($id);
         $cat->sub_category_id = $request->subcategory;
         $cat->name = $request->name;
+        $cat->type = $request->type;
         $cat->subsubcat_slug = $request->slug;
         $cat->status = '0';
 

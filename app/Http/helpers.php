@@ -13,7 +13,7 @@
    return $subcat;
  }
  function getSubSubMenu($id){
-    $subsubcat = SubSubCategory::where('sub_category_id',$id)->get();
+    $subsubcat = SubSubCategory::where('sub_category_id',$id)->orderBy('created_at','asc')->get();
     return $subsubcat;
  }
  function topic($id){

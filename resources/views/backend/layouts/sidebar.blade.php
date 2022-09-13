@@ -19,21 +19,57 @@
         <li class="dropdown {{ areActiveRoutes(['sub-sub-cats.index','sub-sub-cats.create','sub-sub-cats.edit'])}} ">
             <a href="{{route('sub-sub-cats.index')}}" class="nav-link"><i data-feather="monitor"></i><span>Sub Sub Category</span></a>
         </li>
-        <li class="dropdown {{ areActiveRoutes(['chapter.index','chapter.create','chapter.edit'])}} ">
-            <a href="{{route('chapter.index')}}" class="nav-link"><i data-feather="monitor"></i><span>Chapter</span></a>
-        </li>
-        <li class="dropdown {{ areActiveRoutes(['topic.index','topic.create','topic.edit'])}} ">
-            <a href="{{route('topic.index')}}" class="nav-link"><i data-feather="monitor"></i><span>Topic</span></a>
-        </li>
+
 
         <li class="dropdown">
           <a href="#" class="menu-toggle nav-link has-dropdown"><i
-              data-feather="briefcase"></i><span>Widgets</span></a>
+              data-feather="briefcase"></i><span>Revision Notes</span></a>
           <ul class="dropdown-menu">
-            <li><a class="nav-link" href="widget-chart.html">Chart Widgets</a></li>
-            <li><a class="nav-link" href="widget-data.html">Data Widgets</a></li>
+            <li class="dropdown {{ areActiveRoutes(['chapter.index','chapter.create','chapter.edit'])}} ">
+                <a href="{{route('chapter.index')}}" class="nav-link"><i data-feather="monitor"></i><span>Chapter</span></a>
+            </li>
+            <li class="dropdown {{ areActiveRoutes(['topic.index','topic.create','topic.edit'])}} ">
+                <a href="{{route('topic.index')}}" class="nav-link"><i data-feather="monitor"></i><span>Topic</span></a>
+            </li>
           </ul>
         </li>
+
+        <li class="dropdown">
+            <a href="#" class="menu-toggle nav-link has-dropdown"><i
+                data-feather="briefcase"></i><span>Topical Question</span></a>
+            <ul class="dropdown-menu">
+              <li class="dropdown {{ areActiveRoutes(['chapter.index','chapter.create','chapter.edit'])}} ">
+                  <a href="{{route('chapter.index')}}" class="nav-link"><i data-feather="monitor"></i><span>Chapter</span></a>
+              </li>
+              <li class="dropdown {{ areActiveRoutes(['topic.index','topic.create','topic.edit'])}} ">
+                  <a href="{{route('topic.index')}}" class="nav-link"><i data-feather="monitor"></i><span>Topic</span></a>
+              </li>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a href="#" class="menu-toggle nav-link has-dropdown"><i
+                data-feather="briefcase"></i><span>Past Paper Solution</span></a>
+            <ul class="dropdown-menu">
+              <li class="dropdown {{ areActiveRoutes(['chapter.index','chapter.create','chapter.edit'])}} ">
+                  <a href="{{route('chapter.index')}}" class="nav-link"><i data-feather="monitor"></i><span>Chapter</span></a>
+              </li>
+              <li class="dropdown {{ areActiveRoutes(['topic.index','topic.create','topic.edit'])}} ">
+                  <a href="{{route('topic.index')}}" class="nav-link"><i data-feather="monitor"></i><span>Topic</span></a>
+              </li>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a href="#" class="menu-toggle nav-link has-dropdown"><i
+                data-feather="briefcase"></i><span>Resources</span></a>
+            <ul class="dropdown-menu">
+              <li class="dropdown {{ areActiveRoutes(['chapter.index','chapter.create','chapter.edit'])}} ">
+                  <a href="{{route('chapter.index')}}" class="nav-link"><i data-feather="monitor"></i><span>Chapter</span></a>
+              </li>
+              <li class="dropdown {{ areActiveRoutes(['topic.index','topic.create','topic.edit'])}} ">
+                  <a href="{{route('topic.index')}}" class="nav-link"><i data-feather="monitor"></i><span>Topic</span></a>
+              </li>
+            </ul>
+          </li>
 
         <li class="menu-header">Course Menu</li>
         <li class="dropdown">

@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Course;
+use DB;
+use Validator;
 
 class CourseController extends Controller
 {
@@ -38,7 +40,48 @@ class CourseController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $validator = Validator::make($request->all(), [ // <---
+            'category'=>'required',
+            'name' => 'required',
+            'description' => 'required',
+            'cover_img'   =>  'required'
+        ]);
+        if ($validator->fails()) {
+            return back()->with('toast_error', $validator->messages()->all()[0])->withInput();
+        }
+
+        DB::beginTransaction();
+
+        $course = new Course;
+        $course->course_category_id = $request->category;
+        $course->name = $request->name;
+        $course->description = $request->description;
+        $course->type = $request->type;
+        $course->featured = $request->featured == 'on'?'1':'0';
+        $course->published = $request->published == 'on'?'1':'0';
+        $course->price = $request->price;
+
+        if($request->file('cover_img')){
+            $file= $request->file('cover_img');
+            $filename= date('YmdHi').$file->getClientOriginalName();
+            $file-> move(public_path('course'), $filename);
+            $course->cover_img_url = $filename;
+        }
+
+        if($course->save()){
+            DB::commit();
+            toast('Your Post as been submited!','success');
+            return Redirect()->route('course.index');
+        }
+        else{
+            DB::rollback();
+            toast('Something Missing!','error');
+            return Redirect()->back()->withInput();
+        }
+
+
+
     }
 
     /**
@@ -60,7 +103,8 @@ class CourseController extends Controller
      */
     public function edit($id)
     {
-        //
+        $course = Course::findOrFail($id);
+        return view('backend.pages.course.edit', compact('course'));
     }
 
     /**
@@ -72,7 +116,47 @@ class CourseController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $validator = Validator::make($request->all(), [ // <---
+            'category'=>'required',
+            'name' => 'required',
+            'description' => 'required',
+
+        ]);
+        if ($validator->fails()) {
+            return back()->with('toast_error', $validator->messages()->all()[0])->withInput();
+        }
+        DB::beginTransaction();
+
+        $course = Course::findOrFail($id);
+        $course->course_category_id = $request->category;
+        $course->name = $request->name;
+        $course->description = $request->description;
+        $course->type = $request->type;
+        $course->featured = $request->featured == 'on'?'1':'0';
+        $course->published = $request->published == 'on'?'1':'0';
+        $course->price = $request->price;
+
+        if($request->file('cover_img')){
+            $path = public_path()."/course/".$course->cover_img_url;
+            unlink($path);
+            $file= $request->file('cover_img');
+            $filename= date('YmdHi').$file->getClientOriginalName();
+            $file-> move(public_path('course'), $filename);
+            $course->cover_img_url = $filename;
+
+        }
+
+        if($course->save()){
+            DB::commit();
+            toast('Your Post as been updated!','success');
+            return Redirect()->route('course.index');
+        }
+        else{
+            DB::rollback();
+            toast('Something Missing!','error');
+            return Redirect()->back()->withInput();
+        }
+
     }
 
     /**
@@ -83,6 +167,13 @@ class CourseController extends Controller
      */
     public function destroy($id)
     {
-        //
+        if (Course::destroy($id)) {
+
+
+            return redirect()->route('course.index');
+        } else {
+
+            return back();
+        }
     }
 }
