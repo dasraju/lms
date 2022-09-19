@@ -10,7 +10,7 @@
             <div class="card">
             <div class="card-header">
                 <h4>Chapter Details</h4>
-                <a href="chapter/create" class="btn btn-sm btn-primary text-right"> Create New +</a>
+                <a href="{{route('chapter.creates',$type)}}" class="btn btn-sm btn-primary text-right"> Create New +</a>
             </div>
             <div class="card-body p-0">
                 <div class="table-responsive">

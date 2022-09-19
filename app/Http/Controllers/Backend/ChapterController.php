@@ -12,16 +12,16 @@ use Validator;
 
 class ChapterController extends Controller
 {
-    public function index()
+    public function indexs($type)
     {
         $chapters= Chapter::with('subsubcategory')->orderBy('created_at', 'desc')->paginate(10);
 
-        return view('backend.pages.chapter.index', compact('chapters'));
+        return view('backend.pages.chapter.index', compact('chapters','type'));
     }
 
-    public function create()
+    public function creates($type)
     {
-        $subcats = SubSubCategory::with('subcategory')->get();
+        $subcats = SubSubCategory::with('subcategory')->where('type',$type)->get();
         return view('backend.pages.chapter.create',compact('subcats'));
     }
 

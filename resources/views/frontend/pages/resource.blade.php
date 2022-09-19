@@ -39,7 +39,7 @@
                             <h5 class="mb-0">{{$chapter->name}}</h5>
                             {{-- @foreach (topic($chapter->id) as $topic )
                             <small>
-                                <a class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>{{$topic->name}}</a>
+                                <a href="#" class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>{{$topic->name}}</a>
                             </small>
                             @endforeach --}}
                         </div>
