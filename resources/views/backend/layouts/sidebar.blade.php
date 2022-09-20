@@ -25,8 +25,8 @@
           <a href="#" class="menu-toggle nav-link has-dropdown"><i
               data-feather="briefcase"></i><span>Revision Notes</span></a>
           <ul class="dropdown-menu">
-            <li class="dropdown {{ areActiveRoutes(['chapter.index','chapter.creates','chapter.edit'])}} ">
-                <a href="{{route('chapter.index','Revision')}}" class="nav-link"><i data-feather="monitor"></i><span>Chapter</span></a>
+            <li class="dropdown {{ areActiveRoutes(['chapter.indexs','chapter.creates','chapter.edit'])}} ">
+                <a href="{{route('chapter.indexs','Revision')}}" class="nav-link"><i data-feather="monitor"></i><span>Chapter</span></a>
             </li>
             <li class="dropdown {{ areActiveRoutes(['topic.index','topic.create','topic.edit'])}} ">
                 <a href="{{route('topic.index')}}" class="nav-link"><i data-feather="monitor"></i><span>Topic</span></a>
@@ -62,7 +62,7 @@
             <a href="#" class="menu-toggle nav-link has-dropdown"><i
                 data-feather="briefcase"></i><span>Resources</span></a>
             <ul class="dropdown-menu">
-              <li class="dropdown {{ areActiveRoutes(['chapter.index','chapter.creates','chapter.edit'])}} ">
+              <li class="dropdown {{ areActiveRoutes(['chapter.indexs','chapter.creates','chapter.edit'])}} ">
                   <a href="{{route('chapter.indexs','Resource')}}" class="nav-link"><i data-feather="monitor"></i><span>Chapter</span></a>
               </li>
               <li class="dropdown {{ areActiveRoutes(['topic.index','topic.create','topic.edit'])}} ">
