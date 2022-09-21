@@ -25,7 +25,7 @@
                      @foreach ($topic as $key=>$ch)
                      <tr>
                         <td>{{++$key}}</td>
-                        <td>{{$ch->name}}</td>
+                        <td> <a href="{{ route('note.index',$ch->id) }}"> {{$ch->name}}</a> </td>
                         <td>{{$ch->chapter->name}}</td>
 
                         <td>

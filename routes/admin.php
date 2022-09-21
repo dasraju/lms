@@ -10,3 +10,6 @@ Route::get('chapter/indexs/{type}', 'ChapterController@indexs')->name('chapter.i
 Route::get('chapter/creates/{type}', 'ChapterController@creates')->name('chapter.creates');
 Route::resource('topic', 'TopicController');
 Route::resource('course', 'CourseController');
+Route::resource('notes', 'PdfNoteController');
+Route::get('note/index/{id}', 'PdfNoteController@index')->name('note.index');
+Route::get('note/create/{id}', 'PdfNoteController@create')->name('note.create');

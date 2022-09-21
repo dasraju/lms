@@ -18,6 +18,8 @@ return new class extends Migration
             $table->foreignId('topic_id');
             $table->string('title');
             $table->string('type');
+            $table->set('price_type',['free','paid']);
+            $table->enum('published',[0,1]);
             $table->string('file_name');
             $table->timestamps();
         });

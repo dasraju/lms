@@ -22,7 +22,7 @@ class ChapterController extends Controller
     public function creates($type)
     {
         $subcats = SubSubCategory::with('subcategory')->where('type',$type)->get();
-        return view('backend.pages.chapter.create',compact('subcats'));
+        return view('backend.pages.chapter.create',compact('subcats','type'));
     }
 
     public function store(Request $request)
@@ -42,7 +42,7 @@ class ChapterController extends Controller
 
         if ($cat->save()) {
             toast('Your Post as been submited!','success');
-            return Redirect()->route('chapter.index');
+            return Redirect()->route('chapter.indexs',$request->type);
         } else {
 
             return Redirect()->back()->withInputes();
@@ -72,12 +72,12 @@ class ChapterController extends Controller
 
         if ($cat->save()) {
             toast('Category Updated','success');
-            return Redirect()->route('chapter.index');
+            return Redirect()->route('chapter.indexs');
         } else {
             toast('Operation Failed','error');
             return Redirect()->back()->withInputes();
         }
-        return Redirect()->route('chapter.index');
+        return Redirect()->route('chapter.indexs');
     }
 
     public function destroy($id)
@@ -85,7 +85,7 @@ class ChapterController extends Controller
         if (Chapter::destroy($id)) {
 
 
-            return redirect()->route('chapter.index');
+            return redirect()->route('chapter.indexs');
         } else {
 
             return back();
