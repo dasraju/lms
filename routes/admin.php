@@ -2,6 +2,7 @@
 use Illuminate\Support\Facades\Route;
 
 Route::get('/','HomeController@index');
+Route::resource('menu-head', 'MenuHeadController');
 Route::resource('cats', 'CategoryController');
 Route::resource('sub-cats', 'SubCategoryController');
 Route::resource('sub-sub-cats', 'SubSubController');
@@ -11,5 +12,6 @@ Route::get('chapter/creates/{type}', 'ChapterController@creates')->name('chapter
 Route::resource('topic', 'TopicController');
 Route::resource('course', 'CourseController');
 Route::resource('notes', 'PdfNoteController');
+Route::resource('lesson', 'LessonController');
 Route::get('note/index/{id}', 'PdfNoteController@index')->name('note.index');
 Route::get('note/create/{id}', 'PdfNoteController@create')->name('note.create');

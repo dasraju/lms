@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\SubCategory;
-use App\Models\Category;
+use App\Models\Subject;
 use Alert;
 use Session;
 use Validator;
@@ -23,14 +23,14 @@ class SubCategoryController extends Controller
 
     public function create()
     {
-        $cats = Category::all();
+        $cats = Subject::all();
         return view('backend.pages.subCategory.create',compact('cats'));
     }
 
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [ // <---
-            'category'=>'required',
+            'subject'=>'required',
             'name' => 'required',
             'slug' => 'required'
         ]);
@@ -38,7 +38,7 @@ class SubCategoryController extends Controller
             return back()->with('toast_error', $validator->messages()->all()[0])->withInput();
         }
         $cat = new SubCategory();
-        $cat->category_id = $request->category;
+        $cat->subject_id = $request->subject;
          $cat->name = $request->name;
         $cat->subcat_slug = $request->slug;
         $cat->status = '0';
@@ -54,14 +54,14 @@ class SubCategoryController extends Controller
     }
     public function edit($id)
     {
-        $cats = Category::all();
+        $cats = Subject::all();
         $subcat = SubCategory::findOrFail($id);
         return view('backend.pages.subCategory.edit', compact('subcat','cats'));
     }
     public function update(Request $request, $id)
     {
         $validator = Validator::make($request->all(), [ // <---
-            'category'=>'required',
+            'subject'=>'required',
             'name' => 'required',
             'slug' => 'required'
         ]);
@@ -69,7 +69,7 @@ class SubCategoryController extends Controller
             return back()->with('toast_error', $validator->messages()->all()[0])->withInput();
         }
         $cat = SubCategory::findOrFail($id);
-        $cat->category_id = $request->category;
+        $cat->subject_id = $request->subject;
         $cat->name = $request->name;
         $cat->subcat_slug = $request->slug;
         $cat->status = '0';

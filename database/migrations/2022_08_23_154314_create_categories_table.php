@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('categories', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('menu_head_id')->cascadeOnDelete();
             $table->string('name');
             $table->string('cat_slug')->unique();
             $table->set('status',['0','1']);

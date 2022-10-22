@@ -11,8 +11,13 @@ class Category extends Model
     use HasFactory;
 
 
-    public function subcategories()
+    public function subjects()
     {
-        return $this->hasMany(SubCategory::class);
+        return $this->hasMany(Subject::class);
+    }
+
+    public function menu()
+    {
+        return $this->belongsTo(MenuHead::class);
     }
 }

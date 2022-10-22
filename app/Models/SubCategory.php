@@ -12,9 +12,9 @@ class SubCategory extends Model
 
 
 
-    public function category()
+    public function subject()
     {
-        return $this->belongsTo(Category::class);
+        return $this->belongsTo(Subject::class);
     }
 
     public function subsubcategories()

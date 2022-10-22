@@ -1,8 +1,3 @@
-@extends('backend.master');
-@section('title')
-@endsection
-
-@section('content')
 <div class="main-content">
     <section class="section">
       <div class="row ">
@@ -48,4 +43,3 @@
       </div>
     </section>
 </div>
-@endsection
