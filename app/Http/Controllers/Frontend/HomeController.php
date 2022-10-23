@@ -36,4 +36,9 @@ class HomeController extends Controller
           }
 
     }
+    public function detail_menu($sub_id){
+        dd($sub_id);
+        return view('frontend.pages.detailsmenu');
+
+    }
 }

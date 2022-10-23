@@ -22,8 +22,8 @@
 
                             <div class="col-md-6 ">
                                 <span class="" style="border-bottom:5px solid blue">{{$submenu->name}}</span>
-                                @foreach (getSubjectList($submenu ->id) as $subsubmenu)
-                                <a href="#" class="dropdown-item">{{$subsubmenu->name}}</a>
+                                @foreach (getSubjectList($submenu->id) as $subject)
+                                <a href="{{route('subject_details',$subject->id)}}" class="dropdown-item">{{$subject->name}}</a>
                                   {{-- <a href="{{route('get-subcat-details',[$subsubmenu->type,$subsubmenu->id])}}" class="dropdown-item">{{$subsubmenu->name}}</a> --}}
                                 @endforeach
                             </div>
