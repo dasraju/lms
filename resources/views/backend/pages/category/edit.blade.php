@@ -17,6 +17,17 @@
                 <div class="card-body">
 
                         <div class="form-row">
+
+
+                            <div class="form-group col-md-6">
+                                <label>Select Category</label>
+                                <select class="form-control" name="menu_head_id">
+                                    <option value="">--select--</option>
+                                    @foreach ($menus as $cats )
+                                    <option {{$cat->menu_head_id == $cats->id ?'selected':'' }} value="{{$cats->id}}">{{$cats->name}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
                             <div class="form-group col-md-6">
                                 <label for="inputEmail4">Name</label>
                                 <input type="text" class="form-control" id="inputEmail4" name="name" value="{{  $cat->name }}" placeholder="Category Name">

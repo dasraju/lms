@@ -3,6 +3,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/','HomeController@index');
 Route::resource('menu-head', 'MenuHeadController');
+Route::resource('subject', 'SubjectController');
 Route::resource('cats', 'CategoryController');
 Route::resource('sub-cats', 'SubCategoryController');
 Route::resource('sub-sub-cats', 'SubSubController');

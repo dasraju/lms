@@ -15,7 +15,7 @@ class SubCategoryController extends Controller
 {
     public function index()
     {
-        $subcats = SubCategory::with('category')->orderBy('created_at', 'desc')->paginate(10);
+        $subcats = SubCategory::with('subject')->orderBy('created_at', 'desc')->paginate(10);
 
 
         return view('backend.pages.subCategory.index', compact('subcats'));

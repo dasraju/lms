@@ -9,17 +9,15 @@
         <div class="col-12 col-md-12 col-lg-12">
             <div class="card">
             <div class="card-header">
-                <h4>Category Details</h4>
-                <a href="cats/create" class="btn btn-sm btn-primary text-right"> Create New +</a>
+                <h4>Menu Details</h4>
+                <a href="menu-head/create" class="btn btn-sm btn-primary text-right"> Create New +</a>
             </div>
             <div class="card-body p-0">
                 <div class="table-responsive">
                 <table class="table table-striped table-md">
                     <tr>
                     <th>#</th>
-
                     <th>Menu Head</th>
-
                     <th>Status</th>
                     <th>Action</th>
                     </tr>

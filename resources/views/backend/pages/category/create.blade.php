@@ -17,6 +17,15 @@
 
                         <div class="form-row">
                             <div class="form-group col-md-6">
+                                <label>Select Menu Head</label>
+                                <select class="form-control" name="menu_head_id">
+                                    <option value="">--select--</option>
+                                    @foreach ($menus as $cat )
+                                    <option value="{{$cat->id}}">{{$cat->name}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="form-group col-md-6">
                                 <label for="inputEmail4">Name</label>
                                 <input type="text" class="form-control" id="inputEmail4" name="name" value="{{old('name')}}" placeholder="Category Name">
                             </div>

@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('menu_heads', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->set('status',['0','1']);
             $table->timestamps();
         });
     }

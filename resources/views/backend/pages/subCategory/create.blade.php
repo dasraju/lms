@@ -1,3 +1,8 @@
+@extends('backend.master');
+@section('title')
+@endsection
+
+@section('content')
 <div class="main-content">
     <section class="section">
       <div class="row ">
@@ -11,8 +16,8 @@
                 <div class="card-body">
                     <div class="form-row">
                         <div class="form-group  col-md-6 offset-md-3">
-                            <label>Select Category</label>
-                            <select class="form-control" name="category">
+                            <label>Select Subject</label>
+                            <select class="form-control" name="subject">
                                 <option value="">--select--</option>
                                 @foreach ($cats as $cat )
                                 <option value="{{$cat->id}}">{{$cat->name}}</option>
@@ -43,3 +48,6 @@
       </div>
     </section>
 </div>
+@endsection
+
+

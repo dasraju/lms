@@ -17,8 +17,8 @@
                 <div class="card-body">
                     <div class="form-row">
                         <div class="form-group  col-md-6 offset-md-3">
-                            <label>Select Category</label>
-                            <select class="form-control" name="category">
+                            <label>Select Subject</label>
+                            <select class="form-control" name="subject">
                                 <option value="">--select--</option>
                                 @foreach ($cats as $cat )
                                 <option {{$subcat->category_id == $cat->id ?'selected':'' }} value="{{$cat->id}}">{{$cat->name}}</option>

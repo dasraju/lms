@@ -62,7 +62,8 @@ class CourseController extends Controller
         $course->published = $request->published == 'on'?'1':'0';
         $course->price = $request->price;
 
-        if($request->file('cover_img')){
+        if($request->file('cover_img'))
+        {
             $file= $request->file('cover_img');
             $filename= date('YmdHi').$file->getClientOriginalName();
             $file-> move(public_path('course'), $filename);

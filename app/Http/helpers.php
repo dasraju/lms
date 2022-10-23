@@ -3,18 +3,24 @@
  use App\Models\SubCategory;
  use App\Models\SubSubCategory;
  use App\Models\Topic;
+ use App\Models\MenuHead;
+ use App\Models\Subject;
 
  function getMainMenu(){
-    $category = Category::all();
-    return $category;
+    $menus = MenuHead::all();
+    return $menus;
  }
  function getSubMenu($id){
-   $subcat = SubCategory::where('category_id',$id)->get();
-   return $subcat;
+   $cat = Category::where('menu_head_id',$id)->get();
+   return $cat;
  }
+ function getSubjectList($id){
+    $cat = Subject::where('Category_id',$id)->get();
+    return $cat;
+  }
  function getSubSubMenu($id){
-    $subsubcat = SubSubCategory::where('sub_category_id',$id)->orderBy('created_at','asc')->get();
-    return $subsubcat;
+    $subcat = SubCategory::where('subject_id',$id)->orderBy('created_at','asc')->get();
+    return $subcat;
  }
  function topic($id){
   $topic = Topic::where('chapter_id',$id)->get();

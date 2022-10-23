@@ -9,6 +9,9 @@
     <div class="collapse navbar-collapse" id="navbarCollapse">
         <div class="navbar-nav ms-auto p-4 p-lg-0">
             <a href="index.html" class="nav-item nav-link active">Home</a>
+
+
+
              @foreach (getMainMenu() as $menu )
              @if (count(getSubMenu($menu ->id))>0)
              <div class="nav-item dropdown">
@@ -19,8 +22,9 @@
 
                             <div class="col-md-6 ">
                                 <span class="" style="border-bottom:5px solid blue">{{$submenu->name}}</span>
-                                @foreach (getSubSubMenu($submenu ->id) as $subsubmenu)
-                                  <a href="{{route('get-subcat-details',[$subsubmenu->type,$subsubmenu->id])}}" class="dropdown-item">{{$subsubmenu->name}}</a>
+                                @foreach (getSubjectList($submenu ->id) as $subsubmenu)
+                                <a href="#" class="dropdown-item">{{$subsubmenu->name}}</a>
+                                  {{-- <a href="{{route('get-subcat-details',[$subsubmenu->type,$subsubmenu->id])}}" class="dropdown-item">{{$subsubmenu->name}}</a> --}}
                                 @endforeach
                             </div>
 

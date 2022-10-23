@@ -56,7 +56,7 @@ class MenuHeadController extends Controller
         $cat->name = $request->name;
         if ($cat->save()) {
             toast('Menuhead Updated','success');
-            return Redirect()->route('cats.index');
+            return Redirect()->route('menu-head.index');
         } else {
             toast('Operation Failed','error');
             return Redirect()->back()->withInputes();
