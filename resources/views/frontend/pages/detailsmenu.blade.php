@@ -52,30 +52,24 @@
  <section class="container">
     <h6 class="headline mt-2">
         <a href="http://" class="link">
-            GCSE
+            {{ $subject->category->menu->name }}
             <span class="right-arrow-class"> > </span>
-            Combined Science
+            {{ $subject->category->name }}
+            <span class="right-arrow-class"> > </span>
+            {{ $subject->name }}
         </a>
     </h6>
     <div class="row">
+        @foreach ($data as $menu )
         <div class="col-4">
-            <a href="" class="first-content">Headline</a> <br>
-            <a href="" class="content">Content</a> <br>
-            <a href="" class="content">Content</a> <br>
-            <a href="" class="content">Content</a> <br>
+            <a href="#" class="first-content">{{ $menu->name }}</a> <br>
+            @foreach ($menu->subsubcategories as $submenu )
+            <a href="{{route('get-subcat-details',[ $submenu->type, $submenu->id])}}" class="content">{{ $submenu->name }}</a> <br>
+            @endforeach
         </div>
-        <div class="col-4">
-            <a href="" class="first-content">Headline</a> <br>
-            <a href="" class="content">Content</a> <br>
-            <a href="" class="content">Content</a> <br>
-            <a href="" class="content">Content</a> <br>
-        </div>
-        <div class="col-4">
-            <a href="" class="first-content">Headline</a> <br>
-            <a href="" class="content">Content</a> <br>
-            <a href="" class="content">Content</a> <br>
-            <a href="" class="content">Content</a> <br>
-        </div>
+        @endforeach
+
+
     </div>
 </section>
  @endsection

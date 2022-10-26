@@ -16,7 +16,7 @@
              @if (count(getSubMenu($menu ->id))>0)
              <div class="nav-item dropdown">
                 <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">{{$menu->name}}</a>
-                <div class="dropdown-menu fade-down m-0 p-2" style="width:25rem !important">
+                <div class="dropdown-menu fade-down m-0 p-2" style="">
                     <div class="row">
                         @foreach (getSubMenu($menu ->id) as $submenu)
 

@@ -18,6 +18,6 @@ class Category extends Model
 
     public function menu()
     {
-        return $this->belongsTo(MenuHead::class);
+        return $this->belongsTo(MenuHead::class,'menu_head_id','id');
     }
 }

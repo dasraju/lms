@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Frontend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Chapter;
+use App\Models\SubCategory;
+use App\Models\Subject;
 
 class HomeController extends Controller
 {
@@ -37,8 +39,10 @@ class HomeController extends Controller
 
     }
     public function detail_menu($sub_id){
-        dd($sub_id);
-        return view('frontend.pages.detailsmenu');
+        $subject = Subject::with('category','category.menu')->where('id',$sub_id)->first();
+        // dd($subject);
+        $data = SubCategory::with('subsubcategories')->where('subject_id',$sub_id)->get();
+        return view('frontend.pages.detailsmenu',compact('data','subject'));
 
     }
 }
