@@ -61,12 +61,12 @@
     </h6>
     <div class="row">
         @foreach ($data as $menu )
-        <div class="col-4">
-            <a href="#" class="first-content">{{ $menu->name }}</a> <br>
-            @foreach ($menu->subsubcategories as $submenu )
-            <a href="{{route('get-subcat-details',[ $submenu->type, $submenu->id])}}" class="content">{{ $submenu->name }}</a> <br>
-            @endforeach
-        </div>
+            <div class="col-4">
+                <a href="#" class="first-content">{{ $menu->name }}</a> <br>
+                @foreach ($menu->subsubcategories as $submenu )
+                <a href="{{route('get-subcat-details',[ $submenu->type, $submenu->id])}}" class="content">{{ $submenu->name }}</a> <br>
+                @endforeach
+            </div>
         @endforeach
 
 
