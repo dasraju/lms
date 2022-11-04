@@ -15,12 +15,15 @@ return new class extends Migration
     {
         Schema::create('courses', function (Blueprint $table) {
             $table->id();
+            $table->string('unique_id');
             $table->string('name');
             $table->foreignId('course_category_id');
             $table->text('description');
             $table->string('cover_img_url');
             $table->set('type',['free','paid']);
             $table->double('price',8,2);
+            $table->foreignId('instructor_id');
+            $table->string('total_time');
             $table->enum('featured',[0,1]);
             $table->enum('published',[0,1]);
             $table->timestamps();

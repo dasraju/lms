@@ -2,7 +2,7 @@
 use Illuminate\Support\Facades\Route;
 
 Route::get('/','Frontend\HomeController@index');
-Route::get('/user/login-form','Auth\AuthController@loginForm')->name('user.login.form')->middleware('auth.basic');
+Route::get('/user/login-form','Auth\AuthController@loginForm')->name('user.login.form');
 
 Route::post('/user/login','Auth\AuthController@login')->name('user.login.submit');
 

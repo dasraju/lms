@@ -9,8 +9,8 @@
         <div class="col-12 col-md-12 col-lg-12">
             <div class="card">
             <div class="card-header">
-                <h4>Course Details</h4>
-                <a href="course/create" class="btn btn-sm btn-primary text-right"> Create New +</a>
+                <h4>Lesson Details</h4>
+                <a href="{{ url('admin/lesson/create') }}" class="btn btn-sm btn-primary text-right"> Create New +</a>
             </div>
             <div class="card-body p-0">
                 <div class="table-responsive">
@@ -18,37 +18,43 @@
                     <tr>
                     <th>#</th>
                     <th>Name</th>
-                    <th>Category</th>
-                    <th>Description</th>
-                    <th>Type</th>
-                    <th>Featured</th>
+                    <th>Course</th>
+
                     <th>Published</th>
+                    <th>View</th>
+                    <th>Download</th>
                     <th>Status</th>
                     <th>Action</th>
                     </tr>
-                     @foreach ($courses as $key=>$course)
+                     @foreach ($lessons as $key=>$lesson)
                      <tr>
                         <td>{{++$key}}</td>
-                        <td>{{$course->name}}</td>
-                        <td>physics</td>
-                        <td>{{$course->description}}</td>
-                        <td>{{$course->type}}</td>
+                        <td>{{$lesson->name}}</td>
+                        <td>{{$lesson->course->name}}</td>
+                     
+                      
                         <td>
                             <label class="custom-switch ">
-                                <input  onchange="alert('$this.val')" {{$course->featured == '1'?'checked':''}} type="checkbox" name="custom-switch-checkbox" {{$course->status =='1'?'checked':'' }} class="custom-switch-input">
-                                <span class="custom-switch-indicator"></span>
-                          </label>
-                        </td>
-                        <td>
-                            <label class="custom-switch ">
-                                <input  onchange="alert('$this.val')" {{$course->published == '1'?'checked':''}} type="checkbox" name="custom-switch-checkbox" {{$course->status =='1'?'checked':'' }} class="custom-switch-input">
+                                <input  onchange="alert('$this.val')" {{$lesson->published == '1'?'checked':''}} type="checkbox" name="custom-switch-checkbox"  class="custom-switch-input">
                                 <span class="custom-switch-indicator"></span>
                             </label>
 
                         </td>
                         <td>
+                            <label class="custom-switch ">
+                                <input  onchange="alert('$this.val')" {{$lesson->view == '1'?'checked':''}} type="checkbox" name="custom-switch-checkbox"  class="custom-switch-input">
+                                <span class="custom-switch-indicator"></span>
+                          </label>
+                        </td>
+                        <td>
+                            <label class="custom-switch ">
+                                <input  onchange="alert('$this.val')" {{$lesson->download == '1'?'checked':''}} type="checkbox" name="custom-switch-checkbox"  class="custom-switch-input">
+                                <span class="custom-switch-indicator"></span>
+                          </label>
+                        </td>
+                        <td>
                                <label class="custom-switch ">
-                                    <input  onchange="alert('$this.val')" type="checkbox" name="custom-switch-checkbox" {{$course->status =='1'?'checked':'' }} class="custom-switch-input">
+                                    <input  onchange="alert('$this.val')" type="checkbox" name="custom-switch-checkbox" {{$lesson->status =='1'?'checked':'' }} class="custom-switch-input">
                                     <span class="custom-switch-indicator"></span>
                               </label>
 
@@ -56,8 +62,8 @@
                         </td>
 
                         <td>
-                            <a href="{{route('course.edit',$course->id)}}" class="btn btn-primary">Edit</a>
-                            <a href="javascript:void(0)" onclick="confirm_modal('{{route('course.destroy',$course->id)}}')" class="btn btn-danger">Delete</a>
+                            <a href="{{route('lesson.edit',$lesson->id)}}" class="btn btn-primary">Edit</a>
+                            <a href="javascript:void(0)" onclick="confirm_modal('{{route('lesson.destroy',$lesson->id)}}')" class="btn btn-danger">Delete</a>
                         </td>
                     </tr>
                      @endforeach

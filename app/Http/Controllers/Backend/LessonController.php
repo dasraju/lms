@@ -4,6 +4,10 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Lesson;
+use App\Models\Course;
+use DB;
+use Validator;
 
 class LessonController extends Controller
 {
@@ -14,7 +18,8 @@ class LessonController extends Controller
      */
     public function index()
     {
-        //
+        $lessons = Lesson::with('course')->orderBy('created_at', 'desc')->paginate(10);
+        return view('backend.pages.lesson.index', compact('lessons'));
     }
 
     /**
@@ -24,7 +29,8 @@ class LessonController extends Controller
      */
     public function create()
     {
-        //
+        $courses = Course::all();
+        return view('backend.pages.lesson.create',compact('courses'));
     }
 
     /**
@@ -35,7 +41,57 @@ class LessonController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validator = Validator::make($request->all(), [ // <---
+            'course'=>'required',
+            'name' => 'required',
+            'lesson_pdf'   =>  'required|mimes:pdf|max:5120'
+        ]);
+        if ($validator->fails()) {
+            return back()->with('toast_error', $validator->messages()->all()[0])->withInput();
+        }
+
+        DB::beginTransaction();
+
+        $lesson = new Lesson;
+        $username = Lesson::latest()->pluck('unique_id')->first();
+        if($username){
+            $usersplit = str_split( $username,5);
+            $usersplit_lts = (int)$usersplit[1] + 1;
+            $unique_id = "LMSL-".$usersplit_lts;
+           
+        }
+        else{
+            $unique_id = "LMSL-1";
+        }
+        $lesson->course_id = $request->course;
+        $lesson->name = $request->name;
+        $lesson->unique_id =  $unique_id;
+        $lesson->video_url =  $request->video_url;
+        $lesson->type = $request->type;
+        $lesson->view = $request->view == 'on'?'1':'0';
+        $lesson->download = $request->download == 'on'?'1':'0';
+        $lesson->published = $request->published == 'on'?'1':'0';
+
+        if($request->file('lesson_pdf'))
+        {
+            $file= $request->file('lesson_pdf');
+            $filename= date('YmdHi').$file->getClientOriginalExtension();
+            $file-> move(public_path('lesson'), $filename);
+            $lesson->file_name = $filename;
+        }
+
+        if($lesson->save()){
+            DB::commit();
+            toast('Your lesson added successfully!','success');
+            return Redirect()->route('course.index');
+        }
+        else{
+            DB::rollback();
+            toast('Something Missing!','error');
+            return Redirect()->back()->withInput();
+        }
+
+
     }
 
     /**

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Course;
+use App\Models\Instructor;
 use DB;
 use Validator;
 
@@ -29,7 +30,8 @@ class CourseController extends Controller
      */
     public function create()
     {
-        return view('backend.pages.course.create');
+        $instructor = Instructor::all();
+        return view('backend.pages.course.create',compact('instructor'));
     }
 
     /**
@@ -54,13 +56,26 @@ class CourseController extends Controller
         DB::beginTransaction();
 
         $course = new Course;
+        $username = Course::latest()->pluck('unique_id')->first();
+        if($username){
+            $usersplit = str_split( $username,5);
+            $usersplit_lts = (int)$usersplit[1] + 1;
+            $unique_id = "LMSC-".$usersplit_lts;
+           
+        }
+        else{
+            $unique_id = "LMSC-1";
+        }
         $course->course_category_id = $request->category;
         $course->name = $request->name;
+        $course->unique_id =  $unique_id;
         $course->description = $request->description;
         $course->type = $request->type;
         $course->featured = $request->featured == 'on'?'1':'0';
         $course->published = $request->published == 'on'?'1':'0';
         $course->price = $request->price;
+        $course->instructor_id = $request->instructor;
+        $course->total_time = $request->total_time;
 
         if($request->file('cover_img'))
         {
@@ -105,7 +120,8 @@ class CourseController extends Controller
     public function edit($id)
     {
         $course = Course::findOrFail($id);
-        return view('backend.pages.course.edit', compact('course'));
+        $instructor = Instructor::all();
+        return view('backend.pages.course.edit', compact('course','instructor'));
     }
 
     /**

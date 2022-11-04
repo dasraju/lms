@@ -5,13 +5,16 @@ namespace App\Http\Controllers\Frontend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Chapter;
+use App\Models\Course;
 use App\Models\SubCategory;
 use App\Models\Subject;
 
 class HomeController extends Controller
 {
     public function index(){
-        return view('frontend.pages.index');
+        $courses = Course::with('instructor')->get();
+     
+        return view('frontend.pages.index',compact('courses'));
     }
 
     public function chapter($type,$chapterId){

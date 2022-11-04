@@ -61,6 +61,21 @@
                                   </div>
                                 </div>
                               </div>
+                              <div class="form-group col-md-6">
+                                <label for="inputEmail4">Total Time</label>
+                                <input type="text" class="form-control" name="total_time" id="inputEmail4"  value="{{$course->total_time}}" placeholder=" 1.34">
+                              </div>
+                              <div class="form-group col-md-6">
+                                <label>Select Instructor </label>
+                                <select class="form-control" name="instructor">
+                                    <option value="">--select--</option>
+                                   @foreach ($instructor as  $ins)
+                                    <option  value="{{$ins->id}}" {{ $course->instructor_id == $ins->id ? 'selected':''}}>{{$ins->name}}</option>
+                                   @endforeach
+    
+    
+                                </select>
+                              </div>
                             <div class="form-group col-md-3">
                                 <label>Cover Photo</label>
                                 <input type="file" name="cover_img" class="form-control">

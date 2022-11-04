@@ -7,7 +7,7 @@
     <section class="section">
       <div class="row ">
         <div class="col-12 col-md-12 col-lg-12">
-            <form action="{{route('course.store')}}" method="post" enctype="multipart/form-data">
+            <form action="{{route('lesson.store')}}" method="post" enctype="multipart/form-data">
                 @csrf
             <div class="card">
                 <div class="card-header">
@@ -19,7 +19,7 @@
                             <label>Select Course </label>
                             <select class="form-control" name="course">
                                 <option value="">--select--</option>
-                               @foreach ($course as  $course)
+                               @foreach ($courses as  $course)
                                 <option selected value="{{$course->id}}">{{$course->name}}</option>
                                @endforeach
 
@@ -27,16 +27,13 @@
                             </select>
                         </div>
                         <div class="form-group col-md-6">
-                            <label for="inputEmail4">Name</label>
-                            <input type="text" class="form-control" name="name" id="inputEmail4" name="name" value="{{old('name')}}" placeholder="Sub Category Name">
+                            <label for="inputEmail4">Title</label>
+                            <input type="text" class="form-control" name="name" id="inputEmail4" name="name" value="{{old('name')}}" placeholder="lesson title">
                         </div>
                     </div>
 
                         <div class="form-row">
-                            <div class="form-group col-md-6">
-                                <label for="inputEmail4">Description</label>
-                                <textarea class="form-control" name="description"></textarea>
-                            </div>
+                            
 
                             <div class="form-group col-md-6">
                                 <label class="d-block">Type</label>
@@ -50,28 +47,27 @@
                                 </div>
 
                               </div>
-                              <div class="form-group col-md-6">
-                                <label class="d-block">Price</label>
-                                <div class="input-group mb-3">
-                                  <div class="input-group-prepend">
-                                    <span class="input-group-text">$</span>
-                                  </div>
-                                  <input type="text" class="form-control" name='price' value="0" aria-label="Amount (to the nearest dollar)">
-                                  <div class="input-group-append">
-                                    <span class="input-group-text">.00</span>
-                                  </div>
-                                </div>
-                              </div>
+                              
                             <div class="form-group col-md-6">
                                 <label>File</label>
-                                <input type="file" name="cover_img" class="form-control">
-                              </div>
+                                <input type="file" name="lesson_pdf" class="form-control">
+                            </div>
+                            <div class="form-group col-md-6">
+                              <label for="inputEmail4">Video Url</label>
+                              <input type="url" name="video_url" placeholder="video Url" class="form-control">
+                          </div>
                             <div class="form-group col-md-6">
                                 <label class="d-block">Permissions</label>
                                 <div class="form-check">
-                                  <input class="form-check-input" name="featured" type="checkbox" id="defaultCheck1">
+                                  <input class="form-check-input" name="view" type="checkbox" id="defaultCheck1">
                                   <label class="form-check-label" for="defaultCheck1">
-                                    Featured
+                                    View
+                                  </label>
+                                </div>
+                                <div class="form-check">
+                                  <input class="form-check-input" name="download" type="checkbox" id="defaultCheck2">
+                                  <label class="form-check-label" for="defaultCheck2">
+                                    Download
                                   </label>
                                 </div>
                                 <div class="form-check">

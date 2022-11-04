@@ -26,7 +26,7 @@
                         </div>
                         <div class="form-group col-md-6">
                             <label for="inputEmail4">Name</label>
-                            <input type="text" class="form-control" name="name" id="inputEmail4" name="name" value="{{old('name')}}" placeholder="Sub Category Name">
+                            <input type="text" class="form-control" name="name" id="inputEmail4" name="name" value="{{old('name')}}" placeholder="Course Name">
                         </div>
                     </div>
 
@@ -59,6 +59,21 @@
                                     <span class="input-group-text">.00</span>
                                   </div>
                                 </div>
+                              </div>
+                              <div class="form-group col-md-6">
+                                <label for="inputEmail4">Total Time</label>
+                                <input type="text" class="form-control" name="total_time" id="inputEmail4"  value="{{old('total_time')}}" placeholder=" 1.34">
+                              </div>
+                              <div class="form-group col-md-6">
+                                <label>Select Instructor </label>
+                                <select class="form-control" name="instructor">
+                                    <option value="">--select--</option>
+                                   @foreach ($instructor as  $ins)
+                                    <option  value="{{$ins->id}}">{{$ins->name}}</option>
+                                   @endforeach
+    
+    
+                                </select>
                               </div>
                             <div class="form-group col-md-6">
                                 <label>File</label>
