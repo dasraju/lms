@@ -19,6 +19,8 @@ return new class extends Migration
             $table->string('title');
             $table->string('url');
             $table->set('price_type',['free','paid']);
+            $table->enum('view',[0,1]);
+            $table->enum('download',[0,1]);
             $table->enum('published',[0,1]);
             $table->timestamps();
         });

@@ -9,6 +9,7 @@ use App\Models\Chapter;
 use Alert;
 use Session;
 use Validator;
+use Spatie\Permission\Models\Permission;
 
 class ChapterController extends Controller
 {
@@ -35,12 +36,26 @@ class ChapterController extends Controller
         if ($validator->fails()) {
             return back()->with('toast_error', $validator->messages()->all()[0])->withInput();
         }
+
+        $username = Chapter::latest()->pluck('unique_name')->first();
+        if($username){
+            $usersplit = str_split( $username,6);
+            $usersplit_lts = (int)$usersplit[1] + 1;
+           $unique_name = "LMSCP-".$usersplit_lts;
+            
+        }
+        else{
+            $unique_name = "LMSCP-1";
+           
+        }
         $cat = new Chapter();
         $cat->sub_sub_category_id = $request->subcategory;
         $cat->name = $request->name;
+        $cat->unique_name = $unique_name;
         $cat->status = '0';
 
         if ($cat->save()) {
+            $permission = Permission::create(['name' => $unique_name]);
             toast('Your Post as been submited!','success');
             return Redirect()->route('chapter.indexs',$request->type);
         } else {

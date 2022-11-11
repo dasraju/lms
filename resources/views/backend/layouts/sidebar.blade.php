@@ -89,8 +89,9 @@
 
           </ul>
         </li>
-
-
+        <li class="dropdown {{ areActiveRoutes(['subject.index','subject.create','subject.edit'])}} ">
+          <a href="{{route('course.pending')}}" class="nav-link"><i data-feather="monitor"></i><span>pending Course</span></a>
+        s</li>
 
       </ul>
     </aside>

@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('sub_sub_category_id')->cascadeOnDelete();
             $table->string('name');
+            $table->string('unique_name');
             $table->set('status',['0','1']);
             $table->timestamps();
         });

@@ -18,7 +18,7 @@
             <div class="modal-body">
                 <p>Delete confirmation message</p>
             </div>
-            <form method="POST" id="delete_link">
+            <form method="POST" id="delete_link" >
                 <input name="_method" type="hidden" value="DELETE">
                 @csrf
 

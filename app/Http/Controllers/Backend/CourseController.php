@@ -8,6 +8,7 @@ use App\Models\Course;
 use App\Models\Instructor;
 use DB;
 use Validator;
+use Spatie\Permission\Models\Permission;
 
 class CourseController extends Controller
 {
@@ -20,7 +21,6 @@ class CourseController extends Controller
     {
         $courses = Course::orderBy('created_at', 'desc')->paginate(10);
         return view('backend.pages.course.index', compact('courses'));
-
     }
 
     /**
@@ -86,6 +86,7 @@ class CourseController extends Controller
         }
 
         if($course->save()){
+            $permission = Permission::create(['name' => $unique_id]);
             DB::commit();
             toast('Your Post as been submited!','success');
             return Redirect()->route('course.index');
@@ -192,5 +193,10 @@ class CourseController extends Controller
 
             return back();
         }
+    }
+
+
+    public function pendingCourse(){
+        
     }
 }

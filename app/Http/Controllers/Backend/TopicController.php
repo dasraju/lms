@@ -30,6 +30,7 @@ class TopicController extends Controller
         $validator = Validator::make($request->all(), [ // <---
             'chapter'=>'required',
             'name' => 'required',
+            'type' => 'required'
 
         ]);
         if ($validator->fails()) {
@@ -38,6 +39,7 @@ class TopicController extends Controller
         $cat = new Topic();
         $cat->chapter_id = $request->chapter;
         $cat->name = $request->name;
+        $cat->type = $request->type;
         $cat->status = '0';
 
         if ($cat->save()) {

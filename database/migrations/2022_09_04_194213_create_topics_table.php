@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('chapter_id')->cascadeOnDelete();
             $table->string('name');
+            $table->set('type',['free','paid']);
             $table->set('status',['0','1']);
             $table->timestamps();
         });

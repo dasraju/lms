@@ -42,7 +42,7 @@ class SubjectController extends Controller
 
         if ($cat->save()) {
             toast('Your Post as been submited!','success');
-            return Redirect()->route('sub-cats.index');
+            return Redirect()->route('subject.index');
         } else {
 
             return Redirect()->back()->withInputes();

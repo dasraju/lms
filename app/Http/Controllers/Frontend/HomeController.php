@@ -8,6 +8,11 @@ use App\Models\Chapter;
 use App\Models\Course;
 use App\Models\SubCategory;
 use App\Models\Subject;
+use App\Models\PdfFile;
+use App\Models\VideoSolution;
+use App\Models\Topic;
+use App\Models\User;
+use Auth;
 
 class HomeController extends Controller
 {
@@ -18,6 +23,7 @@ class HomeController extends Controller
     }
 
     public function chapter($type,$chapterId){
+   
 
         switch($type) {
             case 'Revision':
@@ -47,5 +53,15 @@ class HomeController extends Controller
         $data = SubCategory::with('subsubcategories')->where('subject_id',$sub_id)->get();
         return view('frontend.pages.detailsmenu',compact('data','subject'));
 
+    }
+    public function course_details($course_id){
+     return view('frontend.pages.course_details');
+    }
+
+    public function topic_files($id){
+        $topic = Topic::find($id);
+        $notes = PdfFile::with('topic')->where('topic_id',$id)->get();
+        $videoes = VideoSolution::with('topic')->where('topic_id',$id)->get();
+        return view('frontend.pages.topicFiles',compact('notes','videoes','topic'));
     }
 }

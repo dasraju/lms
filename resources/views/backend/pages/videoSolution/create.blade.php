@@ -7,12 +7,12 @@
     <section class="section">
       <div class="row ">
         <div class="col-12 col-md-12 col-lg-12">
-            <form action="{{route('notes.store')}}" method="post" enctype="multipart/form-data">
+            <form action="{{route('video-solution.store')}}" method="post" enctype="multipart/form-data">
                 @csrf
-                @method('patch')
+              
             <div class="card">
                 <div class="card-header">
-                  <h4>Add New Note</h4>
+                  <h4>Add New Video</h4>
                 </div>
                 <div class="card-body">
 
@@ -35,8 +35,8 @@
                                 </div>
                             </div>
                             <div class="form-group col-md-6">
-                                <label>File</label>
-                                <input type="file" name="pdf_file" class="form-control">
+                                <label>Url</label>
+                                <input type="url" name="url" class="form-control">
                               </div>
                             <div class="form-group col-md-6">
                                 <label class="d-block">Permissions</label>
