@@ -1,10 +1,11 @@
 <?php
 use Illuminate\Support\Facades\Route;
 
-Route::get('/','Frontend\HomeController@index');
-Route::get('/user/login-form','Auth\AuthController@loginForm')->name('user.login.form');
+Route::get('/','Frontend\HomeController@index')->name('user.home');
+Route::get('/user/login','Frontend\Auth\AuthController@loginForm')->name('user.login.form');
+Route::post('/user/login','Frontend\Auth\AuthController@login')->name('user.login');
+Route::get('/user/logout','Frontend\Auth\AuthController@logout');
 
-Route::post('/user/login','Auth\AuthController@login')->name('user.login.submit');
 
 Route::get('/detailsmenu/{sub_id}','Frontend\HomeController@detail_menu')->name('subject_details');
 Route::get('/course-details/{course_id}','Frontend\HomeController@course_details')->name('course_details');

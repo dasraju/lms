@@ -26,4 +26,11 @@ class AuthController extends Controller
     public function login(Request $request){
 
     }
+    public function admin_login_form(){
+           return view('backend.pages.auth.login');
+    }
+
+    public function admin_login(){
+
+    }
 }

@@ -24,6 +24,14 @@
                                 @foreach ($notes as $note )
                                 <div class="col-sm-6">
                                     <a href="#"  class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>{{$note->title}}</a>
+
+                                    @if($note->view == '1')
+                                    <a href="#"  class="mb-0 mr-2"><i class="fa fa-eye text-success"></i></a>
+                                    @endif
+                                    @if($note->download == '1')
+                                    <a href="#"  class="mb-0 ml-2"><i class="fa fa-download text-danger"></i></a>
+                                    @endif
+
                                 </div>
                                 @endforeach
                             </div>
