@@ -52,6 +52,7 @@ class ChapterController extends Controller
         $cat->sub_sub_category_id = $request->subcategory;
         $cat->name = $request->name;
         $cat->unique_name = $unique_name;
+        $cat->type = $request->type;
         $cat->status = '0';
 
         if ($cat->save()) {
@@ -82,6 +83,7 @@ class ChapterController extends Controller
         }
         $cat = Chapter::findOrFail($id);
         $cat->sub_sub_category_id = $request->subsubcategory;
+        $cat->type = $request->type;
         $cat->name = $request->name;
 
 

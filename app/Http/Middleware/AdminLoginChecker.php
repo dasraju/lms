@@ -9,6 +9,10 @@ use App\Models\Admin;
 use App\Models\User;
 class AdminLoginChecker
 {
+
+  // protected $except = [
+  //   'admin/login-form'
+  //  ];
     /**
      * Handle an incoming request.
      *
@@ -18,23 +22,12 @@ class AdminLoginChecker
      */
     public function handle(Request $request, Closure $next)
     {
-      $user = User::first();
-        // $credentials['email'] = $user->email;
-        // $credentials['password'] = '123456';
-        $data =Auth::guard('web')->login($user);
+
         if(Auth::guard('admin')->check()){
             return $next($request);
         }
         else{
-            $admin = Admin::first();
-            $credentials['email'] = $admin->email;
-            $credentials['password'] = '123456';
-          if(Auth::guard('admin')->attempt($credentials)){
-            return $next($request);
-          }
-          else{
-            dd('login failed');
-          }
+          return redirect()->route('admin.login');
 
         }
 

@@ -9,6 +9,7 @@
         <div class="col-12 col-md-12 col-lg-12">
             <form action="{{route('notes.store')}}" method="post" enctype="multipart/form-data">
                 @csrf
+               
             <div class="card">
                 <div class="card-header">
                   <h4>Add New Note</h4>

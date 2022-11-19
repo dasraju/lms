@@ -29,6 +29,20 @@
                             <input type="text" class="form-control" id="inputEmail4" name="name" value="{{old('name')}}" placeholder="Chapter Name">
                             <input type="hidden" name="type" value='{{ $type }}'>
                         </div>
+                        <div class="form-group col-md-6">
+                          <label class="d-block">Type</label>
+                          <div class="form-check form-check-inline">
+                            <input class="form-check-input" name="type" type="radio" id="inlineradio1" value="free">
+                            <label class="form-check-label" for="inlineradio1">Free</label>
+                          </div>
+                          <div class="form-check form-check-inline">
+                            <input class="form-check-input" name="type" type="radio" id="inlineradio2" value="paid">
+                            <label class="form-check-label" for="inlineradio2">Paid</label>
+                          </div>
+                    </div>
+
+                  
+
                     </div>
 
 
