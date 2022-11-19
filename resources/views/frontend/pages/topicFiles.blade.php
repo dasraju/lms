@@ -1,5 +1,30 @@
 @extends('frontend.master')
 @section('content')
+<<<<<<< HEAD
+  <!-------Revision Course Name--------->
+    <div class="rev_name">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+            <div class="rev_top">
+              <div class="rev_title">
+                <h1>
+                  {{ $topic->name }}
+                </h1>
+              </div>
+              <div class="rev_search">
+                <div class="input-group">
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Search"
+                    aria-label="Recipient's username"
+                    aria-describedby="button-addon2"
+                  />
+                  <button>
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                  </button>
+=======
 
     <!-- About Start -->
     <div class="container-xxl py-5">
@@ -38,6 +63,7 @@
 
                         </div>
                     </div>
+>>>>>>> 4d27fa731fa59aac15291509546276db5bd69b24
                 </div>
               </div>
             </div>
