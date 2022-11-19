@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Chapter;
 use App\Models\Course;
 use App\Models\SubCategory;
+use App\Models\SubSubCategory;
 use App\Models\Subject;
 use App\Models\PdfFile;
 use App\Models\VideoSolution;
@@ -50,7 +51,7 @@ class HomeController extends Controller
     public function detail_menu($sub_id){
         $subject = Subject::with('category','category.menu')->where('id',$sub_id)->first();
         // dd($subject);
-        $data = SubCategory::with('subsubcategories')->where('subject_id',$sub_id)->get();
+        $data = SubSubCategory::where('subject_id',$sub_id)->orderBy('created_at', 'asc')->get();
         return view('frontend.pages.detailsmenu',compact('data','subject'));
 
     }

@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\SubCategory;
+use App\Models\Subject;
 use App\Models\SubSubCategory;
 use Alert;
 use Session;
@@ -14,13 +14,13 @@ class SubSubController extends Controller
 {
     public function index()
     {
-        $subcats = SubSubCategory::with('subcategory')->orderBy('created_at', 'desc')->paginate(10);
+        $subcats = SubSubCategory::with('subject')->orderBy('created_at', 'desc')->paginate(10);
         return view('backend.pages.subSubCategory.index', compact('subcats'));
     }
 
     public function create()
     {
-        $subcats = SubCategory::all();
+        $subcats = Subject::all();
         return view('backend.pages.subSubCategory.create',compact('subcats'));
     }
 
@@ -35,7 +35,7 @@ class SubSubController extends Controller
             return back()->with('toast_error', $validator->messages()->all()[0])->withInput();
         }
         $cat = new SubSubCategory();
-        $cat->sub_category_id = $request->subcategory;
+        $cat->subject_id = $request->subcategory;
          $cat->name = $request->name;
          $cat->type = $request->type;
         $cat->subsubcat_slug = $request->slug;
@@ -52,7 +52,7 @@ class SubSubController extends Controller
     }
     public function edit($id)
     {
-        $cats = SubCategory::all();
+        $cats = Subject::all();
         $subcat = SubSubCategory::findOrFail($id);
         return view('backend.pages.subSubCategory.edit', compact('subcat','cats'));
     }
@@ -67,7 +67,7 @@ class SubSubController extends Controller
             return back()->with('toast_error', $validator->messages()->all()[0])->withInput();
         }
         $cat = SubSubCategory::findOrFail($id);
-        $cat->sub_category_id = $request->subcategory;
+        $cat->subject_id = $request->subcategory;
         $cat->name = $request->name;
         $cat->type = $request->type;
         $cat->subsubcat_slug = $request->slug;

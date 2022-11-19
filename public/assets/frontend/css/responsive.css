@@ -1,0 +1,609 @@
+@media screen and (max-width: 1199px) {
+  #carousel img {
+    height: 70vh;
+  }
+  .health_title h2 {
+    font-size: 20px;
+    padding: 0px 10px;
+  }
+  #navbar img {
+    width: 160px;
+  }
+  .view {
+    padding: 0px 5px;
+  }
+  .view_video iframe {
+    height: 340px;
+  }
+  .course_title,
+  .course_sub,
+  .course_lvl,
+  .course_tk,
+  .course_btn {
+    padding: 15px 10px;
+  }
+  .course_pagi {
+    margin: 30px 0px 0px 0px;
+  }
+  .rev {
+    margin: 20px 0px 0px 0px;
+    padding: 0px 10px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .details_banner {
+    height: 285px;
+  }
+  .details_top {
+    top: -115px;
+  }
+  .course_det_btn a {
+    height: 45px;
+  }
+  .sticky {
+    top: 6.5rem;
+  }
+  .footer {
+    padding: 50px 60px 20px 60px;
+  }
+  .crs_left {
+    width: 70%;
+  }
+  .crs_right {
+    width: 30%;
+  }
+  .rev_dev_list ul li p i {
+    margin-right: 5px;
+  }
+  .rev_sub_topic {
+    width: 94%;
+  }
+}
+
+/*****************************************************991******************************************************/
+@media screen and (max-width: 991px) {
+  #header_top {
+    padding: 6px 10px;
+  }
+  .navbar-collapse {
+    padding: 20px 0px;
+  }
+  #navbar .navbar-expand-lg .navbar-nav .nav-link {
+    padding: 5px 25px;
+  }
+  #carousel img {
+    height: 65vh;
+  }
+  .card_course {
+    margin: 35px 0px 20px 0px;
+    padding: 0px 32px;
+  }
+  .card_carousel .owl-carousel {
+    padding: 0px 20px;
+  }
+  .health {
+    padding: 0px 20px;
+  }
+  .health_title h2 {
+    font-size: 15px;
+    padding: 0px 5px;
+  }
+
+  .health_link {
+    height: 45px;
+  }
+  .health_link h6 {
+    font-size: 14px;
+    font-weight: 600;
+  }
+  .card_course h1 {
+    font-size: 22px;
+  }
+  .card_course h1 span {
+    font-size: 22px;
+  }
+  .feed_body {
+    padding: 0px 20px;
+  }
+  .feedback .carousel-control-next,
+  .feedback .carousel-control-prev {
+    width: 10%;
+  }
+  .feed_text p {
+    font-size: 14px;
+    line-height: 27px;
+  }
+  .feed_title h6 {
+    margin-bottom: 5px;
+  }
+  .feed_position {
+    margin: 5px 0px;
+  }
+  .footer {
+    padding: 25px 25px 0px 25px;
+    margin-bottom: 20px;
+    margin-top: 25px;
+  }
+  .details_title h1 {
+    font-size: 30px;
+  }
+  .about_course_left {
+    padding-left: 20px;
+  }
+  .about_course_right {
+    margin-right: 20px;
+  }
+  .course_banner {
+    margin-bottom: 30px;
+  }
+  .about_top_title h1 {
+    font-size: 22px;
+  }
+  .course_det_fee,
+  .course_det_cat,
+  .course_det_vali {
+    padding: 0px 10px;
+  }
+  .course_det_fee h4 {
+    font-size: 18px !important;
+  }
+  .course_faq_question h2 a {
+    font-size: 18px;
+  }
+  .course_text_gap {
+    margin-bottom: 10px;
+  }
+  .faq_dotted {
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+  }
+  .carriculum_title h3 {
+    font-size: 22px;
+    margin-bottom: 10px;
+  }
+  .course_accor .accordion-body {
+    padding: 5px 10px;
+  }
+  .course_prev_btn a {
+    width: 85px;
+    height: 30px;
+    font-size: 14px;
+  }
+  .details_banner {
+    height: 260px;
+  }
+  .details_bottom {
+    bottom: -115px;
+  }
+  .view_video iframe {
+    height: 400px;
+  }
+  .view .course_accor {
+    margin-top: 20px;
+  }
+  .courses {
+    margin-bottom: 25px;
+  }
+  .crs_left h1 {
+    font-size: 25px;
+  }
+  .crs_right a {
+    width: 165px;
+    height: 45px;
+    font-size: 16px;
+  }
+  .rev_name {
+    padding: 20px 20px;
+  }
+  .rev_search {
+    width: 35%;
+  }
+  .rev_title {
+    width: 65%;
+  }
+  .rev_title h1 {
+    line-height: 28px;
+    font-size: 20px;
+  }
+  .rev_body {
+    margin-bottom: 20px;
+  }
+}
+/*****************************************************767******************************************************/
+@media screen and (max-width: 767px) {
+  #navbar .navbar {
+    padding: 3px 10px;
+  }
+  #navbar img {
+    width: 135px;
+  }
+  #carousel img {
+    height: 50vh;
+  }
+  .h_top_left ul li a {
+    font-size: 12px;
+  }
+  .h_top_right ul li a {
+    font-size: 12px;
+  }
+  .h_top_right ul li a i {
+    font-size: 12px;
+  }
+  .card_course {
+    margin: 25px 0px 15px 0px;
+    padding: 0px 25px;
+  }
+  .card_carousel .owl-carousel {
+    padding: 0px 10px;
+  }
+  .health {
+    padding: 0px 10px;
+  }
+  .health_item {
+    margin-bottom: 20px;
+  }
+  .details_banner {
+    height: 230px;
+  }
+  .details_bottom {
+    left: 20px;
+    bottom: -105px;
+  }
+  .details_top {
+    left: 20px;
+    top: -100px;
+  }
+  .details_title h1 {
+    font-size: 25px;
+  }
+  .about_top_title h1 {
+    font-size: 20px;
+  }
+  .course_faq_question h2 a {
+    font-size: 17px;
+  }
+  .carriculum_title h3 {
+    font-size: 20px;
+  }
+  .carriculum_icon ul li {
+    font-size: 14px;
+  }
+  .carriculum_icon ul li i {
+    margin-right: 5px;
+    font-size: 15px;
+  }
+  .about_course_right {
+    margin-right: 0px;
+  }
+  .course_accor .accordion-button {
+    font-size: 15px;
+  }
+  .couse_name {
+    width: 60%;
+  }
+  .couse_prev {
+    width: 40%;
+  }
+  .course_accor {
+    margin-bottom: 20px;
+  }
+  .view {
+    margin: 20px 0px 30px 0px;
+  }
+  .view_video iframe {
+    height: 300px;
+  }
+  .course_ban {
+    padding: 0px 20px;
+    flex-direction: column;
+  }
+  .crs_left {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+  .crs_left h1 {
+    font-size: 22px;
+    text-align: center;
+  }
+  .rev {
+    padding: 0px 0px;
+  }
+  .rev_name {
+    padding: 20px 10px;
+  }
+  .rev_top {
+    flex-direction: column;
+  }
+  .rev_sub_topic {
+    width: 96%;
+  }
+  .rev_title {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  .rev_title h1 {
+    line-height: 28px;
+    font-size: 20px;
+    padding-right: 0px;
+    margin-bottom: 20px;
+  }
+  .rev_search {
+    width: 59%;
+  }
+  .past_paper {
+    margin-top: 10px;
+  }
+  .past_paper a {
+    font-size: 18px;
+    padding: 20px 25px;
+  }
+  .menu_list {
+    margin: 20px 0px;
+    padding: 0px 15px;
+  }
+}
+/*****************************************************575******************************************************/
+@media screen and (max-width: 575px) {
+  #bottom-to-top {
+    bottom: 15px;
+    right: 5px;
+    font-size: 20px;
+  }
+  #header_top {
+    padding: 6px 0px;
+  }
+  .h_top_left ul li {
+    margin-right: 15px;
+  }
+  #navbar img {
+    width: 100px;
+  }
+  .h_top_left ul li a i {
+    font-size: 11px;
+    margin-right: 3px;
+  }
+  .h_top_left ul li::after {
+    height: 15px;
+    bottom: 4px;
+    right: -9px;
+  }
+  .h_top_right ul li {
+    margin-right: 20px;
+  }
+  .h_top_right ul li::after {
+    height: 15px;
+    right: -12px;
+  }
+  #carousel img {
+    height: 35vh;
+  }
+  .card_course h1 {
+    font-size: 18px;
+  }
+  .card_course h1 span {
+    font-size: 18px;
+  }
+  .card_carousel .card-body h6 {
+    font-size: 14px;
+    margin: 7px 0px 0px 0px;
+    line-height: 23px;
+  }
+  .card_carousel .card_amount h6 span {
+    font-size: 14px;
+  }
+  .card_carousel .owl-carousel {
+    padding: 0px 0px;
+  }
+  .owl-theme .owl-nav.disabled + .owl-dots {
+    margin-top: 25px;
+  }
+  .card_course {
+    padding: 0px 15px;
+  }
+  .course_card_title {
+    margin-bottom: 5px;
+  }
+  .course_card_title a {
+    min-height: 35px;
+    padding: 2px 18px;
+  }
+  .feed_body {
+    padding: 0px 5px;
+  }
+  .feed_title h6 {
+    margin-bottom: 15px;
+    font-size: 16px;
+  }
+  .feedback .carousel-control-next,
+  .feedback .carousel-control-prev {
+    width: 15%;
+  }
+  .feed_position p span {
+    font-size: 14px;
+    line-height: 25px;
+  }
+  .footer {
+    padding: 20px 5px 0px 5px;
+    margin-bottom: 20px;
+    margin-top: 10px;
+  }
+  .footer_logo img {
+    width: 120px;
+  }
+  .footer_title h6 {
+    font-size: 16px;
+    margin-bottom: 15px;
+  }
+  .foot_r_title h6 {
+    font-size: 16px;
+    margin: 5px 0px 10px 0px;
+  }
+  .foot_links_list li a {
+    font-size: 13px;
+    padding-bottom: 5px;
+  }
+  .footer_r_top {
+    justify-content: flex-start;
+  }
+  .footer_link {
+    margin-right: 40px;
+  }
+  .footer_same p,
+  .footer_same p a {
+    font-size: 13px;
+  }
+  .copy_right small {
+    margin-top: 20px;
+    display: block;
+    text-align: center;
+  }
+  .details_top {
+    left: 5px;
+    top: -85px;
+  }
+  .details_bottom {
+    left: 5px;
+    bottom: -100px;
+  }
+  .details_details ul li {
+    font-size: 14px !important;
+    margin-right: 10px;
+  }
+  .details_details ul li i {
+    margin-right: 5px;
+  }
+  .details_share_text p {
+    font-size: 14px;
+  }
+  .course_banner {
+    margin-bottom: 20px;
+  }
+  .about_course_left {
+    padding-left: 5px;
+  }
+  .about_course_left ul li {
+    padding: 2px 0px;
+  }
+  .course_faq_question h2 a {
+    font-size: 15px;
+  }
+  .carriculum_title h3 {
+    font-size: 18px;
+  }
+  .details_title h1 {
+    font-size: 22px;
+  }
+  .view_video iframe {
+    height: 190px;
+  }
+  .view .course_accor .accordion-button {
+    font-size: 14px;
+    padding: 10px 10px;
+  }
+  .view .course_accor {
+    height: 250px;
+  }
+  .couse_name_pre {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+  .couse_name {
+    width: 100%;
+  }
+  .couse_prev {
+    width: 100%;
+    justify-content: flex-start;
+  }
+  .course_banner {
+    height: 210px;
+  }
+  .crs_left h1 {
+    font-size: 20px;
+  }
+  .crs_right {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+  }
+  .crs_right a {
+    width: 120px;
+    height: 40px;
+    font-size: 14px;
+  }
+  .courses .course_title h4 {
+    font-size: 16px;
+    margin-bottom: 0px;
+  }
+  .course_title,
+  .course_sub,
+  .course_lvl,
+  .course_tk {
+    padding: 15px 10px 0px 10px;
+  }
+  .course_btn {
+    padding: 15px 10px 15px 10px;
+  }
+  .course_btn button {
+    height: 40px;
+    font-size: 14px;
+  }
+  .courses:last-child {
+    margin-bottom: 0px;
+  }
+  .rev {
+    margin: 15px 0px 0px 0px;
+  }
+  .rev_title h1 {
+    line-height: 24px;
+    font-size: 16px;
+    margin-bottom: 15px;
+  }
+  .rev_search {
+    width: 95%;
+  }
+  .rev_sub_name h6 {
+    padding: 7px 10px;
+    color: #fff;
+    font-size: 14px;
+  }
+  .rev_sub_topic ul {
+    width: 99%;
+  }
+  .past_paper a {
+    font-size: 16px;
+    padding: 15px 20px;
+  }
+  .past_paper a:last-child {
+    margin-top: 20px;
+  }
+  .past_paper {
+    margin-top: 10px;
+    flex-direction: column;
+  }
+  .register form {
+    width: 100%;
+    padding: 10px 10px;
+  }
+  .register form h3 {
+    font-size: 20px;
+  }
+  .register label {
+    margin-top: 15px;
+    font-size: 14px;
+  }
+  .register input {
+    height: 40px;
+    margin-top: 5px;
+    font-size: 13px;
+  }
+  .register button {
+    margin-top: 30px;
+    padding: 8px 0;
+    font-size: 14px;
+  }
+}

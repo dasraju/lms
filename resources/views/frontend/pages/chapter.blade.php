@@ -1,5 +1,89 @@
 @extends('frontend.master')
 @section('content')
+<!-------Revision Course Name--------->
+    <div class="rev_name">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+            <div class="rev_top">
+              <div class="rev_title">
+                <h1>MIDDLE SCHOOL PHYSICS REVISION NOTES</h1>
+              </div>
+              <div class="rev_search">
+                <div class="input-group">
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Search"
+                    aria-label="Recipient's username"
+                    aria-describedby="button-addon2"
+                  />
+                  <button>
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-------End Revision Course Name--------->
+
+    <!------- Revision Subject ----------->
+    <div class="rev">
+      <div class="container-fluid">
+        <div class="row">
+             @foreach ($chapters as $key=> $chapter )
+                <div class="col-md-6 col-12">
+                    <div class="rev_body">
+                    <div class="rev_sub_name">
+                        <h6>
+                        <i class="fa-solid fa-book"></i> {{$chapter->name}}
+                        <span>(Free)</span>
+                        </h6>
+                    </div>
+                    <div class="rev_sub_topic">
+                        <ul>
+                            @foreach (topic($chapter->id) as $topic )
+                            <li>
+                                <a href="{{ route('topic.files',$topic->id)  }}"
+                                ><i class="fa-brands fa-slack"></i>{{$topic->name}}</a
+                                >
+                            </li>
+                            @endforeach
+                        
+                        </ul>
+                    </div>
+                    </div>
+                </div>
+             @endforeach   
+      
+        
+          
+        </div>
+      </div>
+    </div>
+    <!------- End Revision Subject ----------->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     <!-- About Start -->
     <div class="container-xxl py-5">

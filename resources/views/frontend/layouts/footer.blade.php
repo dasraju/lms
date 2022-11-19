@@ -1,76 +1,109 @@
-<div class="container-fluid bg-dark text-light footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
-    <div class="container py-5">
-        <div class="row g-5">
-            <div class="col-lg-3 col-md-6">
-                <h4 class="text-white mb-3">Quick Link</h4>
-                <a class="btn btn-link" href="">About Us</a>
-                <a class="btn btn-link" href="">Contact Us</a>
-                <a class="btn btn-link" href="">Privacy Policy</a>
-                <a class="btn btn-link" href="">Terms & Condition</a>
-                <a class="btn btn-link" href="">FAQs & Help</a>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <h4 class="text-white mb-3">Contact</h4>
-                <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>123 Street, New York, USA</p>
-                <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+012 345 67890</p>
-                <p class="mb-2"><i class="fa fa-envelope me-3"></i>info@example.com</p>
-                <div class="d-flex pt-2">
-                    <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-twitter"></i></a>
-                    <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-facebook-f"></i></a>
-                    <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-youtube"></i></a>
-                    <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-linkedin-in"></i></a>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <h4 class="text-white mb-3">Gallery</h4>
-                <div class="row g-2 pt-2">
-                    <div class="col-4">
-                        <img class="img-fluid bg-light p-1" src="img/course-1.jpg" alt="">
-                    </div>
-                    <div class="col-4">
-                        <img class="img-fluid bg-light p-1" src="img/course-2.jpg" alt="">
-                    </div>
-                    <div class="col-4">
-                        <img class="img-fluid bg-light p-1" src="img/course-3.jpg" alt="">
-                    </div>
-                    <div class="col-4">
-                        <img class="img-fluid bg-light p-1" src="img/course-2.jpg" alt="">
-                    </div>
-                    <div class="col-4">
-                        <img class="img-fluid bg-light p-1" src="img/course-3.jpg" alt="">
-                    </div>
-                    <div class="col-4">
-                        <img class="img-fluid bg-light p-1" src="img/course-1.jpg" alt="">
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <h4 class="text-white mb-3">Newsletter</h4>
-                <p>Dolor amet sit justo amet elitr clita ipsum elitr est.</p>
-                <div class="position-relative mx-auto" style="max-width: 400px;">
-                    <input class="form-control border-0 w-100 py-3 ps-4 pe-5" type="text" placeholder="Your email">
-                    <button type="button" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">SignUp</button>
-                </div>
-            </div>
-        </div>
-    </div>
+ <div class="footer">
     <div class="container">
-        <div class="copyright">
-            <div class="row">
-                <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                    &copy; <a class="border-bottom" href="#">Your Site Name</a>, All Right Reserved.
-
-                   
-                </div>
-                <div class="col-md-6 text-center text-md-end">
-                    <div class="footer-menu">
-                        <a href="">Home</a>
-                        <a href="">Cookies</a>
-                        <a href="">Help</a>
-                        <a href="">FQAs</a>
-                    </div>
-                </div>
+      <div class="row">
+        <div class="col-sm-6 col-12">
+          <div class="footer_left">
+            <div class="footer_logo">
+              <a href="index.html"><img src="./images/logo.png" alt="" /></a>
             </div>
+            <div class="footer_addrs">
+              <div class="footer_title">
+                <h6>LifeSpring Consultancy Limited</h6>
+              </div>
+              <div class="footer_adds_text">
+                <div class="main_branch footer_same">
+                  <p>Main Branch</p>
+                  <p>House # 55/2,</p>
+                  <p>Union Heights, Level # 6 & 14,</p>
+                  <p>West Panthapath, Dhaka-1205,</p>
+                  <p>Bangladesh.</p>
+                </div>
+                <div class="local_branch footer_same">
+                  <p>Banani Branch</p>
+                  <p>House # 108, Road # 12, Block # E,</p>
+                  <p>Manama Urban Forest Center, Level # 4,</p>
+                  <p>Banani, Dhaka-1213, Bangladesh</p>
+                </div>
+                <div class="phone_num footer_same">
+                  <p><a href="#">Ph : +8809638 505 505 ,</a></p>
+                  <p><a href="">Ph : +8809638 505 505</a></p>
+                  <p>contact@lifespringint.com</p>
+                </div>
+              </div>
+
+
+            </div>
+          </div>
         </div>
+        <div class="col-sm-6 col-12">
+          <div class="footer_right">
+            <div class="footer_r_top">
+              <div class="footer_link">
+                <div class="foot_r_title">
+                  <h6>Links</h6>
+                </div>
+                <div class="foot_links_list">
+                  <ul>
+                    <li><a href="">News & Blogs</a></li>
+                    <li><a href="">Terms of Service</a></li>
+                    <li><a href="">Free Mental Health</a></li>
+                    <li><a href="">Tests</a></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="footer_about">
+                <div class="foot_r_title">
+                  <h6>About</h6>
+                </div>
+                <div class="foot_links_list">
+                  <ul>
+                    <li><a href="">About Us</a></li>
+                    <li><a href="">Courses</a></li>
+                    <li><a href="">Refund Policy</a></li>
+                    <li><a href="">Privacy Policy</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="footer_r_bottom">
+              <ul>
+                <li>
+                  <a href=""><i class="fa-regular fa-circle-play"></i></a>
+                </li>
+                <li>
+                  <a href=""><i class="fa-brands fa-facebook-f"></i></a>
+                </li>
+                <li>
+                  <a href=""><i class="fa-brands fa-linkedin-in"></i></a>
+                </li>
+                <li>
+                  <a href=""><i class="fa-brands fa-twitter"></i></a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
-</div>
+  </div>
+  <!--------End Footer-------->
+
+  <!------- SSl-------->
+  <div class="ssl">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-9 col-md-10 col-12 text-center">
+          <img src="{{asset('assets/frontend/')}}/img/SSL.png" alt="" />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <div class="copy_right">
+            <small>© 2022 LifeSpring. All Rights Reserved</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-------End SSl-------->

@@ -2,53 +2,90 @@
 @section('content')
 
 
-
-
-    <!-- About Start -->
-    <div class="container-xxl py-5">
-        <div class="container">
-            <div class="row g-5" >
-
-
-
-
-            </div>
-        </div>
-    </div>
-    <!-- About End -->
-
-
-    <!-- Team Start -->
-    <div class="container-xxl ">
-        <div class="container">
-            <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-                <h6 class="section-title bg-white text-center text-primary px-3">Topical</h6>
-                <h1 class="mb-5">Topical Question</h1>
-            </div>
-            <div class="row g-4">
-                @foreach ($chapters as $key=> $chapter )
-                <div class="col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="team-item bg-light">
-                        <div class="overflow-hidden">
-                            <img class="img-fluid" src="img/team-1.jpg" alt="">
-                        </div>
-                        <div class="position-relative d-flex justify-content-center" style="margin-top: -23px;">
-
-                        </div>
-                        <div class="text-center p-4">
-                            <h5 class="mb-0">{{$chapter->name}}</h5>
-                            @foreach (topic($chapter->id) as $topic )
-                            <small>
-                                <a href="#" class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>{{$topic->name}}</a>
-                            </small>
-                            @endforeach
-                        </div>
-                    </div>
+  <!-------Revision Course Name--------->
+    <div class="rev_name">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+            <div class="rev_top">
+              <div class="rev_title">
+                <h1>MIDDLE SCHOOL PHYSICS TOPICAL QUESTION</h1>
+              </div>
+              <div class="rev_search">
+                <div class="input-group">
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Search"
+                    aria-label="Recipient's username"
+                    aria-describedby="button-addon2"
+                  />
+                  <button>
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                  </button>
                 </div>
-                @endforeach
-
+              </div>
             </div>
+          </div>
         </div>
+      </div>
     </div>
-    <!-- Team End -->
+    <!-------End Revision Course Name--------->
+
+    <!------- Revision Subject ----------->
+    <div class="rev">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-6 col-12">
+            <div class="rev_body">
+              <div class="rev_sub_name">
+                <h6>
+                  <i class="fa-regular fa-circle-question"></i> M.C.Q.
+                  <span>(Free)</span>
+                </h6>
+              </div>
+              <div class="rev_sub_topic">
+                <ul>
+                    @foreach ($chapters as $key=> $chapter )
+                    <li>
+                        <a href="topical_details.html"><i class="fa-brands fa-slack"></i>{{$chapter->name}}</a>
+                    </li>
+                    @endforeach
+                  
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-12">
+            <div class="rev_body">
+              <div class="rev_sub_name">
+                <h6>
+                  <i class="fa-solid fa-book-open"></i>THEORY
+                  <span>(Free)</span>
+                </h6>
+              </div>
+              <div class="rev_sub_topic">
+                <ul>
+                  @foreach ($chapters as $key=> $chapter )
+                    <li>
+                        <a href="topical_details.html"><i class="fa-brands fa-slack"></i>{{$chapter->name}}</a>
+                    </li>
+                   @endforeach
+                
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!------- End Revision Subject ----------->
+
+
+
+
+  
+
+
+  
 @endsection

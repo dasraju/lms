@@ -1,18 +1,14 @@
-   <!-- Google Web Fonts -->
-   <link rel="preconnect" href="https://fonts.googleapis.com">
-   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-   <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
 
-   <!-- Icon Font Stylesheet -->
-   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="{{asset('assets/frontend/')}}/css/bootstrap/bootstrap.min.css" />
+  <link rel="stylesheet" href="{{asset('assets/frontend/')}}/css/other/owl.carousel.min.css" />
+  <link rel="stylesheet" href="{{asset('assets/frontend/')}}/css/other/owl.theme.default.min.css" />
+  <link rel="stylesheet" href="{{asset('assets/frontend/')}}/css/other/magnific-popup.css" />
+  <link rel="stylesheet" href="{{asset('assets/frontend/')}}/fontawesome/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 
-   <!-- Libraries Stylesheet -->
-   <link href="{{asset('assets/frontend/')}}/lib/animate/animate.min.css" rel="stylesheet">
-   <link href="{{asset('assets/frontend')}}/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-
-   <!-- Customized Bootstrap Stylesheet -->
-   <link href="{{asset('assets/frontend/')}}/css/bootstrap.min.css" rel="stylesheet">
-
-   <!-- Template Stylesheet -->
-   <link href="{{asset('assets/frontend/')}}/css/style.css" rel="stylesheet">
+  <link rel="stylesheet" href="{{asset('assets/frontend/')}}/css/style.css" />
+  <link rel="stylesheet" href="{{asset('assets/frontend/')}}/css/bootnavbar.css" />
+  <link rel="stylesheet" href="{{asset('assets/frontend/')}}/css/responsive.css" />

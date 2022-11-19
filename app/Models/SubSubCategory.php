@@ -11,8 +11,8 @@ class SubSubCategory extends Model
     use HasFactory;
 
 
-    public function subcategory()
+    public function subject()
     {
-        return $this->belongsTo(SubCategory::class,'sub_category_id','id');
+        return $this->belongsTo(Subject::class);
     }
 }

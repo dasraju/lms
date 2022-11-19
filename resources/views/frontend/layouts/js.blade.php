@@ -1,9 +1,11 @@
-<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-<script src="{{asset('assets/frontend')}}/lib/wow/wow.min.js"></script>
-<script src="{{asset('assets/frontend')}}/lib/easing/easing.min.js"></script>
-<script src="{{asset('assets/frontend')}}/lib/waypoints/waypoints.min.js"></script>
-<script src="{{asset('assets/frontend')}}/lib/owlcarousel/owl.carousel.min.js"></script>
+ <script src="{{asset('assets/frontend')}}/js/jquery-3.5.1.min.js"></script>
+  <script src="{{asset('assets/frontend')}}/js/bootstrap/popper.min.js"></script>
+  <script src="{{asset('assets/frontend')}}/js/bootstrap/bootstrap.min.js"></script>
+  <script src="{{asset('assets/frontend')}}/js/owl.carousel.min.js"></script>
+  <script src="{{asset('assets/frontend')}}/js/jquery.magnific-popup.min.js"></script>
+  <script src="{{asset('assets/frontend')}}/js/main.js"></script>
+  <script src="{{asset('assets/frontend')}}/js/bootnavbar.js"></script>
 
 <!-- Template Javascript -->
 <script src="{{asset('assets/frontend')}}/js/main.js"></script>
+=

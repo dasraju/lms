@@ -19,11 +19,11 @@
         <li class="dropdown {{ areActiveRoutes(['subject.index','subject.create','subject.edit'])}} ">
             <a href="{{route('subject.index')}}" class="nav-link"><i data-feather="monitor"></i><span>Subject</span></a>
         </li>
-        <li class="dropdown {{ areActiveRoutes(['sub-cats.index','sub-cats.create','sub-cats.edit'])}} ">
+        {{-- <li class="dropdown {{ areActiveRoutes(['sub-cats.index','sub-cats.create','sub-cats.edit'])}} ">
             <a href="{{route('sub-cats.index')}}" class="nav-link"><i data-feather="monitor"></i><span>Sub Category</span></a>
-        </li>
+        </li> --}}
         <li class="dropdown {{ areActiveRoutes(['sub-sub-cats.index','sub-sub-cats.create','sub-sub-cats.edit'])}} ">
-            <a href="{{route('sub-sub-cats.index')}}" class="nav-link"><i data-feather="monitor"></i><span>Sub Sub Category</span></a>
+            <a href="{{route('sub-sub-cats.index')}}" class="nav-link"><i data-feather="monitor"></i><span>Sub Category</span></a>
         </li>
 
 

@@ -21,7 +21,7 @@ class TopicController extends Controller
 
     public function create()
     {
-        $chapter = Chapter::with('subsubcategory','subsubcategory.subcategory')->get();
+        $chapter = Chapter::with('subsubcategory','subsubcategory.subject')->get();
         return view('backend.pages.topic.create',compact('chapter'));
     }
 

@@ -29,7 +29,7 @@
                         <td>{{++$key}}</td>
                         <td>{{$subcat->name}}</td>
                         <td>{{$subcat->type}}</td>
-                        <td>{{$subcat->subcategory->name}}</td>
+                        <td>{{$subcat->subject->name}}</td>
                         <td>{{$subcat->subsubcat_slug}}</td>
                         <td>
                                <label class="custom-switch mt-2">

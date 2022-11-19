@@ -22,7 +22,7 @@ class ChapterController extends Controller
 
     public function creates($type)
     {
-        $subcats = SubSubCategory::with('subcategory')->where('type',$type)->get();
+        $subcats = SubSubCategory::with('subject')->where('type',$type)->get();
         return view('backend.pages.chapter.create',compact('subcats','type'));
     }
 
