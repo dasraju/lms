@@ -28,11 +28,11 @@ class HomeController extends Controller
 
         switch($type) {
             case 'Revision':
-                $chapters = Chapter::where('sub_sub_category_id',$chapterId )->get();
-                return view('frontend.pages.chapter',compact('chapters'));
+                $chapters = Chapter::where('sub_sub_category_id',$chapterId )->where('chap_category','revision')->get();
+                return view('frontend.pages.revision',compact('chapters'));
               break;
             case 'Topical':
-                $chapters = Chapter::where('sub_sub_category_id',$chapterId )->get();
+                $chapters = Chapter::where('sub_sub_category_id',$chapterId )->where('chap_category','topical')->get();
                 return view('frontend.pages.topical',compact('chapters'));
               break;
             case 'PastPaper':
@@ -65,4 +65,13 @@ class HomeController extends Controller
         $videoes = VideoSolution::with('topic')->where('topic_id',$id)->get();
         return view('frontend.pages.topicFiles',compact('notes','videoes','topic'));
     }
+
+    public function topical_details($id){
+      return view('frontend.pages.topical_details');
+    }
+
+      public function paper_details($id){
+      return view('frontend.pages.paperDetails');
+    }
+    
 }

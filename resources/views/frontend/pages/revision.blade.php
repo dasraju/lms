@@ -40,10 +40,15 @@
                     <div class="rev_sub_name">
                         <h6>
                         <i class="fa-solid fa-book"></i> {{$chapter->name}}
+                        @if($chapter->type =='free')
                         <span>(Free)</span>
+                        @else
+                        <span>(Premium)</span>
+                        @endif
                         </h6>
                     </div>
                     <div class="rev_sub_topic">
+                         @if($chapter->type =='free')
                         <ul>
                             @foreach (topic($chapter->id) as $topic )
                             <li>
@@ -54,6 +59,14 @@
                             @endforeach
                         
                         </ul>
+                        @else
+                         <ul>
+                            <li>
+                                <span>No free topic</span>
+                            </li>
+                         </ul>
+
+                        @endif
                     </div>
                     </div>
                 </div>

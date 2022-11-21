@@ -47,9 +47,11 @@
               <div class="rev_sub_topic">
                 <ul>
                     @foreach ($chapters as $key=> $chapter )
-                    <li>
-                        <a href="topical_details.html"><i class="fa-brands fa-slack"></i>{{$chapter->name}}</a>
-                    </li>
+                     @if ($chapter->topic_type == 'mcq')
+                      <li>
+                            <a href="{{route('topical.details',$chapter->id)}}"><i class="fa-brands fa-slack"></i>{{$chapter->name}}</a>
+                      </li>
+                      @endif
                     @endforeach
                   
                 </ul>
@@ -67,9 +69,12 @@
               <div class="rev_sub_topic">
                 <ul>
                   @foreach ($chapters as $key=> $chapter )
-                    <li>
-                        <a href="topical_details.html"><i class="fa-brands fa-slack"></i>{{$chapter->name}}</a>
+                  @if ($chapter->topic_type == 'theory')
+                  <li>
+                        <a href="{{route('topical.details',$chapter->id)}}"><i class="fa-brands fa-slack"></i>{{$chapter->name}}</a>
                     </li>
+                  @endif
+                    
                    @endforeach
                 
                 </ul>

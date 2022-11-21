@@ -19,6 +19,8 @@ return new class extends Migration
             $table->string('name');
             $table->string('unique_name');
             $table->set('type',['free','paid']);
+            $table->set('chap_category',['revision','topical']);
+            $table->set('topic_type',['mcq','theory'])->nullable( );
             $table->set('status',['0','1']);
             $table->timestamps();
         });

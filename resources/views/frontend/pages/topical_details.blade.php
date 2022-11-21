@@ -1,13 +1,16 @@
 @extends('frontend.master')
 @section('content')
-    <!-------Revision Course Name--------->
+ <!-------Revision Course Name--------->
     <div class="rev_name">
       <div class="container-fluid">
         <div class="row">
           <div class="col-12">
             <div class="rev_top">
               <div class="rev_title">
-                <h1>MIDDLE SCHOOL PHYSICS RESOURCES</h1>
+                <h1>
+                  MIDDLE SCHOOL PHYSICS TOPICAL QUESTION M.C.Q. 1 FORCES AND
+                  MOTION
+                </h1>
               </div>
               <div class="rev_search">
                 <div class="input-group">
@@ -38,7 +41,7 @@
             <div class="rev_body">
               <div class="rev_sub_name">
                 <h6>
-                  <i class="fa-solid fa-book-bookmark"></i> SYLLABUS
+                  <i class="fa-regular fa-circle-question"></i> PDF QUESTION
                   <span>(Free)</span>
                 </h6>
               </div>
@@ -85,7 +88,7 @@
             <div class="rev_body">
               <div class="rev_sub_name">
                 <h6>
-                  <i class="fa-solid fa-file-pdf"></i> PDF BOOKS
+                  <i class="fa-solid fa-file-pdf"></i> PDF SOLUTION
                   <span>(premium)</span>
                 </h6>
               </div>
@@ -129,7 +132,7 @@
             <div class="rev_body">
               <div class="rev_sub_name">
                 <h6>
-                  <i class="fa-solid fa-book-tanakh"></i> SPECIMEN PAPERS
+                  <i class="fa-solid fa-video"></i> VIDEO SOLUTION
                   <span>(premium)</span>
                 </h6>
               </div>
@@ -173,8 +176,4 @@
       </div>
     </div>
     <!------- End Revision Subject ----------->
-
-
-
-   
 @endsection

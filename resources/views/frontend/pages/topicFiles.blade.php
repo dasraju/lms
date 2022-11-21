@@ -45,7 +45,7 @@
               <div class="rev_sub_name">
                 <h6>
                   <i class="fa-regular fa-pen-to-square"></i> notes
-                  <span>(Free)</span>
+                  <span>(Premium)</span>
                 </h6>
               </div>
               <div class="rev_sub_topic rev_dev_list">
@@ -56,9 +56,19 @@
                         <p><i class="fa-brands fa-slack"></i>{{$note->title}}</p>
                         </div>
                         <div class="rev_det_icon">
-                        <button><i class="fa-regular fa-eye"></i></button
-                        ><button><i class="fa-solid fa-download"></i></button
-                        ><button><i class="fa-solid fa-lock"></i></button>
+                          @if ($note->price_type == 'paid' || $note->published == '0')
+                            <button><i class="fa-solid fa-lock"></i></button>
+                          @else
+                             @if ($note->view == '1')
+                               <button><i class="fa-regular fa-eye"></i></button>
+                             @endif
+                             @if ($note->download == '1')
+                                <button><i class="fa-solid fa-download"></i></button>
+                             @endif
+                            
+                          @endif
+                        
+                        
                         </div>
                     </li>
                     @endforeach
@@ -83,9 +93,17 @@
                         <p><i class="fa-brands fa-slack"></i>{{$video->title}}</p>
                         </div>
                         <div class="rev_det_icon">
-                        <button><i class="fa-regular fa-eye"></i></button
-                        ><button><i class="fa-solid fa-download"></i></button
-                        ><button><i class="fa-solid fa-lock"></i></button>
+                          @if ($video->price_type == 'paid' || $note->published == '0')
+                            <button><i class="fa-solid fa-lock"></i></button>
+                          @else
+                             @if ($video->view == '1')
+                               <button><i class="fa-regular fa-eye"></i></button>
+                             @endif
+                             @if ($video->download == '1')
+                                <button><i class="fa-solid fa-download"></i></button>
+                             @endif
+                            
+                          @endif
                         </div>
                     </li>
                     @endforeach

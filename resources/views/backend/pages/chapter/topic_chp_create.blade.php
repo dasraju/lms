@@ -28,7 +28,7 @@
                             <label for="inputEmail4">Name</label>
                             <input type="text" class="form-control" id="inputEmail4" name="name" value="{{old('name')}}" placeholder="Chapter Name">
                             <input type="hidden" name="type" value='{{ $type }}'>
-                            <input type="hidden" name="chap_category" value='revision'>
+                            <input type="hidden" name="chap_category" value='topical'>
                         </div>
                         <div class="form-group col-md-6">
                           <label class="d-block">Type</label>
@@ -40,7 +40,18 @@
                             <input class="form-check-input" name="type" type="radio" id="inlineradio2" value="paid">
                             <label class="form-check-label" for="inlineradio2">Paid</label>
                           </div>
-                    </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                          <label class="d-block"> Topic Type</label>
+                          <div class="form-check form-check-inline">
+                            <input class="form-check-input" name="topic_type" required type="radio" id="inlineradio3" value="mcq">
+                            <label class="form-check-label" for="inlineradio3">Mcq</label>
+                          </div>
+                          <div class="form-check form-check-inline">
+                            <input class="form-check-input" name="topic_type"  type="radio" id="inlineradio44" value="theory">
+                            <label class="form-check-label" for="inlineradio44">Theory</label>
+                          </div>
+                        </div>
 
                   
 

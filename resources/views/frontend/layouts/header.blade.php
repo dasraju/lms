@@ -96,7 +96,7 @@
               
               
               <li class="nav-item">
-                <a class="nav-link" href="course.html">Courses</a>
+                <a class="nav-link" href="{{route('course.list')}}">Courses</a>
               </li>
              
             </ul>

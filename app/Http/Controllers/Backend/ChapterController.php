@@ -23,7 +23,13 @@ class ChapterController extends Controller
     public function creates($type)
     {
         $subcats = SubSubCategory::with('subject')->where('type',$type)->get();
-        return view('backend.pages.chapter.create',compact('subcats','type'));
+        if($type == 'Revision'){
+          return view('backend.pages.chapter.create',compact('subcats','type'));
+        }
+        else{
+          return view('backend.pages.chapter.topic_chp_create',compact('subcats','type'));
+        }
+        
     }
 
     public function store(Request $request)
@@ -31,6 +37,7 @@ class ChapterController extends Controller
         $validator = Validator::make($request->all(), [ // <---
             'subcategory'=>'required',
             'name' => 'required',
+            'chap_category' =>'required'
 
         ]);
         if ($validator->fails()) {
@@ -51,9 +58,14 @@ class ChapterController extends Controller
         $cat = new Chapter();
         $cat->sub_sub_category_id = $request->subcategory;
         $cat->name = $request->name;
+        $cat->chap_category = $request->chap_category;
         $cat->unique_name = $unique_name;
         $cat->type = $request->type;
         $cat->status = '0';
+
+        if($request->chap_category == 'topical'){
+            $cat->topic_type =  $request->topic_type;
+        }
 
         if ($cat->save()) {
             $permission = Permission::create(['name' => $unique_name]);
