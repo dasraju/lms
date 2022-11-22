@@ -36,6 +36,13 @@ class AuthController extends Controller
         }
 
 
+
+
+    }
+
+    public function regForm(){
+        return view('frontend.pages.auth.register');
+        
     }
     public function logout(){
         Auth::guard('web')->logout();

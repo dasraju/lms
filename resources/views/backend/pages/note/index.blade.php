@@ -33,15 +33,15 @@
                         <td>{{'...'. Str::limit($note->file_name,8)}}</td>
                         <td>
                                <label class="custom-switch mt-2"> Published
-                                    <input  onchange="alert('$this.val')" type="checkbox" name="custom-switch-checkbox" {{$note->published =='1'?'checked':'' }} class="custom-switch-input">
+                                    <input id="notepublished"   onchange="change_status($(this),'{{route('admin.status.change',['pdfnote',$note->id,'published'])}}' )" type="checkbox" name="custom-switch-checkbox" {{$note->published =='1'?'checked':'' }} class="custom-switch-input">
                                     <span class="custom-switch-indicator"></span>
                               </label>
                               <label class="custom-switch mt-2"> View
-                                <input  onchange="alert('$this.val')" type="checkbox" name="custom-switch-checkbox" {{$note->view =='1'?'checked':'' }} class="custom-switch-input">
+                                <input id="noteview"   onchange="change_status($(this),'{{route('admin.status.change',['pdfnote',$note->id,'view'])}}' )" type="checkbox" name="custom-switch-checkbox" {{$note->view =='1'?'checked':'' }} class="custom-switch-input">
                                 <span class="custom-switch-indicator"></span>
                               </label>
                              <label class="custom-switch mt-2"> Download
-                                <input  onchange="alert('$this.val')" type="checkbox" name="custom-switch-checkbox" {{$note->download =='1'?'checked':'' }} class="custom-switch-input">
+                                <input  id="notedownload"  onchange="change_status($(this),'{{route('admin.status.change',['pdfnote',$note->id,'download'])}}' )" type="checkbox" name="custom-switch-checkbox" {{$note->download =='1'?'checked':'' }} class="custom-switch-input">
                                 <span class="custom-switch-indicator"></span>
                              </label>
 
@@ -103,15 +103,15 @@
                             <td>{{'...'. Str::limit($video->url,8)}}</td>
                             <td>
                                    <label class="custom-switch mt-2"> Published
-                                        <input  onchange="alert('$this.val')" type="checkbox" name="custom-switch-checkbox" {{$video->published =='1'?'checked':'' }} class="custom-switch-input">
+                                        <input id="videopublished"  onchange="change_status($(this),'{{route('admin.status.change',['videosolution',$video->id,'published'])}}' )" type="checkbox" name="custom-switch-checkbox" {{$video->published =='1'?'checked':'' }} class="custom-switch-input">
                                         <span class="custom-switch-indicator"></span>
                                   </label>
                                   <label class="custom-switch mt-2"> View
-                                    <input  onchange="alert('$this.val')" type="checkbox" name="custom-switch-checkbox" {{$video->view =='1'?'checked':'' }} class="custom-switch-input">
+                                    <input id="videoview"   onchange="change_status($(this),'{{route('admin.status.change',['videosolution',$video->id,'view'])}}' )" type="checkbox" name="custom-switch-checkbox" {{$video->view =='1'?'checked':'' }} class="custom-switch-input">
                                     <span class="custom-switch-indicator"></span>
                                   </label>
                                  <label class="custom-switch mt-2"> Download
-                                    <input  onchange="alert('$this.val')" type="checkbox" name="custom-switch-checkbox" {{$video->download =='1'?'checked':'' }} class="custom-switch-input">
+                                    <input id="videodownload" onchange="change_status($(this),'{{route('admin.status.change',['videosolution',$video->id,'download'])}}' )" type="checkbox" name="custom-switch-checkbox" {{$video->download =='1'?'checked':'' }} class="custom-switch-input">
                                     <span class="custom-switch-indicator"></span>
                                  </label>
     

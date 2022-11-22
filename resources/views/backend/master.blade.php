@@ -33,7 +33,23 @@
 @include('backend.layouts.js')
 @yield('page-js')
 @include('sweetalert::alert')
-
+ <script>
+    function change_status(yy,dataUrl){
+         let id = yy.attr('id')
+        const cb = document.querySelector('#'+id);
+        console.log(cb.checked);
+        if(cb.checked){
+            var newurl = dataUrl+'?status=1';
+        }else{
+            var newurl = dataUrl+'?status=0';
+        }
+        console.log(newurl);
+        $.get(newurl, function(data){
+            console.log(data)
+            
+        });
+      };
+ </script>
 </body>
 {{-- heelo --}}
 <!-- index.html  21 Nov 2019 03:47:04 GMT -->

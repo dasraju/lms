@@ -201,7 +201,7 @@
         <div class="row">
           <div class="col">
             <div class="card">
-              <a href="course_details.html"><img src=".{{asset('assets/frontend/')}}/img/courses/course-3.jpg" class="card-img-top" alt="" /></a>
+              <a href="course_details.html"><img src="{{asset('assets/frontend/')}}/img/courses/course-3.jpg" class="card-img-top" alt="" /></a>
 
               <div class="card-body">
                 <h6 class="card-title">

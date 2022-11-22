@@ -22,8 +22,8 @@
               </div>
               <div class="h_top_right">
                 <ul>
-                  <li><a href="">log in</a></li>
-                  <li><a href="">Register</a></li>
+                  <li><a href="{{ route('user.login.form') }}">log in</a></li>
+                  <li><a href="{{ route('user.registration') }}">Register</a></li>
                   <li>
                     <a href=""><i class="fa-brands fa-facebook-f"></i></a>
                   </li>

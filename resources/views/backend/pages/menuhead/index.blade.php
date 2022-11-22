@@ -28,7 +28,7 @@
 
                         <td>
                                <label class="custom-switch mt-2">
-                                    <input id='statuscheck'  onchange="change_status('{{route('admin.status.change',['menuhead',$cat->id])}}' )" type="checkbox" name="custom-switch-checkbox" {{$cat->status =='1'?'checked':'' }} class="custom-switch-input">
+                                    <input id='statuscheck'  onchange="change_status($(this),'{{route('admin.status.change',['menuhead',$cat->id,'status'])}}' )" type="checkbox" name="custom-switch-checkbox" {{$cat->status =='1'?'checked':'' }} class="custom-switch-input">
                                     <span class="custom-switch-indicator"></span>
                               </label>
 
@@ -70,20 +70,7 @@
 @endsection
 @section('page-js')
 <script>
-      function change_status(dataUrl){
-        const cb = document.querySelector('#statuscheck');
-        console.log(cb.checked);
-        if(cb.checked){
-            var newurl = dataUrl+'?status=1';
-        }else{
-            var newurl = dataUrl+'?status=0';
-        }
-        console.log(newurl);
-        $.get(newurl, function(data){
-            console.log(data)
-            
-        });
-      };
+      
 
 </script>
     

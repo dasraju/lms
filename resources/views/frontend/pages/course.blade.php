@@ -30,7 +30,7 @@
             <div class="courses">
               <div class="course_img">
                 <a href="{{route('course.details',11)}}">
-                  <img src="./images/courses/course-1.jpg" alt="course-1" />
+                  <img src="{{asset('assets/frontend/')}}/img/courses/course-1.jpg" alt="course-1" />
                 </a>
                 <div class="offer percent">
                   <p>FEATURED</p>
@@ -98,7 +98,7 @@
             <div class="courses">
               <div class="course_img">
                 <a href="{{route('course.details',11)}}">
-                  <img src="./images/courses/course-1.jpg" alt="course-1" />
+                  <img src="{{asset('assets/frontend/')}}/img/courses/course-1.jpg" alt="course-1" />
                 </a>
                 <div class="offer percent">
                   <p>FEATURED</p>

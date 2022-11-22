@@ -3,6 +3,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/','Frontend\HomeController@index')->name('user.home');
 Route::get('/user/login','Frontend\Auth\AuthController@loginForm')->name('user.login.form');
+
+Route::get('/user/register','Frontend\Auth\AuthController@regForm')->name('user.registration');
+
 Route::post('/user/login','Frontend\Auth\AuthController@login')->name('user.login');
 Route::get('/user/logout','Frontend\Auth\AuthController@logout');
 
