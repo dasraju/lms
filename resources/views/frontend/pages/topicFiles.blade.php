@@ -93,7 +93,7 @@
                         <p><i class="fa-brands fa-slack"></i>{{$video->title}}</p>
                         </div>
                         <div class="rev_det_icon">
-                          @if ($video->price_type == 'paid' || $note->published == '0')
+                          @if ($video->price_type == 'paid' || $video->published == '0')
                             <button><i class="fa-solid fa-lock"></i></button>
                           @else
                              @if ($video->view == '1')
