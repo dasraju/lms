@@ -60,7 +60,7 @@
                   <a href="{{route('chapter.indexs','PastPaper')}}" class="nav-link"><i data-feather="monitor"></i><span>Chapter</span></a>
               </li>
               <li class="dropdown {{ areActiveRoutes(['topic.index','topic.create','topic.edit'])}} ">
-                  <a href="{{route('topic.index')}}" class="nav-link"><i data-feather="monitor"></i><span>Topic</span></a>
+                  <a href="{{route('parts.index')}}" class="nav-link"><i data-feather="monitor"></i><span>Parts</span></a>
               </li>
             </ul>
           </li>
