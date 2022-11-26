@@ -7,7 +7,7 @@
     <section class="section">
       <div class="row ">
         <div class="col-12 col-md-12 col-lg-12">
-            <form action="{{route('chapter.store')}}" method="post">
+            <form action="{{route('parts.store')}}" method="post">
                 @csrf
             <div class="card">
                 <div class="card-header">
@@ -26,9 +26,9 @@
                         </div>
                         <div class="form-group col-md-6">
                             <label for="inputEmail4">Name</label>
-                            <input type="text" class="form-control" id="inputEmail4" name="name" value="{{old('name')}}" placeholder="Chapter Name">
-                            <input type="hidden" name="type" value='{{ $type }}'>
-                            <input type="hidden" name="chap_category" value='revision'>
+                            <input type="text" class="form-control" id="inputEmail4" name="name" value="{{old('name')}}" placeholder="Part Name">
+                            
+                            <input type="hidden" name="part_category" value='pastpaper'>
                         </div>
                         <div class="form-group col-md-6">
                           <label class="d-block">Type</label>

@@ -4,17 +4,24 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Part;
+use App\Models\SubSubCategory;
+use Alert;
+use Session;
+use Validator;
+use Spatie\Permission\Models\Permission;
+use DB;
 
 class PartController extends Controller
 {
     public function index()
     {
-        $chapters= Chapter::with('subsubcategory')->orderBy('created_at', 'desc')->paginate(10);
+        $parts= Part::with('subsubcategory')->orderBy('created_at', 'desc')->paginate(10);
 
-        return view('backend.pages.part.index', compact('chapters'));
+        return view('backend.pages.part.index', compact('parts'));
     }
 
-    public function create($type)
+    public function create()
     {
         $subcats = SubSubCategory::with('subject')->where('type','pastpaper')->get();
         return view('backend.pages.part.create',compact('subcats'));
@@ -32,10 +39,11 @@ class PartController extends Controller
         if ($validator->fails()) {
             return back()->with('toast_error', $validator->messages()->all()[0])->withInput();
         }
+        DB::beginTransaction();
 
-        $username = Chapter::latest()->pluck('unique_name')->first();
+        $username = Part::latest()->pluck('unique_name')->first();
         if($username){
-            $usersplit = str_split( $username,6);
+            $usersplit = str_split( $username,5);
             $usersplit_lts = (int)$usersplit[1] + 1;
            $unique_name = "LMSN-".$usersplit_lts;
             
@@ -44,10 +52,10 @@ class PartController extends Controller
             $unique_name = "LMSN-1";
            
         }
-        $cat = new Chapter();
+        $cat = new Part();
         $cat->sub_sub_category_id = $request->subcategory;
         $cat->name = $request->name;
-        $cat->part_category = $request->chap_category;
+        $cat->part_category = $request->part_category;
         $cat->unique_name = $unique_name;
         $cat->type = $request->type;
         $cat->status = '0';
@@ -58,10 +66,11 @@ class PartController extends Controller
 
         if ($cat->save()) {
             $permission = Permission::create(['name' => $unique_name]);
+            DB::commit();
             toast('Part Created Successfully','success');
-            return Redirect()->route('part.index');
+            return Redirect()->route('parts.index');
         } else {
-
+                DB::rollback();
             return Redirect()->back()->withInputes();
         }
 

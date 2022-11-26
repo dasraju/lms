@@ -9,8 +9,8 @@
         <div class="col-12 col-md-12 col-lg-12">
             <div class="card">
             <div class="card-header">
-                <h4>Chapter Details</h4>
-                <a href="{{route('chapter.creates',$type)}}" class="btn btn-sm btn-primary text-right"> Create New +</a>
+                <h4>Part Details</h4>
+                <a href="{{route('parts.create')}}" class="btn btn-sm btn-primary text-right"> Create New +</a>
             </div>
             <div class="card-body p-0">
                 <div class="table-responsive">
@@ -23,7 +23,7 @@
                     <th>Status</th>
                     <th>Action</th>
                     </tr>
-                     @foreach ($chapters as $key=>$ch)
+                     @foreach ($parts as $key=>$ch)
                      <tr>
                         <td>{{++$key}}</td>
                         <td>{{$ch->name}}</td>
@@ -39,8 +39,8 @@
                         </td>
 
                         <td>
-                            <a href="{{route('chapter.edit',$ch->id)}}" class="btn btn-primary">Edit</a>
-                            <a href="javascript:void(0)" onclick="confirm_modal('{{route('chapter.destroy',$ch->id)}}')" class="btn btn-danger">Delete</a>
+                            <a href="{{route('parts.edit',$ch->id)}}" class="btn btn-primary">Edit</a>
+                            <a href="javascript:void(0)" onclick="confirm_modal('{{route('parts.destroy',$ch->id)}}')" class="btn btn-danger">Delete</a>
                         </td>
                     </tr>
                      @endforeach
