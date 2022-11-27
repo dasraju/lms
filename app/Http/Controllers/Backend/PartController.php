@@ -14,17 +14,18 @@ use DB;
 
 class PartController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $parts= Part::with('subsubcategory')->orderBy('created_at', 'desc')->paginate(10);
-
-        return view('backend.pages.part.index', compact('parts'));
+        $createcat = $request->get('indexcat');
+        $parts= Part::with('subsubcategory')->where('part_category',$createcat)->orderBy('created_at', 'desc')->paginate(10);
+        return view('backend.pages.part.index', compact('parts','createcat'));
     }
 
-    public function create()
+    public function create(Request $request)
     {
-        $subcats = SubSubCategory::with('subject')->where('type','pastpaper')->get();
-        return view('backend.pages.part.create',compact('subcats'));
+        $createcat = $request->get('createform');
+        $subcats = SubSubCategory::with('subject')->where('type',$createcat)->get();
+        return view('backend.pages.part.create',compact('subcats','createcat'));
 
     }
 
@@ -68,19 +69,24 @@ class PartController extends Controller
             $permission = Permission::create(['name' => $unique_name]);
             DB::commit();
             toast('Part Created Successfully','success');
-            return Redirect()->route('parts.index');
+            $url = route('parts.index').'?indexcat='.$request->part_category;
+            return redirect()->to($url);
+            
         } else {
-                DB::rollback();
+            DB::rollback();
             return Redirect()->back()->withInputes();
         }
 
     }
-    public function edit($id)
+    public function edit(Request $request,$id)
     {
-        $subcats = SubSubCategory::all();
+        $editcat=$request->get('editcat');
+        $subcats = SubSubCategory::with('subject')->where('type',$editcat)->get();
         $part = Part::findOrFail($id);
         return view('backend.pages.part.edit', compact('subcats','part'));
     }
+
+
     public function update(Request $request, $id)
     {
         $validator = Validator::make($request->all(), [ // <---
@@ -91,30 +97,30 @@ class PartController extends Controller
         if ($validator->fails()) {
             return back()->with('toast_error', $validator->messages()->all()[0])->withInput();
         }
-        $cat = Chapter::findOrFail($id);
+        $cat = Part::findOrFail($id);
         $cat->sub_sub_category_id = $request->subsubcategory;
         $cat->type = $request->type;
         $cat->name = $request->name;
 
-
         if ($cat->save()) {
-            toast('Category Updated','success');
-            return Redirect()->route('chapter.indexs');
+            toast('Part Updated','success');
+            $url = route('parts.index').'?indexcat='.$cat->part_category;
+            
         } else {
             toast('Operation Failed','error');
             return Redirect()->back()->withInputes();
         }
-        return Redirect()->route('chapter.indexs');
+        return redirect()->to($url);
     }
-
     public function destroy($id)
     {
-        if (Chapter::destroy($id)) {
 
+        $part = Part::find($id);
+        $permission = Permission::where('name',$part->unique_name)->delete();
+        if (Part::destroy($id)) {
+            return redirect()->route('parts.index');
 
-            return redirect()->route('chapter.indexs');
         } else {
-
             return back();
         }
     }

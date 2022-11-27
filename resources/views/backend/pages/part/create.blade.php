@@ -28,7 +28,7 @@
                             <label for="inputEmail4">Name</label>
                             <input type="text" class="form-control" id="inputEmail4" name="name" value="{{old('name')}}" placeholder="Part Name">
                             
-                            <input type="hidden" name="part_category" value='pastpaper'>
+                            <input type="hidden" name="part_category" value={{ $createcat }}>
                         </div>
                         <div class="form-group col-md-6">
                           <label class="d-block">Type</label>

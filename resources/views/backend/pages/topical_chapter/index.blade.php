@@ -9,8 +9,8 @@
         <div class="col-12 col-md-12 col-lg-12">
             <div class="card">
             <div class="card-header">
-                <h4>Part Details</h4>
-                <a href="{{route('parts.create').'?createform='.$createcat}}" class="btn btn-sm btn-primary text-right"> Create New +</a>
+                <h4> Topical Chapter Details</h4>
+                <a href="{{route('topical-chapter.create')}}" class="btn btn-sm btn-primary text-right"> Create New +</a>
             </div>
             <div class="card-body p-0">
                 <div class="table-responsive">
@@ -23,11 +23,11 @@
                     <th>Status</th>
                     <th>Action</th>
                     </tr>
-                     @foreach ($parts as $key=>$ch)
+                     @foreach ($chapters as $key=>$ch)
                      <tr>
                         <td>{{++$key}}</td>
                         <td>{{$ch->name}}</td>
-                        <td>{{$ch->subsubcategory->name}}</td>
+                        <td>{{$ch->part->name}}</td>
 
                         <td>
                                <label class="custom-switch mt-2">
@@ -39,8 +39,8 @@
                         </td>
 
                         <td>
-                            <a href="{{route('parts.edit',$ch->id).'?editcat='.$ch->part_category}}" class="btn btn-primary">Edit</a>
-                            <a href="javascript:void(0)" onclick="confirm_modal('{{route('parts.destroy',$ch->id)}}')" class="btn btn-danger">Delete</a>
+                            <a href="{{route('topical-chapter.edit',$ch->id)}}" class="btn btn-primary">Edit</a>
+                            <a href="javascript:void(0)" onclick="confirm_modal('{{route('topical-chapter.destroy',$ch->id)}}')" class="btn btn-danger">Delete</a>
                         </td>
                     </tr>
                      @endforeach

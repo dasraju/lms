@@ -14,6 +14,7 @@ Route::group([ 'middleware' => 'admin'], function() {
     Route::resource('sub-cats', 'SubCategoryController');
     Route::resource('sub-sub-cats', 'SubSubController');
     Route::resource('chapter', 'ChapterController');
+    Route::resource('topical-chapter', 'TopicalChapterController');
     Route::get('chapter/indexs/{type}', 'ChapterController@indexs')->name('chapter.indexs');
     Route::get('chapter/creates/{type}', 'ChapterController@creates')->name('chapter.creates');
     Route::resource('topic', 'TopicController');
