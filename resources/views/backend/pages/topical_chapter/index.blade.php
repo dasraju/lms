@@ -10,7 +10,7 @@
             <div class="card">
             <div class="card-header">
                 <h4> Topical Chapter Details</h4>
-                <a href="{{route('topical-chapter.create')}}" class="btn btn-sm btn-primary text-right"> Create New +</a>
+                <a href="{{route('topical-chapter.create').'?category='.$category}}" class="btn btn-sm btn-primary text-right"> Create New +</a>
             </div>
             <div class="card-body p-0">
                 <div class="table-responsive">
@@ -26,7 +26,7 @@
                      @foreach ($chapters as $key=>$ch)
                      <tr>
                         <td>{{++$key}}</td>
-                        <td>{{$ch->name}}</td>
+                        <td><a href="{{ route('topical.pdf.index',$ch->id) }}"> {{$ch->name}}</a> </td>
                         <td>{{$ch->part->name}}</td>
 
                         <td>

@@ -13,18 +13,20 @@ use Validator;
 
 class TopicalChapterController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $chapters= TopicalChapter::with('part')->orderBy('created_at', 'desc')->paginate(10);
+        $category = $request->get('category');
+        $chapters= TopicalChapter::with('part')->where('chap_category', $category)->orderBy('created_at', 'desc')->paginate(10);
 
-        return view('backend.pages.topical_chapter.index', compact('chapters'));
+        return view('backend.pages.topical_chapter.index', compact('chapters','category'));
     }
 
-    public function create()
+    public function create(Request $request)
     {
+        $category = $request->get('category');
         $parts = Part::with('subsubcategory')->where('part_category','topical')->get();
 
-          return view('backend.pages.topical_chapter.create',compact('parts'));
+          return view('backend.pages.topical_chapter.create',compact('parts','category'));
         
     }
 
@@ -41,12 +43,14 @@ class TopicalChapterController extends Controller
 
         $cat = new TopicalChapter();
         $cat->part_id = $request->part;
+        $cat->chap_category = $request->chap_category;
         $cat->name = $request->name;
         $cat->type = $request->type;
         $cat->status = '0';
         if ($cat->save()){
             toast('Topical Chapter Created Successfully','success');
-             return Redirect()->route('topical-chapter.index');
+            $url = route('topical-chapter.index').'?category='.$request->chap_category;
+            return redirect()->to($url);
         } else {
             return Redirect()->back()->withInputes();
         }
@@ -75,7 +79,8 @@ class TopicalChapterController extends Controller
         $cat->name = $request->name;
         if ($cat->save()) {
             toast('Category Updated','success');
-            return Redirect()->route('topical-chapter.index');
+            $url = route('topical-chapter.index').'?category='.$cat->chap_category;
+            return redirect()->to($url);
         } else {
             toast('Operation Failed','error');
             return Redirect()->back()->withInputes();

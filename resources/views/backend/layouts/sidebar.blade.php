@@ -45,7 +45,7 @@
                 data-feather="briefcase"></i><span>Topical Question</span></a>
             <ul class="dropdown-menu">
               <li class="dropdown {{ areActiveRoutes(['chapter.index','chapter.creates','chapter.edit'])}} ">
-                  <a href="{{route('topical-chapter.index')}}" class="nav-link"><i data-feather="monitor"></i><span>Chapter</span></a>
+                  <a href="{{route('topical-chapter.index').'?category=topical'}}" class="nav-link"><i data-feather="monitor"></i><span>Chapter</span></a>
               </li>
               <li class="dropdown {{ areActiveRoutes(['topic.index','topic.create','topic.edit'])}} ">
                 <a href="{{route('parts.index').'?indexcat=topical'}}" class="nav-link"><i data-feather="monitor"></i><span>Parts</span></a>
@@ -57,7 +57,7 @@
                 data-feather="briefcase"></i><span>Past Paper Solution</span></a>
             <ul class="dropdown-menu">
               <li class="dropdown {{ areActiveRoutes(['chapter.index','chapter.creates','chapter.edit'])}} ">
-                  <a href="{{route('topical-chapter.index')}}" class="nav-link"><i data-feather="monitor"></i><span>Chapter</span></a>
+                  <a href="{{route('topical-chapter.index').'?category=pastpaper'}}" class="nav-link"><i data-feather="monitor"></i><span>Chapter</span></a>
               </li>
               <li class="dropdown {{ areActiveRoutes(['topic.index','topic.create','topic.edit'])}} ">
                   <a href="{{route('parts.index').'?indexcat=pastpaper'}}" class="nav-link"><i data-feather="monitor"></i><span>Parts</span></a>

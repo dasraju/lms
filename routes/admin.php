@@ -23,13 +23,17 @@ Route::group([ 'middleware' => 'admin'], function() {
     Route::resource('parts', 'PartController');
     Route::resource('video-solution', 'VideoSolutionController');
     Route::resource('lesson', 'LessonController');
+    Route::resource('topical-pdf', 'TopicalpdfController');
+    Route::resource('topical-video', 'TopicalvideoController');
     Route::get('course/pending','Backend\CourseController@pendingCourse')->name('course.pending');
     //video and note downloaded from the same route
+    Route::get('topical-pdf/index/{id}', 'TopicalpdfController@index')->name('topical.pdf.index');
+    Route::get('topical-pdf/create/{id}', 'TopicalpdfController@create')->name('topical.pdf.create');
     Route::get('note/index/{id}', 'PdfnoteController@index')->name('note.index');
     Route::get('note/create/{id}', 'PdfnoteController@create')->name('note.create');
     // Route::get('video/index/{id}', 'VideoSolutionController@index')->name('video.index');
     Route::get('video/create/{id}', 'VideoSolutionController@create')->name('video.create');
-
+    Route::get('topical-video/create/{id}', 'topicalvideoController@create')->name('topicalvideo.create');
     Route::get('status/change/{type}/{id}/{column}', 'HelperController@change_status')->name('admin.status.change');
 });
 

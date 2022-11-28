@@ -27,7 +27,7 @@
                         <div class="form-group col-md-6">
                             <label for="inputEmail4">Name</label>
                             <input type="text" class="form-control" id="inputEmail4" name="name" value="{{old('name')}}" placeholder="Chapter Name">
-                            <input type="hidden" name="type" value='{{ $type }}'>
+                            {{-- <input type="hidden" name="type" value='{{ $type }}'> --}}
                             <input type="hidden" name="chap_category" value='revision'>
                         </div>
                         <div class="form-group col-md-6">

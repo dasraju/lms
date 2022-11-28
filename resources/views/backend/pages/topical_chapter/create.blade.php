@@ -27,7 +27,8 @@
                         <div class="form-group col-md-6">
                             <label for="inputEmail4">Name</label>
                             <input type="text" class="form-control" id="inputEmail4" name="name" value="{{old('name')}}" placeholder="Chapter Name">
-                        </div>
+                            <input type="hidden" name="chap_category" value='{{$category}}'>
+                          </div>
                         <div class="form-group col-md-6">
                           <label class="d-block">Type</label>
                           <div class="form-check form-check-inline">

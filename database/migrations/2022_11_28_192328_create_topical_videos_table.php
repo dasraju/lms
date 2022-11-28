@@ -13,13 +13,15 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('topical_chapters', function (Blueprint $table) {
+        Schema::create('topical_videos', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('part_id')->cascadeOnDelete();
-            $table->string('name');
-            $table->set('type',['free','paid']);
-            $table->set('chap_category',['pastpaper','topical']);
-            $table->set('status',['0','1']);
+            $table->foreignId('topical_chapter_id');
+            $table->string('title');
+            $table->string('url');
+            $table->set('price_type',['free','paid']);
+            $table->enum('view',[0,1]);
+            $table->enum('download',[0,1]);
+            $table->enum('published',[0,1]);
             $table->timestamps();
         });
     }
@@ -31,6 +33,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('topical_chapters');
+        Schema::dropIfExists('topical_videos');
     }
 };
