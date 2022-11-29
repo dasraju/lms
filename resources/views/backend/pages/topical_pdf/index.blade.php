@@ -10,7 +10,7 @@
             <div class="card">
             <div class="card-header">
                 <h4>Pdf Question </h4>
-                <a href="{{route('note.create',$id)}}" class="btn btn-sm btn-primary text-right"> Create New +</a>
+                <a href="{{route('topical.pdf.create',$id).'?type=question'}}" class="btn btn-sm btn-primary text-right"> Create New +</a>
             </div>
             <div class="card-body p-0">
                 <div class="table-responsive">
@@ -28,7 +28,7 @@
                      <tr>
                         <td>{{++$key}}</td>
                         <td>{{$note->title}}</td>
-                        <td>{{$note->chapter->name}}</td>
+                        <td>{{$note->topicalchapter->name}}</td>
                         <td>{{ $note->price_type }}</td>
                         <td>{{'...'. Str::limit($note->file_name,8)}}</td>
                         <td>
@@ -82,7 +82,7 @@
             <div class="card">
             <div class="card-header">
                 <h4>Pdf Solution </h4>
-                <a href="{{route('topical.pdf.create',$id)}}" class="btn btn-sm btn-primary text-right"> Create New +</a>
+                <a href="{{route('topical.pdf.create',$id).'?type=solution'}}" class="btn btn-sm btn-primary text-right"> Create New +</a>
             </div>
             <div class="card-body p-0">
                 <div class="table-responsive">
@@ -100,7 +100,7 @@
                      <tr>
                         <td>{{++$key}}</td>
                         <td>{{$note->title}}</td>
-                        <td>{{$note->topic->name}}</td>
+                        <td>{{$note->topicalchapter->name}}</td>
                         <td>{{ $note->price_type }}</td>
                         <td>{{'...'. Str::limit($note->file_name,8)}}</td>
                         <td>
@@ -154,7 +154,7 @@
             <div class="card">
             <div class="card-header">
                 <h4>Video Solution Details</h4>
-                <a href="{{route('video.create',$id)}}" class="btn btn-sm btn-primary text-right"> Create New +</a>
+                <a href="{{route('topical.video.create',$id)}}" class="btn btn-sm btn-primary text-right"> Create New +</a>
             </div>
             <div class="card-body p-0">
                 <div class="table-responsive">
@@ -171,8 +171,8 @@
                          <tr>
                             <td>{{++$key}}</td>
                             <td>{{$video->title}}</td>
-                            <td>{{$video->topic->name}}</td>
-                            <td>{{'...'. Str::limit($video->url,8)}}</td>
+                            <td>{{$video->topicalchapter->name}}</td>
+                            <td>{{'...'. Str::limit($video->url,15)}}</td>
                             <td>
                                    <label class="custom-switch mt-2"> Published
                                         <input id="videopublished"  onchange="change_status($(this),'{{route('admin.status.change',['videosolution',$video->id,'published'])}}' )" type="checkbox" name="custom-switch-checkbox" {{$video->published =='1'?'checked':'' }} class="custom-switch-input">

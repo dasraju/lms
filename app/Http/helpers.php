@@ -5,6 +5,7 @@
  use App\Models\Topic;
  use App\Models\MenuHead;
  use App\Models\Subject;
+ use App\Models\TopicalChapter;
 
  function getMainMenu(){
     $menus = MenuHead::all();
@@ -25,6 +26,11 @@
  function topic($id){
   $topic = Topic::where('chapter_id',$id)->get();
   return $topic;
+ }
+
+ function topical_chapter($id){
+    $chapter = TopicalChapter::where('part_id',$id)->get();
+    return $chapter;
  }
 
  if (!function_exists('areActiveRoutes')) {

@@ -8,8 +8,7 @@
             <div class="rev_top">
               <div class="rev_title">
                 <h1>
-                  MIDDLE SCHOOL PHYSICS TOPICAL QUESTION M.C.Q. 1 FORCES AND
-                  MOTION
+                  Topical Question Details
                 </h1>
               </div>
               <div class="rev_search">
@@ -34,146 +33,122 @@
     <!-------End Revision Course Name--------->
 
     <!------- Revision Subject ----------->
-    <div class="rev">
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-lg-4 col-md-6 col-12">
-            <div class="rev_body">
-              <div class="rev_sub_name">
-                <h6>
-                  <i class="fa-regular fa-circle-question"></i> PDF QUESTION
-                  <span>(Free)</span>
-                </h6>
-              </div>
-              <div class="rev_sub_topic rev_dev_list">
-                <ul>
+   <!------- Revision Subject ----------->
+   <div class="rev">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-4 col-md-6 col-12">
+          <div class="rev_body">
+            <div class="rev_sub_name">
+              <h6>
+                <i class="fa-regular fa-circle-question"></i> PDF QUESTION
+                <span>(Premium)</span>
+              </h6>
+            </div>
+            <div class="rev_sub_topic rev_dev_list">
+              <ul>
+                  @foreach ($notefilesqsn as $note )
                   <li>
-                    <div class="rev_det_file">
-                      <p>
-                        <i class="fa-brands fa-slack"></i>1 Seeing forces fghfh
-                        hdfhdfh ddfh
-                      </p>
-                    </div>
-                    <div class="rev_det_icon">
-                      <button><i class="fa-regular fa-eye"></i></button
-                      ><button><i class="fa-solid fa-download"></i></button
-                      ><button><i class="fa-solid fa-lock"></i></button>
-                    </div>
+                      <div class="rev_det_file">
+                      <p><i class="fa-brands fa-slack"></i>{{$note->title}}</p>
+                      </div>
+                      <div class="rev_det_icon">
+                        @if ($note->price_type == 'paid' || $note->published == '0')
+                          <button><i class="fa-solid fa-lock"></i></button>
+                        @else
+                           @if ($note->view == '1')
+                             <button><i class="fa-regular fa-eye"></i></button>
+                           @endif
+                           @if ($note->download == '1')
+                              <button><i class="fa-solid fa-download"></i></button>
+                           @endif
+                          
+                        @endif
+                      
+                      
+                      </div>
                   </li>
-                  <li>
-                    <div class="rev_det_file">
-                      <p><i class="fa-brands fa-slack"></i>1 Seeing forces</p>
-                    </div>
-                    <div class="rev_det_icon">
-                      <button><i class="fa-regular fa-eye"></i></button
-                      ><button><i class="fa-solid fa-download"></i></button
-                      ><button><i class="fa-solid fa-lock"></i></button>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="rev_det_file">
-                      <p><i class="fa-brands fa-slack"></i>1 Seeing forces</p>
-                    </div>
-                    <div class="rev_det_icon">
-                      <button><i class="fa-regular fa-eye"></i></button
-                      ><button><i class="fa-solid fa-download"></i></button
-                      ><button><i class="fa-solid fa-lock"></i></button>
-                    </div>
-                  </li>
-                </ul>
-              </div>
+                  @endforeach
+               
+              </ul>
             </div>
           </div>
-          <div class="col-lg-4 col-md-6 col-12">
-            <div class="rev_body">
-              <div class="rev_sub_name">
-                <h6>
-                  <i class="fa-solid fa-file-pdf"></i> PDF SOLUTION
-                  <span>(premium)</span>
-                </h6>
-              </div>
-              <div class="rev_sub_topic rev_dev_list">
-                <ul>
+        </div>
+        <div class="col-lg-4 col-md-6 col-12">
+          <div class="rev_body">
+            <div class="rev_sub_name">
+              <h6>
+                <i class="fa-solid fa-file-pdf"></i> PDF SOLUTION
+                <span>(premium)</span>
+              </h6>
+            </div>
+            <div class="rev_sub_topic rev_dev_list">
+              <ul>
+                  @foreach ($notefilessol as $note )
                   <li>
-                    <div class="rev_det_file">
-                      <p><i class="fa-brands fa-slack"></i>1 Seeing forces</p>
-                    </div>
-                    <div class="rev_det_icon">
-                      <button><i class="fa-regular fa-eye"></i></button
-                      ><button><i class="fa-solid fa-download"></i></button
-                      ><button><i class="fa-solid fa-lock"></i></button>
-                    </div>
+                      <div class="rev_det_file">
+                      <p><i class="fa-brands fa-slack"></i>{{$note->title}}</p>
+                      </div>
+                      <div class="rev_det_icon">
+                        @if ($note->price_type == 'paid' || $note->published == '0')
+                          <button><i class="fa-solid fa-lock"></i></button>
+                        @else
+                           @if ($note->view == '1')
+                             <button><i class="fa-regular fa-eye"></i></button>
+                           @endif
+                           @if ($note->download == '1')
+                              <button><i class="fa-solid fa-download"></i></button>
+                           @endif
+                          
+                        @endif
+                      
+                      
+                      </div>
                   </li>
-                  <li>
-                    <div class="rev_det_file">
-                      <p><i class="fa-brands fa-slack"></i>1 Seeing forces</p>
-                    </div>
-                    <div class="rev_det_icon">
-                      <button><i class="fa-regular fa-eye"></i></button
-                      ><button><i class="fa-solid fa-download"></i></button
-                      ><button><i class="fa-solid fa-lock"></i></button>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="rev_det_file">
-                      <p><i class="fa-brands fa-slack"></i>1 Seeing forces</p>
-                    </div>
-                    <div class="rev_det_icon">
-                      <button><i class="fa-regular fa-eye"></i></button
-                      ><button><i class="fa-solid fa-download"></i></button
-                      ><button><i class="fa-solid fa-lock"></i></button>
-                    </div>
-                  </li>
-                </ul>
-              </div>
+                  @endforeach
+               
+              </ul>
             </div>
           </div>
-          <div class="col-lg-4 col-md-6 col-12">
-            <div class="rev_body">
-              <div class="rev_sub_name">
-                <h6>
-                  <i class="fa-solid fa-video"></i> VIDEO SOLUTION
-                  <span>(premium)</span>
-                </h6>
-              </div>
-              <div class="rev_sub_topic rev_dev_list">
-                <ul>
+        </div>
+        <div class="col-lg-4 col-md-6 col-12">
+          <div class="rev_body">
+            <div class="rev_sub_name">
+              <h6>
+                <i class="fa-solid fa-video"></i> VIDEO SOLUTION
+                <span>(premium)</span>
+              </h6>
+            </div>
+            <div class="rev_sub_topic rev_dev_list">
+              <ul>
+                  @foreach ($videofiles as $video )
                   <li>
-                    <div class="rev_det_file">
-                      <p><i class="fa-brands fa-slack"></i>1 Seeing forces</p>
-                    </div>
-                    <div class="rev_det_icon">
-                      <button><i class="fa-regular fa-eye"></i></button
-                      ><button><i class="fa-solid fa-download"></i></button
-                      ><button><i class="fa-solid fa-lock"></i></button>
-                    </div>
+                      <div class="rev_det_file">
+                      <p><i class="fa-brands fa-slack"></i>{{$video->title}}</p>
+                      </div>
+                      <div class="rev_det_icon">
+                        @if ($video->price_type == 'paid' || $video->published == '0')
+                          <button><i class="fa-solid fa-lock"></i></button>
+                        @else
+                           @if ($video->view == '1')
+                             <button><i class="fa-regular fa-eye"></i></button>
+                           @endif
+                           @if ($video->download == '1')
+                              <button><i class="fa-solid fa-download"></i></button>
+                           @endif
+                          
+                        @endif
+                      </div>
                   </li>
-                  <li>
-                    <div class="rev_det_file">
-                      <p><i class="fa-brands fa-slack"></i>1 Seeing forces</p>
-                    </div>
-                    <div class="rev_det_icon">
-                      <button><i class="fa-regular fa-eye"></i></button
-                      ><button><i class="fa-solid fa-download"></i></button
-                      ><button><i class="fa-solid fa-lock"></i></button>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="rev_det_file">
-                      <p><i class="fa-brands fa-slack"></i>1 Seeing forces</p>
-                    </div>
-                    <div class="rev_det_icon">
-                      <button><i class="fa-regular fa-eye"></i></button
-                      ><button><i class="fa-solid fa-download"></i></button
-                      ><button><i class="fa-solid fa-lock"></i></button>
-                    </div>
-                  </li>
-                </ul>
-              </div>
+                  @endforeach
+               
+              </ul>
             </div>
           </div>
         </div>
       </div>
     </div>
+  </div>
+  <!------- End Revision Subject ----------->
     <!------- End Revision Subject ----------->
 @endsection

@@ -7,17 +7,16 @@
     <section class="section">
       <div class="row ">
         <div class="col-12 col-md-12 col-lg-12">
-            <form action="{{route('topical-pdf.store')}}" method="post" enctype="multipart/form-data">
+            <form action="{{route('topical-video.store')}}" method="post" enctype="multipart/form-data">
                 @csrf
-               
+              
             <div class="card">
                 <div class="card-header">
-                  <h4>Add New Note</h4>
+                  <h4>Add New Video</h4>
                 </div>
                 <div class="card-body">
 
-                        <input type="hidden" name="chapter_id" id="" value={{ $id }}>
-                        <input type="hidden" name="note_type" id="" value={{ $type }}>
+                  <input type="hidden" name="chapter_id" id="" value={{ $id }}>
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label for="inputEmail4">Title</label>
@@ -36,8 +35,8 @@
                                 </div>
                             </div>
                             <div class="form-group col-md-6">
-                                <label>File</label>
-                                <input type="file" name="pdf_file" class="form-control">
+                                <label>Url</label>
+                                <input type="url" name="url" class="form-control">
                               </div>
                             <div class="form-group col-md-6">
                                 <label class="d-block">Permissions</label>

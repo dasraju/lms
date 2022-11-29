@@ -6,14 +6,16 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\TopicalNote;
 use App\Models\TopicalVideo;
+use Validator;
+use DB;
 
 class TopicalpdfController extends Controller
 {
      public function index($id)
     {
-        $pdfquestion = TopicalNote::with('chapter')->where('topical_chapter_id',$id)->where('type','question')->get();
-        $pdfsolution = TopicalNote::with('chapter')->where('topical_chapter_id',$id)->where('type','solution')->get();
-        $videoes = TopicalVideo::with('chapter')->where('topical_chapter_id',$id)->get();
+        $pdfquestion = TopicalNote::with('topicalchapter')->where('topical_chapter_id',$id)->where('type','question')->get();
+        $pdfsolution = TopicalNote::with('topicalchapter')->where('topical_chapter_id',$id)->where('type','solution')->get();
+        $videoes = TopicalVideo::with('topicalchapter')->where('topical_chapter_id',$id)->get();
         return view('backend.pages.topical_pdf.index',compact('pdfquestion','pdfsolution','id','videoes'));
     }
 
@@ -22,9 +24,10 @@ class TopicalpdfController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create($id)
+    public function create(Request $request, $id)
     {
-        return view('backend.pages.note.create',compact('id'));
+        $type = $request->get('type');
+        return view('backend.pages.topical_pdf.create',compact('id','type'));
     }
 
     /**
@@ -35,9 +38,7 @@ class TopicalpdfController extends Controller
      */
     public function store(Request $request)
     {
-     
-        $validator = Validator::make($request->all(), [ // <---
-     
+        $validator = Validator::make($request->all(), [ // <---s
             'name' => 'required',
             'type'=>'required',
             'pdf_file'   =>  'required'
@@ -47,10 +48,10 @@ class TopicalpdfController extends Controller
         }
 
         DB::beginTransaction();
-
-        $notefile = new PdfFile;
-        $notefile->topic_id = $request->topic_id;
+        $notefile = new TopicalNote;
+        $notefile->topical_chapter_id = $request->chapter_id;
         $notefile->title = $request->name;
+        $notefile->type = $request->note_type;
         $notefile->price_type = $request->type;
         $notefile->view = $request->view == 'on'?'1':'0';
         $notefile->download = $request->download == 'on'?'1':'0';
@@ -59,7 +60,7 @@ class TopicalpdfController extends Controller
         {
             $file= $request->file('pdf_file');
             $filename= date('YmdHi').$file->getClientOriginalName();
-            $file-> move(public_path('notefile'), $filename);
+            $file-> move(public_path('topicalnote'), $filename);
             $notefile->file_name = $filename;
         }
 
@@ -67,7 +68,7 @@ class TopicalpdfController extends Controller
           
             DB::commit();
             toast('Pdf Note Saved successfully','success');
-            return Redirect()->route('note.index',$request->topic_id);
+            return Redirect()->route('topical.pdf.index',$request->chapter_id);
         }
         else{
             DB::rollback();

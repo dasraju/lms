@@ -118,7 +118,8 @@ class PartController extends Controller
         $part = Part::find($id);
         $permission = Permission::where('name',$part->unique_name)->delete();
         if (Part::destroy($id)) {
-            return redirect()->route('parts.index');
+            $url = route('parts.index').'?indexcat='.$part->part_category;
+            return redirect()->to($url);
 
         } else {
             return back();

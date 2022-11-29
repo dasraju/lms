@@ -12,7 +12,10 @@ use App\Models\Subject;
 use App\Models\PdfFile;
 use App\Models\VideoSolution;
 use App\Models\Topic;
+use App\Models\TopicalNote;
+use App\Models\TopicalVideo;
 use App\Models\User;
+use App\Models\Part;
 use Auth;
 
 class HomeController extends Controller
@@ -32,12 +35,12 @@ class HomeController extends Controller
                 return view('frontend.pages.revision',compact('chapters'));
               break;
             case 'Topical':
-                $chapters = Chapter::where('sub_sub_category_id',$chapterId )->where('chap_category','topical')->get();
-                return view('frontend.pages.topical',compact('chapters'));
+                $parts = Part::where('sub_sub_category_id',$chapterId )->where('part_category','topical')->get();
+                return view('frontend.pages.topical',compact('parts'));
               break;
             case 'PastPaper':
-                $chapters = Chapter::where('sub_sub_category_id',$chapterId )->get();
-                return view('frontend.pages.pastpaper',compact('chapters'));
+                $parts = Part::where('sub_sub_category_id',$chapterId )->where('part_category','pastpaper')->get();
+                return view('frontend.pages.pastpaper',compact('parts'));
                 break;
             case 'Resource':
                 $chapters = Chapter::where('sub_sub_category_id',$chapterId )->get();
@@ -67,11 +70,18 @@ class HomeController extends Controller
     }
 
     public function topical_details($id){
-      return view('frontend.pages.topical_details');
+        $notefilesqsn = TopicalNote::with('topicalchapter')->where('topical_chapter_id',$id)->where('type','question')->get();
+        $notefilessol = TopicalNote::with('topicalchapter')->where('topical_chapter_id',$id)->where('type','solution')->get();
+        $videofiles = TopicalVideo::with('topicalchapter')->where('topical_chapter_id',$id)->get();
+        return view('frontend.pages.topical_details',compact('notefilesqsn','notefilessol','videofiles'));
     }
+    
 
-      public function paper_details($id){
-      return view('frontend.pages.paperDetails');
+      public function pastpaper_details($id){
+        $notefilesqsn = TopicalNote::with('topicalchapter')->where('topical_chapter_id',$id)->where('type','question')->get();
+        $notefilessol = TopicalNote::with('topicalchapter')->where('topical_chapter_id',$id)->where('type','solution')->get();
+        $videofiles = TopicalVideo::with('topicalchapter')->where('topical_chapter_id',$id)->get();
+        return view('frontend.pages.paperDetails',compact('notefilesqsn','notefilessol','videofiles'));
     }
     
 }
