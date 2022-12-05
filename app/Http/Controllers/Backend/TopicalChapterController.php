@@ -17,16 +17,14 @@ class TopicalChapterController extends Controller
     {
         $category = $request->get('category');
         $chapters= TopicalChapter::with('part')->where('chap_category', $category)->orderBy('created_at', 'desc')->paginate(10);
-
         return view('backend.pages.topical_chapter.index', compact('chapters','category'));
     }
 
     public function create(Request $request)
     {
         $category = $request->get('category');
-        $parts = Part::with('subsubcategory')->where('part_category','topical')->get();
-
-          return view('backend.pages.topical_chapter.create',compact('parts','category'));
+        $parts = Part::with('subsubcategory')->where('part_category',$category)->get();
+        return view('backend.pages.topical_chapter.create',compact('parts','category'));
         
     }
 
@@ -56,9 +54,10 @@ class TopicalChapterController extends Controller
         }
 
     }
-    public function edit($id)
+    public function edit(Request $request,$id)
     {
-        $parts = Part::with('subsubcategory')->where('part_category','topical')->get();
+        $editcat=$request->get('editcat');
+        $parts = Part::with('subsubcategory')->where('part_category',$editcat)->get();
         $chapter = TopicalChapter::findOrFail($id);
         return view('backend.pages.topical_chapter.edit', compact('parts','chapter'));
     }
@@ -90,8 +89,10 @@ class TopicalChapterController extends Controller
 
     public function destroy($id)
     {
+        $data = TopicalChapter::find($id);
         if (TopicalChapter::destroy($id)) {
-            return redirect()->route('topical-chapter.index');
+            $url = route('topical-chapter.index').'?category='.$data->chap_category;
+            return redirect()->to($url);
         } else {
 
             return back();

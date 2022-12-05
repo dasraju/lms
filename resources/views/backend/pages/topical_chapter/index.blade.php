@@ -39,7 +39,7 @@
                         </td>
 
                         <td>
-                            <a href="{{route('topical-chapter.edit',$ch->id)}}" class="btn btn-primary">Edit</a>
+                            <a href="{{route('topical-chapter.edit',$ch->id).'?editcat='.$ch->chap_category}}" class="btn btn-primary">Edit</a>
                             <a href="javascript:void(0)" onclick="confirm_modal('{{route('topical-chapter.destroy',$ch->id)}}')" class="btn btn-danger">Delete</a>
                         </td>
                     </tr>

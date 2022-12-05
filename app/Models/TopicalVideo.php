@@ -9,7 +9,7 @@ class TopicalVideo extends Model
 {
     use HasFactory;
 
-    public function chapter(){
-        return $this->belongsTo(TopicalChapter::class);
+    public function topicalchapter(){
+        return $this->belongsTo(TopicalChapter::class,'topical_chapter_id','id');
     }
 }
