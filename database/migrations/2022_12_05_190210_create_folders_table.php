@@ -15,6 +15,9 @@ return new class extends Migration
     {
         Schema::create('folders', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('sub_sub_category_id')->cascadeOnDelete();
+            $table->string('title');
+            $table->set('type',['free','paid']);
             $table->timestamps();
         });
     }

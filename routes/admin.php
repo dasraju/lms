@@ -25,6 +25,9 @@ Route::group([ 'middleware' => 'admin'], function() {
     Route::resource('lesson', 'LessonController');
     Route::resource('topical-pdf', 'TopicalpdfController');
     Route::resource('topical-video', 'TopicalvideoController');
+    Route::resource('folder', 'FolderController');
+    Route::resource('folder-pdf', 'FolderPdfController');
+     Route::resource('resource-pdf', 'ResourcePdfController');
     Route::get('course/pending','Backend\CourseController@pendingCourse')->name('course.pending');
     //video and note downloaded from the same route
     Route::get('topical-pdf/index/{id}', 'TopicalpdfController@index')->name('topical.pdf.index');

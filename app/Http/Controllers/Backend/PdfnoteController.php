@@ -63,7 +63,7 @@ class PdfnoteController extends Controller
         $notefile->view = $request->view == 'on'?'1':'0';
         $notefile->download = $request->download == 'on'?'1':'0';
         $notefile->published = $request->published == 'on'?'1':'0';
-        if($request->file('pdf_file'))
+        if($request->file('pdf_file')) 
         {
             $file= $request->file('pdf_file');
             $filename= date('YmdHi').$file->getClientOriginalName();

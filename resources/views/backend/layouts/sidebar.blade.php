@@ -69,10 +69,13 @@
                 data-feather="briefcase"></i><span>Resources</span></a>
             <ul class="dropdown-menu">
               <li class="dropdown {{ areActiveRoutes(['chapter.indexs','chapter.creates','chapter.edit'])}} ">
-                  <a href="{{route('chapter.indexs','Resource')}}" class="nav-link"><i data-feather="monitor"></i><span>Chapter</span></a>
+                  <a href="{{route('folder.index')}}" class="nav-link"><i data-feather="monitor"></i><span>Folder</span></a>
               </li>
               <li class="dropdown {{ areActiveRoutes(['topic.index','topic.create','topic.edit'])}} ">
-                  <a href="{{route('topic.index')}}" class="nav-link"><i data-feather="monitor"></i><span>Topic</span></a>
+                  <a href="{{route('folder-pdf.index')}}" class="nav-link"><i data-feather="monitor"></i><span>Folder Pdf</span></a>
+              </li>
+              <li class="dropdown {{ areActiveRoutes(['topic.index','topic.create','topic.edit'])}} ">
+                  <a href="{{route('resource -pdf.index')}}" class="nav-link"><i data-feather="monitor"></i><span>Book & Syllebus</span></a>
               </li>
             </ul>
           </li>
