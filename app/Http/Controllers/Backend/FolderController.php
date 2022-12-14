@@ -4,21 +4,23 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Folder;
+use App\Models\SubSubCategory;
+use Validator;
+use DB;
 
 class FolderController extends Controller
 {
      public function index(Request $request)
     {
-        $createcat = $request->get('indexcat');
-        $parts= Part::with('subsubcategory')->where('part_category',$createcat)->orderBy('created_at', 'desc')->paginate(10);
-        return view('backend.pages.part.index', compact('parts','createcat'));
+        $folders= Folder::with('subsubcategory')->orderBy('created_at', 'desc')->paginate(10);
+        return view('backend.pages.folder.index', compact('folders'));
     }
 
     public function create(Request $request)
     {
-        $createcat = $request->get('createform');
-        $subcats = SubSubCategory::with('subject')->where('type',$createcat)->get();
-        return view('backend.pages.part.create',compact('subcats','createcat'));
+        $subcats = SubSubCategory::with('subject')->where('type','Resource')->get();
+        return view('backend.pages.folder.create',compact('subcats'));
 
     }
 
@@ -27,7 +29,7 @@ class FolderController extends Controller
         $validator = Validator::make($request->all(), [ // <---
             'subcategory'=>'required',
             'name' => 'required',
-            'part_category' =>'required'
+           
 
         ]);
         if ($validator->fails()) {
@@ -35,34 +37,17 @@ class FolderController extends Controller
         }
         DB::beginTransaction();
 
-        $username = Part::latest()->pluck('unique_name')->first();
-        if($username){
-            $usersplit = str_split( $username,5);
-            $usersplit_lts = (int)$usersplit[1] + 1;
-           $unique_name = "LMSN-".$usersplit_lts;
-            
-        }
-        else{
-            $unique_name = "LMSN-1";
-           
-        }
-        $cat = new Part();
+       
+        $cat = new Folder();
         $cat->sub_sub_category_id = $request->subcategory;
-        $cat->name = $request->name;
-        $cat->part_category = $request->part_category;
-        $cat->unique_name = $unique_name;
+        $cat->title = $request->name;
         $cat->type = $request->type;
-        $cat->status = '0';
 
-        if($request->chap_category == 'topical'){
-            $cat->topic_type =  $request->topic_type;
-        }
 
         if ($cat->save()) {
-            $permission = Permission::create(['name' => $unique_name]);
             DB::commit();
-            toast('Part Created Successfully','success');
-            $url = route('parts.index').'?indexcat='.$request->part_category;
+            toast('Folder Created Successfully','success');
+            $url = route('folder.index');
             return redirect()->to($url);
             
         } else {
@@ -73,10 +58,10 @@ class FolderController extends Controller
     }
     public function edit(Request $request,$id)
     {
-        $editcat=$request->get('editcat');
-        $subcats = SubSubCategory::with('subject')->where('type',$editcat)->get();
-        $part = Part::findOrFail($id);
-        return view('backend.pages.part.edit', compact('subcats','part'));
+
+        $subcats = SubSubCategory::with('subject')->where('type','resource')->get();
+        $folder = Folder::findOrFail($id);
+        return view('backend.pages.folder.edit', compact('subcats','folder'));
     }
 
 
@@ -90,14 +75,14 @@ class FolderController extends Controller
         if ($validator->fails()) {
             return back()->with('toast_error', $validator->messages()->all()[0])->withInput();
         }
-        $cat = Part::findOrFail($id);
+        $cat = Folder::findOrFail($id);
         $cat->sub_sub_category_id = $request->subsubcategory;
         $cat->type = $request->type;
-        $cat->name = $request->name;
+        $cat->title = $request->name;
 
         if ($cat->save()) {
-            toast('Part Updated','success');
-            $url = route('parts.index').'?indexcat='.$cat->part_category;
+            toast('Folder Updated','success');
+            $url = route('folder.index');
             
         } else {
             toast('Operation Failed','error');
@@ -108,10 +93,8 @@ class FolderController extends Controller
     public function destroy($id)
     {
 
-        $part = Part::find($id);
-        $permission = Permission::where('name',$part->unique_name)->delete();
-        if (Part::destroy($id)) {
-            $url = route('parts.index').'?indexcat='.$part->part_category;
+        if (Folder::destroy($id)) {
+            $url = route('parts.index');
             return redirect()->to($url);
 
         } else {

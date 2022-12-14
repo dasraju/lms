@@ -75,7 +75,7 @@
                   <a href="{{route('folder-pdf.index')}}" class="nav-link"><i data-feather="monitor"></i><span>Folder Pdf</span></a>
               </li>
               <li class="dropdown {{ areActiveRoutes(['topic.index','topic.create','topic.edit'])}} ">
-                  <a href="{{route('resource -pdf.index')}}" class="nav-link"><i data-feather="monitor"></i><span>Book & Syllebus</span></a>
+                  <a href="{{route('resource-pdf.index')}}" class="nav-link"><i data-feather="monitor"></i><span>Book & Syllebus</span></a>
               </li>
             </ul>
           </li>

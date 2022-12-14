@@ -9,8 +9,8 @@
         <div class="col-12 col-md-12 col-lg-12">
             <div class="card">
             <div class="card-header">
-                <h4>Part Details</h4>
-                <a href="{{route('parts.create').'?createform='.$createcat}}" class="btn btn-sm btn-primary text-right"> Create New +</a>
+                <h4>Folder Details</h4>
+                <a href="{{route('folder.create')}}" class="btn btn-sm btn-primary text-right"> Create New +</a>
             </div>
             <div class="card-body p-0">
                 <div class="table-responsive">
@@ -20,27 +20,24 @@
                     <th>Name</th>
                     <th>Parent</th>
 
-                    <th>Status</th>
+                    <th>type</th>
                     <th>Action</th>
                     </tr>
-                     @foreach ($parts as $key=>$ch)
+                     @foreach ($folders as $key=>$ch)
                      <tr>
                         <td>{{++$key}}</td>
-                        <td>{{$ch->name}}</td>
+                        <td>{{$ch->title}}</td>
                         <td>{{$ch->subsubcategory->name}}</td>
 
                         <td>
-                               <label class="custom-switch mt-2">
-                                    <input  onchange="alert('$this.val')" type="checkbox" name="custom-switch-checkbox" {{$ch->status =='1'?'checked':'' }} class="custom-switch-input">
-                                    <span class="custom-switch-indicator"></span>
-                              </label>
+                             {{$ch->type}}
 
 
                         </td>
 
                         <td>
-                            <a href="{{route('parts.edit',$ch->id).'?editcat='.$ch->part_category}}" class="btn btn-primary">Edit</a>
-                            <a href="javascript:void(0)" onclick="confirm_modal('{{route('parts.destroy',$ch->id)}}')" class="btn btn-danger">Delete</a>
+                            <a href="{{route('folder.edit',$ch->id)}}" class="btn btn-primary">Edit</a>
+                            <a href="javascript:void(0)" onclick="confirm_modal('{{route('folder.destroy',$ch->id)}}')" class="btn btn-danger">Delete</a>
                         </td>
                     </tr>
                      @endforeach

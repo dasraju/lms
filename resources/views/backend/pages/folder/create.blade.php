@@ -26,7 +26,7 @@
                         </div>
                         <div class="form-group col-md-6">
                             <label for="inputEmail4">Name</label>
-                            <input type="text" class="form-control" id="inputEmail4" name="name" value="{{old('name')}}" placeholder="Part Name">
+                            <input type="text" class="form-control" id="inputEmail4" name="name" value="{{old('name')}}" placeholder="Folder Name">
                             
                             
                         </div>
