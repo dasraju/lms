@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\ResourcePdf;
 use App\Models\SubSubCategory;
+use Validator;
+use DB;
 
 class ResourcePdfController extends Controller
 {
@@ -16,8 +18,9 @@ class ResourcePdfController extends Controller
      */
     public function index()
     {
-        $notes = PdfFile::with('subsubcategory')->get();
-        return view('backend.pages.note.index',compact('notes'));
+       
+        $notes = ResourcePdf::with('subsubcategory')->get();
+        return view('backend.pages.resourcePdf.index',compact('notes'));
     }
 
     /**
@@ -28,7 +31,7 @@ class ResourcePdfController extends Controller
     public function create()
     {
         $subcats = SubSubCategory::with('subject')->where('type','Resource')->get();
-        return view('backend.pages.note.create',compact('subcats'));
+        return view('backend.pages.resourcePdf.create',compact('subcats'));
     }
 
     /**
@@ -52,10 +55,11 @@ class ResourcePdfController extends Controller
 
         DB::beginTransaction();
 
-        $notefile = new PdfFile;
-        $notefile->topic_id = $request->topic_id;
+        $notefile = new ResourcePdf;
+        $notefile->sub_sub_category_id = $request->subcategory;
         $notefile->title = $request->name;
         $notefile->price_type = $request->type;
+        $notefile->file_type = $request->file_type;
         $notefile->view = $request->view == 'on'?'1':'0';
         $notefile->download = $request->download == 'on'?'1':'0';
         $notefile->published = $request->published == 'on'?'1':'0';
@@ -63,15 +67,15 @@ class ResourcePdfController extends Controller
         {
             $file= $request->file('pdf_file');
             $filename= date('YmdHi').$file->getClientOriginalName();
-            $file-> move(public_path('notefile'), $filename);
+            $file-> move(public_path('resource_pdf_file'), $filename);
             $notefile->file_name = $filename;
         }
 
         if($notefile->save()){
           
             DB::commit();
-            toast('Pdf Note Saved successfully','success');
-            return Redirect()->route('note.index',$request->topic_id);
+            toast('Pdf  Saved successfully','success');
+            return Redirect()->route('resource-pdf.index');
         }
         else{
             DB::rollback();
@@ -101,8 +105,9 @@ class ResourcePdfController extends Controller
      */
     public function edit($id)
     {
-        $note = PdfFile::findOrFail($id);
-        return view('backend.pages.note.edit', compact('note'));
+        $subcats = SubSubCategory::with('subject')->where('type','resource')->get();
+        $note = ResourcePdf::findOrFail($id);
+        return view('backend.pages.resourcePdf.edit', compact('subcats','note'));
     }
 
     /**
@@ -123,9 +128,10 @@ class ResourcePdfController extends Controller
         if ($validator->fails()) {
             return back()->with('toast_error', $validator->messages()->all()[0])->withInput();
         }
-        $note = PdfFile::findOrFail($id);
+        $note = ResourcePdf::findOrFail($id);
         $note->title = $request->name;
         $note->price_type = $request->type;
+        $notefile->file_type = $request->file_type;
         $note->view = $request->view == 'on'?'1':'0';
         $note->download = $request->download == 'on'?'1':'0';
         $note->published = $request->published == 'on'?'1':'0';
@@ -133,15 +139,15 @@ class ResourcePdfController extends Controller
         {
             $file= $request->file('pdf_file');
             $filename= date('YmdHi').$file->getClientOriginalName();
-            $file-> move(public_path('notefile'), $filename);
+            $file-> move(public_path('resource_pdf_file'), $filename);
             $note->file_name = $filename;
         }
 
         if($note->save()){
           
             DB::commit();
-            toast('Pdf Note Saved successfully','success');
-            return Redirect()->route('note.index',$note->topic_id);
+            toast('Pdf Updated successfully','success');
+            return Redirect()->route('resource-pdf.index');
         }
         else{
             DB::rollback();
@@ -158,6 +164,8 @@ class ResourcePdfController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $delete= ResourcePdf::destory($id);
+        toast('Data Deleted!','success');
+        return Redirect()->back();
     }
 }

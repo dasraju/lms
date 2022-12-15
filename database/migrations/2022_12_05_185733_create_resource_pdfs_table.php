@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('sub_sub_category_id')->cascadeOnDelete();
             $table->string('title');
+            $table->set('file_type',['book','syllabus']);
             $table->set('price_type',['free','paid']);
             $table->enum('view',[0,1]);
             $table->enum('download',[0,1]);
