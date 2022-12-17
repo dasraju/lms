@@ -20,7 +20,7 @@ class FolderPdfController extends Controller
     {
        
         $notes = ResourceFolderPdf::with('folder')->get();
-        return view('backend.pages.resourcePdf.index',compact('notes'));
+        return view('backend.pages.folderPdf.index',compact('notes'));
     }
 
     /**
@@ -31,7 +31,7 @@ class FolderPdfController extends Controller
     public function create()
     {
         $folders = Folder::get();
-        return view('backend.pages.resourceFolderPdf.create',compact('folders'));
+        return view('backend.pages.folderPdf.create',compact('folders'));
     }
 
     /**
