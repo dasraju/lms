@@ -10,7 +10,7 @@
             <div class="card">
             <div class="card-header">
                 <h4>Pdf Note Details</h4>
-                <a href="{{route('resource-pdf.create')}}" class="btn btn-sm btn-primary text-right"> Create New +</a>
+                <a href="{{route('folder-pdf.create')}}" class="btn btn-sm btn-primary text-right"> Create New +</a>
             </div>
             <div class="card-body p-0">
                 <div class="table-responsive">
@@ -18,7 +18,7 @@
                     <tr>
                     <th>#</th>
                     <th>Title</th>
-                    <th>Topic</th>
+                    <th>Folder</th>
                     <th>Type</th>
                     <th>File Name</th>
                     <th>Permission</th>
@@ -28,7 +28,7 @@
                      <tr>
                         <td>{{++$key}}</td>
                         <td>{{$note->title}}</td>
-                        <td>{{$note->subsubcategory->name}}</td>
+                        <td>{{$note->folder->title}}</td>
                         <td>{{ $note->price_type }}</td>
                         <td>{{'...'. Str::limit($note->file_name,600)}}</td>
                         <td>
@@ -49,8 +49,8 @@
                         </td>
 
                         <td>
-                            <a href="{{route('resource-pdf.edit',$note->id)}}" class="btn btn-primary">Edit</a>
-                            <a href="javascript:void(0)" onclick="confirm_modal('{{route('resource-pdf.destroy',$note->id)}}')" class="btn btn-danger">Delete</a>
+                            <a href="{{route('folder-pdf.edit',$note->id)}}" class="btn btn-primary">Edit</a>
+                            <a href="javascript:void(0)" onclick="confirm_modal('{{route('folder-pdf.destroy',$note->id)}}')" class="btn btn-danger">Delete</a>
                         </td>
                     </tr>
                      @endforeach
