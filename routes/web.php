@@ -20,3 +20,5 @@ Route::get('/topical-deatils/{topical_id}','Frontend\HomeController@topical_deta
 Route::get('/pastpaper-deatils/{paper_id}','Frontend\HomeController@paper_details')->name('pastpaper.details');
 Route::get('/topical-files/{chapter_id}','Frontend\HomeController@topical_details')->name('topical.files');
 Route::get('/pastpaper-files/{chapter_id}','Frontend\HomeController@pastpaper_details')->name('pastpaper.files');
+Route::get('/resource/syllabus/{id}','Frontend\HomeController@resource_syllabus')->name('resource.syllabus');
+Route::get('/resource/folder/{id}','Frontend\HomeController@resource_folder')->name('resource.folders');

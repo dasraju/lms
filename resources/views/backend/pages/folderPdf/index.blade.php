@@ -33,15 +33,15 @@
                         <td>{{'...'. Str::limit($note->file_name,600)}}</td>
                         <td>
                                <label class="custom-switch mt-2"> Published
-                                    <input id="notepublished"   onchange="change_status($(this),'{{route('admin.status.change',['resourcepdf',$note->id,'published'])}}' )" type="checkbox" name="custom-switch-checkbox" {{$note->published =='1'?'checked':'' }} class="custom-switch-input">
+                                    <input id="notepublished"   onchange="change_status($(this),'{{route('admin.status.change',['folderpdf',$note->id,'published'])}}' )" type="checkbox" name="custom-switch-checkbox" {{$note->published =='1'?'checked':'' }} class="custom-switch-input">
                                     <span class="custom-switch-indicator"></span>
                               </label>
                               <label class="custom-switch mt-2"> View
-                                <input id="noteview"   onchange="change_status($(this),'{{route('admin.status.change',['resourcepdf',$note->id,'view'])}}' )" type="checkbox" name="custom-switch-checkbox" {{$note->view =='1'?'checked':'' }} class="custom-switch-input">
+                                <input id="noteview"   onchange="change_status($(this),'{{route('admin.status.change',['folderpdf',$note->id,'view'])}}' )" type="checkbox" name="custom-switch-checkbox" {{$note->view =='1'?'checked':'' }} class="custom-switch-input">
                                 <span class="custom-switch-indicator"></span>
                               </label>
                              <label class="custom-switch mt-2"> Download
-                                <input  id="notedownload"  onchange="change_status($(this),'{{route('admin.status.change',['resourcepdf',$note->id,'download'])}}' )" type="checkbox" name="custom-switch-checkbox" {{$note->download =='1'?'checked':'' }} class="custom-switch-input">
+                                <input  id="notedownload"  onchange="change_status($(this),'{{route('admin.status.change',['folderpdf',$note->id,'download'])}}' )" type="checkbox" name="custom-switch-checkbox" {{$note->download =='1'?'checked':'' }} class="custom-switch-input">
                                 <span class="custom-switch-indicator"></span>
                              </label>
 

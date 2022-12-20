@@ -14,4 +14,8 @@ class Folder extends Model
 
         return $this->belongsTo(SubSubCategory::class,'sub_sub_category_id','id');
     }
+    public function folderpdf()
+    {
+        return $this->hasMany(ResourceFolderPdf::class,'folder_id','id');
+    }
 }
