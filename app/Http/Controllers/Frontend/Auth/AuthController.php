@@ -31,8 +31,7 @@ class AuthController extends Controller
         $user = User::where('phone',$request->mobile)->first();
         if(isset($user)){
            $loggedin = Auth::guard('web')->login($user,$remember = true);
-        //    dd(Auth::guard('web')->user()->id);
-          return redirect()->route('user.home')  ;        
+          return redirect()->route('user.home');        
         }
 
 
@@ -41,8 +40,10 @@ class AuthController extends Controller
     }
 
     public function regForm(){
-        return view('frontend.pages.auth.register');
-        
+        return view('frontend.pages.auth.register');   
+    }
+     public function otpForm(){
+        return view('frontend.pages.auth.otp');   
     }
     public function logout(){
         Auth::guard('web')->logout();
