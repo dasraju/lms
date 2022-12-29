@@ -20,7 +20,7 @@ class FolderPdfController extends Controller
     {
        
         $notes = ResourceFolderPdf::with('folder')->get();
-        return view('backend.pages.resourcePdf.index',compact('notes'));
+        return view('backend.pages.folderPdf.index',compact('notes'));
     }
 
     /**
@@ -31,7 +31,7 @@ class FolderPdfController extends Controller
     public function create()
     {
         $folders = Folder::get();
-        return view('backend.pages.resourceFolderPdf.create',compact('folders'));
+        return view('backend.pages.folderPdf.create',compact('folders'));
     }
 
     /**
@@ -105,7 +105,7 @@ class FolderPdfController extends Controller
     {
         $folders = Folder::get();
         $note = ResourceFolderPdf::findOrFail($id);
-        return view('backend.pages.resourceFolderPdf.edit', compact('folders','note'));
+        return view('backend.pages.folderPdf.edit', compact('folders','note'));
     }
 
     /**
@@ -127,6 +127,7 @@ class FolderPdfController extends Controller
             return back()->with('toast_error', $validator->messages()->all()[0])->withInput();
         }
         $note = ResourceFolderPdf::findOrFail($id);
+        $note->folder_id = $request->folder_id;
         $note->title = $request->name;
         $note->price_type = $request->type;
         $note->view = $request->view == 'on'?'1':'0';
@@ -143,7 +144,7 @@ class FolderPdfController extends Controller
         if($note->save()){
             DB::commit();
             toast('Pdf Updated successfully','success');
-            return Redirect()->route('resource-folder-pdf.index');
+            return Redirect()->route('folder-pdf.index');
         }
         else{
             DB::rollback();
@@ -160,7 +161,7 @@ class FolderPdfController extends Controller
      */
     public function destroy($id)
     {
-        $delete= ResourceFolderPdf::destory($id);
+        $delete= ResourceFolderPdf::destroy($id);
         toast('Data Deleted!','success');
         return Redirect()->back();
     }

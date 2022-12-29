@@ -16,6 +16,8 @@ use App\Models\TopicalNote;
 use App\Models\TopicalVideo;
 use App\Models\User;
 use App\Models\Part;
+use App\Models\Folder;
+use App\Models\ResourcePdf;
 use Auth;
 
 class HomeController extends Controller
@@ -43,8 +45,8 @@ class HomeController extends Controller
                 return view('frontend.pages.pastpaper',compact('parts'));
                 break;
             case 'Resource':
-                $chapters = Chapter::where('sub_sub_category_id',$chapterId )->get();
-                return view('frontend.pages.resource',compact('chapters'));
+                $id = $chapterId;
+                return view('frontend.pages.resource',compact('id'));
                     break;
             default:
               // code block
@@ -82,6 +84,16 @@ class HomeController extends Controller
         $notefilessol = TopicalNote::with('topicalchapter')->where('topical_chapter_id',$id)->where('type','solution')->get();
         $videofiles = TopicalVideo::with('topicalchapter')->where('topical_chapter_id',$id)->get();
         return view('frontend.pages.paperDetails',compact('notefilesqsn','notefilessol','videofiles'));
+    }
+
+    public function resource_syllabus($id){
+         $books = ResourcePdf::where('file_type','book')->where('sub_sub_category_id',$id)->get();
+         $syllabus = ResourcePdf::where('file_type','syllabus')->where('sub_sub_category_id',$id)->get();
+         return view('frontend.pages.resourcepdf',compact('books','syllabus'));
+    }
+    public function resource_folder($id){
+        $folders = Folder::with('folderpdf')->where('sub_sub_category_id',$id)->get();
+         return view('frontend.pages.folderpdf',compact('folders'));
     }
     
 }

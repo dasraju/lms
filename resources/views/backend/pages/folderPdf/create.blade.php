@@ -7,7 +7,7 @@
     <section class="section">
       <div class="row ">
         <div class="col-12 col-md-12 col-lg-12">
-            <form action="{{route('resource-pdf.store')}}" method="post" enctype="multipart/form-data">
+            <form action="{{route('folder-pdf.store')}}" method="post" enctype="multipart/form-data">
                 @csrf
             <div class="card">
                 <div class="card-header">
@@ -15,27 +15,17 @@
                 </div>
                 <div class="card-body">
 
-                        
                         <div class="form-row">
                             <div class="form-group  col-md-6 ">
                               <label>Select Sub Sub Category</label>
-                              <select class="form-control" name="subcategory">
+                              <select class="form-control" name="folder_id">
                                   <option value="">--select--</option>
-                                  @foreach ($subcats as $cat )
-                                  <option value="{{$cat->id}}">{{$cat->name}} <span style="color:red">-({{$cat->subject->name}})</span> </option>
+                                  @foreach ($folders as $cat )
+                                  <option value="{{$cat->id}}">{{$cat->title}}  </option>
                                   @endforeach
                               </select>
                             </div>
-                            <div class="form-group  col-md-6 ">
-                              <label>Select File Type</label>
-                              <select class="form-control" name="file_type">
-                                  <option value="">--select--</option>
-                                  
-                                  <option value="book"> Book </option>
-                                  <option value="syllabus"> Syllabus </option>
-                              
-                              </select>
-                            </div>
+                         
                             <div class="form-group col-md-6">
                                 <label for="inputEmail4">Title</label>
                                 <input type="text" class="form-control" name="name" id="inputEmail4" name="name" value="{{old('name')}}" placeholder="Pdf title" required>

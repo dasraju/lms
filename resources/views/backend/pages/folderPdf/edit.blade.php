@@ -7,7 +7,7 @@
     <section class="section">
       <div class="row ">
         <div class="col-12 col-md-12 col-lg-12">
-            <form action="{{route('resource-pdf.update',$note->id)}}" method="post" enctype="multipart/form-data">
+            <form action="{{route('folder-pdf.update',$note->id)}}" method="post" enctype="multipart/form-data">
                 @csrf
                 @method('patch')
             <div class="card">
@@ -20,26 +20,15 @@
                         <div class="form-row">
 
                           <div class="form-group  col-md-6 ">
-                            <label>Select Sub Sub Category</label>
-                            <select class="form-control" name="subcategory">
+                            <label>Select Folder</label>
+                            <select class="form-control" name="folder_id">
                                 <option value="">--select--</option>
-                                @foreach ($subcats as $cat )
-                                <option {{$note->sub_sub_category_id == $cat->id ?'selected':'' }} value="{{$cat->id}}">{{$cat->name}} <span style="color:red">-({{$cat->subject->name}})</span> </option>
+                                @foreach ($folders as $cat )
+                                <option {{$note->folder_id == $cat->id ?'selected':'' }} value="{{$cat->id}}">{{$cat->title}} </option>
                                 @endforeach
                             </select>
                           </div>
 
-
-                          <div class="form-group  col-md-6 ">
-                            <label>Select File Type</label>
-                            <select class="form-control" name="file_type">
-                                <option value="">--select--</option>
-                                
-                                <option {{$note->file_type == 'book' ?'selected':'' }} value="book" > Book </option>
-                                <option {{$note->file_type == 'syllabus' ?'selected':'' }} value="syllabus" > Syllabus </option>
-                            
-                            </select>
-                          </div>
                             <div class="form-group col-md-6">
                                 <label for="inputEmail4">Title</label>
                                 <input type="text" class="form-control" name="name" value="{{$note->title}}" id="inputEmail4" name="name" value="{{old('name')}}" placeholder="Sub Category Name">

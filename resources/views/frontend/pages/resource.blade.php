@@ -1,13 +1,13 @@
 @extends('frontend.master')
 @section('content')
-    <!-------Revision Course Name--------->
-    <div class="rev_name">
+
+   <div class="rev_name">
       <div class="container-fluid">
         <div class="row">
           <div class="col-12">
             <div class="rev_top">
               <div class="rev_title">
-                <h1>MIDDLE SCHOOL PHYSICS RESOURCES</h1>
+                <h1>IB PHYSICS PAST PAPER SOLUTION</h1>
               </div>
               <div class="rev_search">
                 <div class="input-group">
@@ -30,149 +30,20 @@
     </div>
     <!-------End Revision Course Name--------->
 
-    <!------- Revision Subject ----------->
+    <!------- Past Papper  ----------->
     <div class="rev">
       <div class="container-fluid">
         <div class="row">
-          <div class="col-lg-4 col-md-6 col-12">
-            <div class="rev_body">
-              <div class="rev_sub_name">
-                <h6>
-                  <i class="fa-solid fa-book-bookmark"></i> SYLLABUS
-                  <span>(Free)</span>
-                </h6>
-              </div>
-              <div class="rev_sub_topic rev_dev_list">
-                <ul>
-                  <li>
-                    <div class="rev_det_file">
-                      <p>
-                        <i class="fa-brands fa-slack"></i>1 Seeing forces fghfh
-                        hdfhdfh ddfh
-                      </p>
-                    </div>
-                    <div class="rev_det_icon">
-                      <button><i class="fa-regular fa-eye"></i></button
-                      ><button><i class="fa-solid fa-download"></i></button
-                      ><button><i class="fa-solid fa-lock"></i></button>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="rev_det_file">
-                      <p><i class="fa-brands fa-slack"></i>1 Seeing forces</p>
-                    </div>
-                    <div class="rev_det_icon">
-                      <button><i class="fa-regular fa-eye"></i></button
-                      ><button><i class="fa-solid fa-download"></i></button
-                      ><button><i class="fa-solid fa-lock"></i></button>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="rev_det_file">
-                      <p><i class="fa-brands fa-slack"></i>1 Seeing forces</p>
-                    </div>
-                    <div class="rev_det_icon">
-                      <button><i class="fa-regular fa-eye"></i></button
-                      ><button><i class="fa-solid fa-download"></i></button
-                      ><button><i class="fa-solid fa-lock"></i></button>
-                    </div>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6 col-12">
-            <div class="rev_body">
-              <div class="rev_sub_name">
-                <h6>
-                  <i class="fa-solid fa-file-pdf"></i> PDF BOOKS
-                  <span>(premium)</span>
-                </h6>
-              </div>
-              <div class="rev_sub_topic rev_dev_list">
-                <ul>
-                  <li>
-                    <div class="rev_det_file">
-                      <p><i class="fa-brands fa-slack"></i>1 Seeing forces</p>
-                    </div>
-                    <div class="rev_det_icon">
-                      <button><i class="fa-regular fa-eye"></i></button
-                      ><button><i class="fa-solid fa-download"></i></button
-                      ><button><i class="fa-solid fa-lock"></i></button>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="rev_det_file">
-                      <p><i class="fa-brands fa-slack"></i>1 Seeing forces</p>
-                    </div>
-                    <div class="rev_det_icon">
-                      <button><i class="fa-regular fa-eye"></i></button
-                      ><button><i class="fa-solid fa-download"></i></button
-                      ><button><i class="fa-solid fa-lock"></i></button>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="rev_det_file">
-                      <p><i class="fa-brands fa-slack"></i>1 Seeing forces</p>
-                    </div>
-                    <div class="rev_det_icon">
-                      <button><i class="fa-regular fa-eye"></i></button
-                      ><button><i class="fa-solid fa-download"></i></button
-                      ><button><i class="fa-solid fa-lock"></i></button>
-                    </div>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6 col-12">
-            <div class="rev_body">
-              <div class="rev_sub_name">
-                <h6>
-                  <i class="fa-solid fa-book-tanakh"></i> SPECIMEN PAPERS
-                  <span>(premium)</span>
-                </h6>
-              </div>
-              <div class="rev_sub_topic rev_dev_list">
-                <ul>
-                  <li>
-                    <div class="rev_det_file">
-                      <p><i class="fa-brands fa-slack"></i>1 Seeing forces</p>
-                    </div>
-                    <div class="rev_det_icon">
-                      <button><i class="fa-regular fa-eye"></i></button
-                      ><button><i class="fa-solid fa-download"></i></button
-                      ><button><i class="fa-solid fa-lock"></i></button>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="rev_det_file">
-                      <p><i class="fa-brands fa-slack"></i>1 Seeing forces</p>
-                    </div>
-                    <div class="rev_det_icon">
-                      <button><i class="fa-regular fa-eye"></i></button
-                      ><button><i class="fa-solid fa-download"></i></button
-                      ><button><i class="fa-solid fa-lock"></i></button>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="rev_det_file">
-                      <p><i class="fa-brands fa-slack"></i>1 Seeing forces</p>
-                    </div>
-                    <div class="rev_det_icon">
-                      <button><i class="fa-regular fa-eye"></i></button
-                      ><button><i class="fa-solid fa-download"></i></button
-                      ><button><i class="fa-solid fa-lock"></i></button>
-                    </div>
-                  </li>
-                </ul>
-              </div>
+          <div class="col-12">
+            <div class="past_paper">
+              <a href="{{route('resource.syllabus',$id)}}" >Book & Syllabus</a>
+              <a href="{{route('resource.folders',$id)}}">Folders</a>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <!------- End Revision Subject ----------->
+ 
 
 
 

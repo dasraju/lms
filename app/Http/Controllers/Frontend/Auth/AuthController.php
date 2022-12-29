@@ -43,6 +43,14 @@ class AuthController extends Controller
         // //    dd(Auth::guard('web')->user()->id);
 
                
+        ]);
+        if ($validator->fails()) {
+            return back()->with('toast_error', $validator->messages()->all()[0])->withInput();
+        }
+        $user = User::where('phone',$request->mobile)->first();
+        if(isset($user)){
+           $loggedin = Auth::guard('web')->login($user,$remember = true);
+          return redirect()->route('user.home');        
         }
 
 
@@ -51,8 +59,10 @@ class AuthController extends Controller
     
 
     public function regForm(){
-        return view('frontend.pages.auth.register');
-        
+        return view('frontend.pages.auth.register');   
+    }
+     public function otpForm(){
+        return view('frontend.pages.auth.otp');   
     }
     public function register(Request $request){
         $validator = Validator::make($request->all(), [ // <---

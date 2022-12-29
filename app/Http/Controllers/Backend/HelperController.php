@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Models\MenuHead;
 use App\Models\PdfFile;
 use App\Models\VideoSolution;
+use App\Models\ResourceFolderPdf;
+use App\Models\ResourcePdf;
 
 class HelperController extends Controller
 {
@@ -36,7 +38,15 @@ class HelperController extends Controller
             case "videosolution":
               $pdf = VideoSolution::where('id', $id)
               ->update([$column => $status]);
-              break;      
+              break;
+            case "folderpdf": 
+              $pdf = ResourceFolderPdf::where('id', $id)
+              ->update([$column => $status]);
+              break;
+            case "resourcepdf": 
+              $pdf = ResourcePdf::where('id', $id)
+              ->update([$column => $status]);
+              break;          
             default:
               echo "Your favorite color is neither red, blue, nor green!";
           }
