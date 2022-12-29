@@ -11,6 +11,7 @@
 </head>
 
 <body>
+  @include('sweetalert::alert')
   <!-- Fixed -->
   <div id="fixed"></div>
   <!-- Fixed -->

@@ -39,6 +39,7 @@ Route::group([ 'middleware' => 'admin'], function() {
     Route::get('video/create/{id}', 'VideoSolutionController@create')->name('video.create');
     Route::get('topical-video/create/{id}', 'TopicalvideoController@create')->name('topical.video.create');
     Route::get('status/change/{type}/{id}/{column}', 'HelperController@change_status')->name('admin.status.change');
+    
 });
 
 

@@ -22,8 +22,18 @@
               </div>
               <div class="h_top_right">
                 <ul>
+                  @guest
                   <li><a href="{{ route('user.login.form') }}">log in</a></li>
                   <li><a href="{{ route('user.registration') }}">Register</a></li>
+                  @endguest
+                  @auth
+                  <li class="nav-item dropdown" >
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" href="{{ route('user.profile') }}">{{ auth()->user()->name }}</a>
+                    
+                  </li>
+                  @endauth
+                 
+                
                   <li>
                     <a href=""><i class="fa-brands fa-facebook-f"></i></a>
                   </li>

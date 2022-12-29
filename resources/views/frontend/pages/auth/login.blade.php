@@ -5,18 +5,20 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-12">
-          <form>
+          <form method="post"action="{{ route('user.login') }}">
+            @csrf
             <h3>Login Here</h3>
 
             <label for="usernum">UserNumber</label>
             <input
-              type="number"
-              placeholder="Enter Phone Number"
-              id="usernum"
+              type="text"
+              placeholder="Enter email "
+              id=""
+              name="email"
             />
 
             <label for="password">Password</label>
-            <input type="password" placeholder="Password" id="password" />
+            <input type="password" placeholder="Password" id="password" name="password" />
 
             <button>Login</button>
           </form>

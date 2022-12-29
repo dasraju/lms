@@ -15,6 +15,10 @@ class HelperController extends Controller
          $status = $request->status;
          
         switch ($type) {
+            case "user":
+              $menuhead = User::where('id', $id)
+              ->update([$column => $status]);
+            break;
             case "menuhead":
                 $menuhead = MenuHead::where('id', $id)
                 ->update([$column => $status]);

@@ -94,7 +94,12 @@
         </li>
         <li class="dropdown {{ areActiveRoutes(['subject.index','subject.create','subject.edit'])}} ">
           <a href="{{route('course.pending')}}" class="nav-link"><i data-feather="monitor"></i><span>pending Course</span></a>
-        s</li>
+        </li>
+        <li class="menu-header">User Menu</li>
+       
+        <li class="dropdown {{ areActiveRoutes(['admin.user.list'])}} ">
+          <a href="{{route('admin.user.list')}}" class="nav-link"><i data-feather="monitor"></i><span>User List</span></a>
+        </li>
 
       </ul>
     </aside>

@@ -5,6 +5,8 @@ Route::get('/','Frontend\HomeController@index')->name('user.home');
 Route::get('/user/login','Frontend\Auth\AuthController@loginForm')->name('user.login.form');
 
 Route::get('/user/register','Frontend\Auth\AuthController@regForm')->name('user.registration');
+Route::get('/user/profile','Frontend\Auth\AuthController@profile')->name('user.profile');
+Route::post('/user/register/submit','Frontend\Auth\AuthController@register')->name('user.register');
 
 Route::post('/user/login','Frontend\Auth\AuthController@login')->name('user.login');
 Route::get('/user/logout','Frontend\Auth\AuthController@logout');
