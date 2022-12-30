@@ -9,6 +9,7 @@ use App\Models\PdfFile;
 use App\Models\VideoSolution;
 use App\Models\ResourceFolderPdf;
 use App\Models\ResourcePdf;
+use App\Models\User;
 
 class HelperController extends Controller
 {

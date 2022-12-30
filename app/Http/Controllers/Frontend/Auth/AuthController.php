@@ -42,18 +42,9 @@ class AuthController extends Controller
         //    $loggedin = Auth::guard('web')->login($user,$remember = true);
         // //    dd(Auth::guard('web')->user()->id);
 
-               
-        ]);
-        if ($validator->fails()) {
-            return back()->with('toast_error', $validator->messages()->all()[0])->withInput();
-        }
-        $user = User::where('phone',$request->mobile)->first();
-        if(isset($user)){
-           $loggedin = Auth::guard('web')->login($user,$remember = true);
-          return redirect()->route('user.home');        
-        }
+     
 
-
+    }
 
 
     
@@ -92,6 +83,7 @@ class AuthController extends Controller
         $user = User::create($insertData);
         if($user){
             $role = Role::create(['name' => $unique_id]);
+            $user->assignRole($unique_id);
             DB::commit();
             toast('Successfully Registered','success');
             return Redirect()->route('user.login.form');

@@ -23,6 +23,8 @@ use Auth;
 class HomeController extends Controller
 {
     public function index(){
+
+        // dd(Auth::user()->getAllPermissions());
         $courses = Course::with('instructor')->get();
      
         return view('frontend.pages.index',compact('courses'));

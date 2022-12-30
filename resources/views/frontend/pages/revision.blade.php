@@ -31,6 +31,7 @@
     <!-------End Revision Course Name--------->
 
     <!------- Revision Subject ----------->
+    @guest
     <div class="rev">
       <div class="container-fluid">
         <div class="row">
@@ -77,6 +78,70 @@
         </div>
       </div>
     </div>
+    @endguest
+    @auth
+    <div class="rev">
+      <div class="container-fluid">
+        <div class="row">
+             @foreach ($chapters as $key=> $chapter )
+                <div class="col-md-6 col-12">
+                    <div class="rev_body">
+                    <div class="rev_sub_name">
+                        <h6>
+                        <i class="fa-solid fa-book"></i> {{$chapter->name}}
+                        @if($chapter->type =='free')
+                        <span>(Free)</span>
+                        @else
+                        <span>(Premium)</span>
+                        @endif
+                        </h6>
+                    </div>
+                    <div class="rev_sub_topic">
+                         @if($chapter->type =='free')
+                        <ul>
+                            @foreach (topic($chapter->id) as $topic )
+                            <li>
+                                <a href="{{ route('topic.files',$topic->id)  }}"
+                                ><i class="fa-brands fa-slack"></i>{{$topic->name}}</a
+                                >
+                            </li>
+                            @endforeach
+                        
+                        </ul>
+                        @elseif ($chapter->type =='paid')
+                        
+                        @can($chapter->unique_name)
+                        <ul>
+                          @foreach (topic($chapter->id) as $topic )
+                          <li>
+                              <a href="{{ route('topic.files',$topic->id)  }}"
+                              ><i class="fa-brands fa-slack"></i>{{$topic->name}}</a
+                              >
+                          </li>
+                          @endforeach
+                      
+                      </ul>
+                        @endcan
+                        @else
+                         <ul>
+                            <li>
+                                <span>No free topic</span>
+                            </li>
+                         </ul>
+
+                        @endif
+                    </div>
+                    </div>
+                </div>
+             @endforeach   
+      
+        
+          
+        </div>
+      </div>
+    </div>
+    @endauth
+   
     <!------- End Revision Subject ----------->
 
 
