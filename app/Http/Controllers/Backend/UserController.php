@@ -55,7 +55,9 @@ class UserController extends Controller
            
            $chapter = Chapter::find($request->chapter);
            $permission_set = $user->givePermissionTo($chapter->unique_name);
-           dd($permission_set);
+           toast('Permission set succesfully','success');
+            return Redirect()->route('user.give.permission');
+       
     }
    
 }
