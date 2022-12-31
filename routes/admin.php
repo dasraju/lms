@@ -40,6 +40,9 @@ Route::group([ 'middleware' => 'admin'], function() {
     Route::get('topical-video/create/{id}', 'TopicalvideoController@create')->name('topical.video.create');
     Route::get('status/change/{type}/{id}/{column}', 'HelperController@change_status')->name('admin.status.change');
     Route::get('user/list', 'UserController@user_list')->name('admin.user.list');
+    Route::get('user/give-permission', 'UserController@give_permission')->name('user.give.permission');
+    Route::post('user/give-permission/setup', 'UserController@set_permission')->name('user.permission.setup');
+    Route::get('user/get/permission-data', 'UserController@get_permission_data')->name('user.get.permission.data');
 });
 
 

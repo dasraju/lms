@@ -101,6 +101,10 @@
           <a href="{{route('admin.user.list')}}" class="nav-link"><i data-feather="monitor"></i><span>User List</span></a>
         </li>
 
+        <li class="dropdown {{ areActiveRoutes(['user.give.permission'])}} ">
+          <a href="{{route('user.give.permission')}}" class="nav-link"><i data-feather="monitor"></i><span>User Permission</span></a>
+        </li>
+
       </ul>
     </aside>
   </div>

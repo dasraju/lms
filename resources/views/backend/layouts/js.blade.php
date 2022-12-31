@@ -2,6 +2,7 @@
   <script src="{{asset('assets/backend')}}/js/app.min.js"></script>
   <!-- JS Libraies -->
   <script src="{{asset('assets/backend')}}/bundles/apexcharts/apexcharts.min.js"></script>
+  <script src="{{asset('assets/backend')}}/bundles/select2/dist/js/select2.full.min.js"></script>
   <!-- Page Specific JS File -->
   <script src="{{asset('assets/backend')}}/js/page/index.js"></script>
   <!-- Template JS File -->
