@@ -19,6 +19,7 @@ use App\Models\Part;
 use App\Models\Folder;
 use App\Models\ResourcePdf;
 use Auth;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class HomeController extends Controller
 {
@@ -96,6 +97,30 @@ class HomeController extends Controller
     public function resource_folder($id){
         $folders = Folder::with('folderpdf')->where('sub_sub_category_id',$id)->get();
          return view('frontend.pages.folderpdf',compact('folders'));
+    }
+
+    public function pdf_download($tablename,$id){
+
+        switch ($tablename) {
+            case "pdffile":
+              $data = PdfFile::find($id);
+              break;
+            case "blue":
+              echo "Your favorite color is blue!";
+              break;
+            case "green":
+              echo "Your favorite color is green!";
+              break;
+            default:
+              echo "Your favorite color is neither red, blue, nor green!";
+          }
+          $myPublicFolder = public_path();
+          $file = $myPublicFolder.'/notefile/'.$data->file_name;
+          $headers = array(
+            'Content-Type: application/pdf',
+          );
+          return Response()->download($file, 'lms.pdf', $headers);
+          
     }
     
 }
