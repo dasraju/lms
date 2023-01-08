@@ -13,16 +13,17 @@
                 <a href="subject/create" class="btn btn-sm btn-primary text-right"> Create New +</a>
             </div>
             <div class="card-body p-0">
+              
                 <div class="table-responsive">
-                <table class="table table-striped table-md">
-                    <tr>
+                <table class="table table-striped table-md" id="subjectTable" >
+                    <thead>
                     <th>#</th>
                     <th>Name</th>
                     <th>Parent</th>
 
                     <th>Status</th>
                     <th>Action</th>
-                    </tr>
+                    </thead>
                      @foreach ($subcats as $key=>$subcat)
                      <tr>
                         <td>{{++$key}}</td>
@@ -71,4 +72,11 @@
       </div>
     </section>
 </div>
+@endsection
+@section('page-js')
+  <script>
+      $(document).ready( function () {
+            $('#subjectTable').DataTable();
+        } );
+  </script>
 @endsection

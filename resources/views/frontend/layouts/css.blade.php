@@ -12,3 +12,4 @@
   <link rel="stylesheet" href="{{asset('assets/frontend/')}}/css/style.css" />
   <link rel="stylesheet" href="{{asset('assets/frontend/')}}/css/bootnavbar.css" />
   <link rel="stylesheet" href="{{asset('assets/frontend/')}}/css/responsive.css" />
+  <link rel="stylesheet" href="{{asset('assets/frontend/')}}/css/datatables.css" />

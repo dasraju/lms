@@ -60,10 +60,10 @@
                             <button><i class="fa-solid fa-lock"></i></button>
                           @else
                              @if ($note->view == '1')
-                               <button><i class="fa-regular fa-eye"></i></button>
+                               <a href="{{asset('notefile').'/'.$note->file_name}}">  <i class="fa-regular fa-eye"></i></a>
                              @endif
                              @if ($note->download == '1')
-                                <button><i class="fa-solid fa-download"></i></button>
+                                <a><i class="fa-solid fa-download"></i></a>
                              @endif
                             
                           @endif
@@ -97,7 +97,7 @@
                             <button><i class="fa-solid fa-lock"></i></button>
                           @else
                              @if ($video->view == '1')
-                               <button><i class="fa-regular fa-eye"></i></button>
+                               <a><i class="fa-regular fa-eye"></i></a>
                              @endif
                              @if ($video->download == '1')
                                 <button><i class="fa-solid fa-download"></i></button>

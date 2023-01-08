@@ -5,7 +5,9 @@
   <div class="menu_list">
     <div class="container-fluid">
       <div class="row">
+       
         <div class="col-12">
+           
           <div class="menu_btn">
             {{-- <button>Menu List <i class="fa-solid fa-chevron-down"></i></button> --}}
             <div class="menu_item">
@@ -24,6 +26,7 @@
                        @endforeach
                      
                     </ul>
+                   
                   </div>
                 </div>
                 
@@ -37,4 +40,11 @@
   <!-------End Menu List--------->
  
 
+ @endsection
+ @section('page-js')
+   <script>
+      $(document).ready( function () {
+          $('#myTable').DataTable();
+      } );
+   </script>
  @endsection

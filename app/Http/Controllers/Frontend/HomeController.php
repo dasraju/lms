@@ -22,8 +22,9 @@ use Auth;
 
 class HomeController extends Controller
 {
+    public  $expdate ='';
     public function index(){
-
+  
         // dd(Auth::user()->getAllPermissions());
         $courses = Course::with('instructor')->get();
      
