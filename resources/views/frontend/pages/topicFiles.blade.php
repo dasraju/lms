@@ -57,13 +57,13 @@
                         </div>
                         <div class="rev_det_icon">
                           @if ($note->price_type == 'paid' || $note->published == '0')
-                            <button><i class="fa-solid fa-lock"></i></button>
+                            <a href=""><i class="fa-solid fa-lock"></i></a>
                           @else
                              @if ($note->view == '1')
-                               <a href="{{asset('notefile').'/'.$note->file_name}}">  <i class="fa-regular fa-eye"></i></a>
+                               <a href="{{ asset('notefile').'/'.$note->file_name }}"><i class="fa-regular fa-eye"></i></a>
                              @endif
                              @if ($note->download == '1')
-                                <a><i class="fa-solid fa-download"></i></a>
+                                <a href="{{ route('pdf.download',['pdffile',$note->id]) }}"><i class="fa-solid fa-download"></i></a>
                              @endif
                             
                           @endif
@@ -94,10 +94,14 @@
                         </div>
                         <div class="rev_det_icon">
                           @if ($video->price_type == 'paid' || $video->published == '0')
-                            <button><i class="fa-solid fa-lock"></i></button>
+                            <a><i class="fa-solid fa-lock"></i></a>
                           @else
                              @if ($video->view == '1')
+<<<<<<< HEAD
                                <a><i class="fa-regular fa-eye"></i></a>
+=======
+                               <a href="javascript:void(0)" onclick="play_video('{{ $video->url  }}')"><i class="fa-regular fa-eye"></i></a>
+>>>>>>> 7e07efcc05abbe199f70b8059e83b2af839f846c
                              @endif
                              @if ($video->download == '1')
                                 <button><i class="fa-solid fa-download"></i></button>
@@ -114,6 +118,49 @@
           </div>
         </div>
       </div>
+      <!-- Button trigger modal -->
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" >
+  <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+        <button type="button "  class="close btn btn-danger" onclick="$('#exampleModalCenter').modal('hide')" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+     
+        <div class="view_video">
+          <iframe
+             id="video_frame"
+            src="https://www.youtube.com/embed/xeiWdLYaEpc"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+        </div>
+      
+      
+      </div>
+      <div class="modal-footer">
+       
+      </div>
+    </div>
+  </div>
+</div>
     </div>
     <!------- End Revision Subject ----------->
+@endsection
+@section('page-js')
+<script>
+  function play_video(data){
+    document.getElementById('video_frame').src = data;
+    $('#exampleModalCenter').modal('show', {backdrop: 'static'});
+  }
+</script>
+
 @endsection

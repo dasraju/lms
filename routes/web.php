@@ -25,3 +25,4 @@ Route::get('/topical-files/{chapter_id}','Frontend\HomeController@topical_detail
 Route::get('/pastpaper-files/{chapter_id}','Frontend\HomeController@pastpaper_details')->name('pastpaper.files');
 Route::get('/resource/syllabus/{id}','Frontend\HomeController@resource_syllabus')->name('resource.syllabus');
 Route::get('/resource/folder/{id}','Frontend\HomeController@resource_folder')->name('resource.folders');
+Route::get('/pdf/download/{tablename}/{id}','Frontend\HomeController@pdf_download')->name('pdf.download');
